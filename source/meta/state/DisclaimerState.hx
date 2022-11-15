@@ -46,6 +46,7 @@ class DisclaimerState extends MusicBeatState
 
 	override public function create():Void
 	{
+		addVirtualPad(LEFT_RIGHT, A);
 		super.create();
 		if (FlxG.save.data.seenDisclaimer == null || FlxG.save.data.seenDisclaimer == false) {
 			startDisclaimer();
