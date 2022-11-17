@@ -70,7 +70,7 @@ class Main extends Sprite
 	public static var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
 
 	public static var mainClassState:Class<FlxState> = Init; // Determine the main class state of the game
-	public static var framerate:Int = 120; // How many frames per second the game should run at.
+	public static var framerate:Int = 60; // How many frames per second the game should run at.
 
 	public static var gameVersion:String = '0.3.1';
 
@@ -109,6 +109,7 @@ class Main extends Sprite
 	{
 		super();
 
+		trace("hi");
 		/**
 			ok so, haxe html5 CANNOT do 120 fps. it just cannot.
 			so here i just set the framerate to 60 if its complied in html5.
@@ -222,10 +223,10 @@ class Main extends Sprite
 
 		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/Yoshubs/Forever-Engine";
 
-		if (!FileSystem.exists("./crash/"))
-			FileSystem.createDirectory("./crash/");
+//		if (!FileSystem.exists("./crash/"))
+//			FileSystem.createDirectory("./crash/");
 
-		File.saveContent(path, errMsg + "\n");
+	//	File.saveContent(path, errMsg + "\n");
 
 		Sys.println(errMsg);
 		Sys.println("Crash dump saved in " + Path.normalize(path));

@@ -55,7 +55,6 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		controls.setKeyboardScheme(None, false);
 		super.create();
 
 		startIntro();
@@ -72,6 +71,7 @@ class TitleState extends MusicBeatState
 
 	function startIntro()
 	{
+		trace("title");
 		if (!initialized)
 		{
 			ForeverTools.resetMenuMusic(true);
@@ -233,6 +233,14 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+
+		for (touch in FlxG.touches.list)
+		{
+			if (touch.justPressed)
+			{
+				pressedEnter = true;
+			}
+		}
 
 		if (gamepad != null)
 		{

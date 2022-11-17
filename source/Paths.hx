@@ -185,35 +185,46 @@ class Paths
 	}
 
 	//
-	public static function getPath(file:String, type:AssetType, ?library:Null<String>) {
+
+	public static function getPath(file:String, type:AssetType, ?library:Null<String>)
+	{
 		if (library != null)
-			return getLibraryPath(file, type, library);
+			return getLibraryPath(file, library);
+
+		if (currentLevel != null)
+		{
+			var levelPath = getLibraryPathForce(file, currentLevel);
+			if (OpenFlAssets.exists(levelPath, type))
+				return levelPath;
+
+			levelPath = getLibraryPathForce(file, "shared");
+			if (OpenFlAssets.exists(levelPath, type))
+				return levelPath;
+		}
+
 		return getPreloadPath(file);
 	}
 
-	static public function getLibraryPath(file:String, type:AssetType, library:String = "preload") {
-		return if (library == "preload" || library == "default" || library.contains('assets')) 
-			getPreloadPath(file); 
-		else getLibraryPathForce(file, type, library);
+	static public function getLibraryPath(file:String, library = "preload")
+	{
+		return if (library == "preload" || library == "default") getPreloadPath(file); else getLibraryPathForce(file, library);
 	}
 
-	static function getLibraryPathForce(file:String, type:AssetType, library:String = 'assets') {
-		var returnPath:String = '$library:$library/$file';
-		if (!OpenFlAssets.exists(returnPath, type))
-			returnPath = CoolUtil.swapSpaceDash(returnPath);
-		return returnPath;
+	inline static function getLibraryPathForce(file:String, library:String)
+	{
+		return '$library:assets/$library/$file';
 	}
+
 
 	static public function shader(name:String) {
 		return File.getContent('./assets/shaders/$name.frag');
 	}
 
-	static function getPreloadPath(file:String) {
-		var returnPath:String = '$currentLevel/$file';
-		if (!FileSystem.exists(returnPath))
-			returnPath = CoolUtil.swapSpaceDash(returnPath);
-		return returnPath;
+	inline static function getPreloadPath(file:String)
+	{
+		return 'assets/$file';
 	}
+
 
 	static public function file(file:String, type:AssetType = TEXT, ?library:String) {
 		return getPath(file, type, library);

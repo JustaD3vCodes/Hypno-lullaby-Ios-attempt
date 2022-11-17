@@ -20,9 +20,10 @@
 	<!--Desktop-specific-->
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
 
-	<window if="mobile" orientation="landscape" fullscreen="true" resizable="false" />
-    <assets path="mobile" rename="assets/mobile" />
-
+    <window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
+    
+    <assets path="mobile" rename="assets/images/mobile" />
+        
 	<!-- _____________________________ Path Settings ____________________________ -->
 
 	<set name="BUILD_DIR" value="export" />
