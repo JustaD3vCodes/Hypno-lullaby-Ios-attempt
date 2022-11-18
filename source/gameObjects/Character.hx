@@ -309,11 +309,11 @@ class Character extends FNFSprite
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
 
-				addOffset("idle", -700, 0);
-				addOffset("singUP", -5 - 700, 181);
-				addOffset("singLEFT", 115 - 700, -69);
-				addOffset("singRIGHT", -3 - 700, -27);
-				addOffset("singDOWN", -2 - 700, -211);
+				addOffset("idle", -600, 0);
+				addOffset("singUP", -5 - 600, 181);
+				addOffset("singLEFT", 115 - 600, -69);
+				addOffset("singRIGHT", -3 - 600, -27);
+				addOffset("singDOWN", -2 - 600, -211);
 
 				playAnim('idle');
 				setGraphicSize(Std.int(width * 2));
