@@ -136,9 +136,7 @@ class DisclaimerState extends MusicBeatState
 											new FlxTimer().start(0.3, function(tmr:FlxTimer)
 											{
 												FlxTween.tween(continuetext, {'scale.x': 1, 'scale.y': 1, alpha: 1}, 0.5, {ease: FlxEase.backOut});
-												#if mobile
 												addVirtualPad(LEFT_RIGHT, A);
-												#end
 												canselect = true;
 											});
 										});

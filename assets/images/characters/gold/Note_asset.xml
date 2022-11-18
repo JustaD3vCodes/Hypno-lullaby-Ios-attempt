@@ -1,24 +1,23 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="Note asset.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Note Full0000" x="0" y="0" width="166" height="143" frameX="0" frameY="-86" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0001" x="176" y="0" width="172" height="211" frameX="-14" frameY="-15" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0002" x="358" y="0" width="198" height="238" frameX="-1" frameY="0" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0003" x="566" y="0" width="172" height="211" frameX="-14" frameY="-15" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0004" x="748" y="0" width="178" height="190" frameX="-7" frameY="-39" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0005" x="0" y="248" width="176" height="195" frameX="-7" frameY="-34" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0006" x="186" y="248" width="174" height="197" frameX="-6" frameY="-31" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0007" x="370" y="248" width="172" height="202" frameX="-6" frameY="-27" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0008" x="0" y="248" width="176" height="195" frameX="-7" frameY="-34" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0009" x="0" y="248" width="176" height="195" frameX="-7" frameY="-34" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0010" x="552" y="248" width="176" height="195" frameX="-7" frameY="-34" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0011" x="738" y="248" width="0" height="0" frameX="221" frameY="253" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0012" x="738" y="248" width="0" height="0" frameX="221" frameY="253" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0013" x="0" y="248" width="176" height="195" frameX="-7" frameY="-34" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0014" x="552" y="248" width="176" height="195" frameX="-7" frameY="-34" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0015" x="748" y="248" width="0" height="0" frameX="221" frameY="253" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0016" x="0" y="248" width="176" height="195" frameX="-7" frameY="-34" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0017" x="758" y="248" width="0" height="0" frameX="221" frameY="253" frameWidth="199" frameHeight="238"/>
-	<SubTexture name="Note Full0018" x="552" y="248" width="176" height="195" frameX="-7" frameY="-34" frameWidth="199" frameHeight="238"/>
+	
+	
+	<SubTexture name="Note Full0000" x="0" y="0" width="83" height="71" frameX="0" frameY="-43" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0001" x="88" y="0" width="86" height="105" frameX="-7" frameY="-8" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0002" x="179" y="0" width="99" height="119" frameX="-1" frameY="0" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0003" x="283" y="0" width="86" height="105" frameX="-7" frameY="-8" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0004" x="374" y="0" width="89" height="95" frameX="-4" frameY="-20" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0005" x="0" y="124" width="88" height="97" frameX="-4" frameY="-17" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0006" x="93" y="124" width="87" height="98" frameX="-3" frameY="-16" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0007" x="185" y="124" width="86" height="101" frameX="-3" frameY="-14" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0008" x="0" y="124" width="88" height="97" frameX="-4" frameY="-17" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0009" x="0" y="124" width="88" height="97" frameX="-4" frameY="-17" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0010" x="276" y="124" width="88" height="97" frameX="-4" frameY="-17" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0011" x="369" y="124" width="0" height="0" frameX="110" frameY="126" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0012" x="369" y="124" width="0" height="0" frameX="110" frameY="126" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0013" x="0" y="124" width="88" height="97" frameX="-4" frameY="-17" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0014" x="276" y="124" width="88" height="97" frameX="-4" frameY="-17" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0015" x="374" y="124" width="0" height="0" frameX="110" frameY="126" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0016" x="0" y="124" width="88" height="97" frameX="-4" frameY="-17" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0017" x="379" y="124" width="0" height="0" frameX="110" frameY="126" frameWidth="99" frameHeight="119" />
+	<SubTexture name="Note Full0018" x="276" y="124" width="88" height="97" frameX="-4" frameY="-17" frameWidth="99" frameHeight="119" />
 </TextureAtlas>

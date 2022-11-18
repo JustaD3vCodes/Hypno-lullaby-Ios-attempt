@@ -55,9 +55,7 @@ class OptionsMenuState extends MusicBeatState
 				[
 					['preferences', callNewGroup],
 					['appearance', callNewGroup],
-					#if mobile
 					['mobile controls', openMobileControlsMenu],
-					#end
 					['controls', openControlmenu],
 					['exit', exitMenu]
 				]
@@ -121,25 +119,28 @@ class OptionsMenuState extends MusicBeatState
 		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width * 4, FlxG.height * 4, FlxColor.BLACK);
 		add(bg);
 
-		var sleft:FlxSprite = new FlxSprite(78, 120);
+		var sleft:FlxSprite = new FlxSprite(78+124/2, 120+168/2);
 		sleft.frames = Paths.getSparrowAtlas('menus/options/S Unown');
 		sleft.animation.addByPrefix('idle', 'S Unown', 24, true);
 		sleft.animation.play('idle');
 		sleft.updateHitbox();
+		sleft.scale.set(2,2);
 		add(sleft);
 
-		var sright:FlxSprite = new FlxSprite(916, 335);
+		var sright:FlxSprite = new FlxSprite(916+124/2, 335+168/2);
 		sright.frames = Paths.getSparrowAtlas('menus/options/S Unown');
 		sright.animation.addByPrefix('idle', 'S Unown', 24, true);
 		sright.animation.play('idle');
 		sright.updateHitbox();
+		sright.scale.set(2,2);
 		add(sright);
 
-		var uUnown:FlxSprite = new FlxSprite(850, 50);
+		var uUnown:FlxSprite = new FlxSprite(850+168/2, 50+122/2);
 		uUnown.frames = Paths.getSparrowAtlas('menus/options/U Unown');
 		uUnown.animation.addByPrefix('idle', 'U Unown', 24, true);
 		uUnown.animation.play('idle');
 		uUnown.updateHitbox();
+		uUnown.scale.set(2,2);
 		add(uUnown);
 
 		infoText = new FlxText(5, FlxG.height - 24, 0, "", 32);
@@ -150,9 +151,7 @@ class OptionsMenuState extends MusicBeatState
 
 		loadSubgroup('main');
 
-		#if mobile
 		addVirtualPad(LEFT_FULL, A_B);
-		#end
 	}
 
 	private var currentAttachmentMap:Map<Alphabet, Dynamic>;
@@ -591,7 +590,6 @@ class OptionsMenuState extends MusicBeatState
 		}
 	}
 
-	#if mobile
 	public function openMobileControlsMenu()
 	{
 		if (controls.ACCEPT)
@@ -605,7 +603,6 @@ class OptionsMenuState extends MusicBeatState
 			});
 		}
 	}
-	#end
 
 	public function exitMenu()
 	{

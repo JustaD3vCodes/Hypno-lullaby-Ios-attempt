@@ -3,8 +3,8 @@ var hypnoJumpscare:FlxSprite;
 
 function onCreate() {
     PlayState.defaultCamZoom = 0.8;
-	var resizeBG:Float = 1;
-	var background:FlxSprite = new FlxSprite(-450, -400);
+	var resizeBG:Float = 2;
+	var background:FlxSprite = new FlxSprite(0, -400);
 	background.loadGraphic(Paths.image('cave'));
 	background.setGraphicSize(Std.int(background.width * resizeBG));
 	background.updateHitbox();
@@ -33,14 +33,14 @@ function onCreatePost() {
 		PlayState.boyfriend.atlasCharacter.x -= 565;
 		PlayState.boyfriend.atlasCharacter.y -= 420;
 	}
-	PlayState.dadOpponent.x -= 100;
 	PlayState.dadOpponent.y -= 80;
 
 	PlayState.dadOpponent.visible = false;
 
-	hypnoEntrance = new FlxSprite(585, -155);
+	hypnoEntrance = new FlxSprite(585 + 1000, -155 + 100);
 	hypnoEntrance.frames = Paths.getSparrowAtlas('characters/hypno/ABOMINATION_HYPNO_ENTRANCE');
 	hypnoEntrance.animation.addByPrefix('Entrance instance', "Entrance instance", 24, false);		
+	hypnoEntrance.scale.set(2,2);
 	PlayState.instance.add(hypnoEntrance);
 	hypnoEntrance.visible = false;	
 

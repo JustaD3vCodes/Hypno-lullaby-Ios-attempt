@@ -6,13 +6,11 @@ import flixel.FlxSubState;
 import meta.data.Conductor;
 import meta.data.PlayerSettings;
 import meta.data.dependency.FNFUIState;
-#if mobile
 import flixel.FlxCamera;
 import flixel.input.actions.FlxActionInput;
 import flixel.util.FlxDestroyUtil;
 import mobile.MobileControls;
 import mobile.flixel.FlxVirtualPad;
-#end
 
 /* 
 	Music beat state happens to be the first thing on my list of things to add, it just so happens to be the backbone of
@@ -35,7 +33,6 @@ class MusicBeatState extends FNFUIState
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
 
-	#if mobile
 	var mobileControls:MobileControls;
 	var virtualPad:FlxVirtualPad;
 	var trackedinputsMobileControls:Array<FlxActionInput> = [];
@@ -106,21 +103,17 @@ class MusicBeatState extends FNFUIState
 			virtualPad.cameras = [camControls];
 		}
 	}
-	#end
 
 	override function destroy()
 	{
-		#if mobile
 		if (trackedinputsMobileControls != [])
 			controls.removeVirtualControlsInput(trackedinputsMobileControls);
 
 		if (trackedinputsVirtualPad != [])
 			controls.removeVirtualControlsInput(trackedinputsVirtualPad);
-		#end
 
 		super.destroy();
 
-		#if mobile
 		if (virtualPad != null)
 		{
 			virtualPad = FlxDestroyUtil.destroy(virtualPad);
@@ -132,7 +125,6 @@ class MusicBeatState extends FNFUIState
 			mobileControls = FlxDestroyUtil.destroy(mobileControls);
 			mobileControls = null;
 		}
-		#end
 	}
 
 	// class create event
@@ -255,7 +247,6 @@ class MusicBeatSubState extends FlxSubState
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
 
-	#if mobile
 	var virtualPad:FlxVirtualPad;
 	var trackedinputsVirtualPad:Array<FlxActionInput> = [];
 
@@ -288,24 +279,19 @@ class MusicBeatSubState extends FlxSubState
 			virtualPad.cameras = [camControls];
 		}
 	}
-	#end
 
 	override function destroy()
 	{
-		#if mobile
 		if (trackedinputsVirtualPad != [])
 			controls.removeVirtualControlsInput(trackedinputsVirtualPad);
-		#end
 
 		super.destroy();
 
-		#if mobile
 		if (virtualPad != null)
 		{
 			virtualPad = FlxDestroyUtil.destroy(virtualPad);
 			virtualPad = null;
 		}
-		#end
 	}
 
 	override function update(elapsed:Float)

@@ -90,9 +90,7 @@ class CartridgeGuyState extends MusicBeatState
 		blackOverlay.alpha = 0.0001;
 		add(blackOverlay);
 
-		#if mobile
 		addVirtualPad(LEFT_RIGHT, A);
-		#end
 	}
 
 	override function update(elapsed:Float)

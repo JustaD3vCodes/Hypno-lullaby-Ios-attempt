@@ -79,13 +79,13 @@ class MainMenuState extends MusicBeatState
 		}
 		var newCharacter:String = allCharacters[FlxG.random.int(0, allCharacters.length - 1)];
 		theOneFromLastTime = newCharacter;
-
 		var menuSprite:FlxSprite = new FlxSprite();
 		menuSprite.frames = Paths.getSparrowAtlas('menus/menu/${newCharacter}_menu');
 		menuSprite.animation.addByPrefix('idle', '${newCharacter.replace('_', ' ')} menu instance 1', 24, true);
 		menuSprite.animation.play('idle');
 		menuSprite.setPosition(FlxG.width, FlxG.height);
-		menuSprite.setGraphicSize(Std.int(menuSprite.width * 0.8));
+		//menuSprite.setGraphicSize(Std.int(menuSprite.width * 0.8));
+		menuSprite.scale.set(1.8, 1.8);
 		menuSprite.updateHitbox();
 
 		menuSprite.x -= menuSprite.width;
@@ -120,9 +120,7 @@ class MainMenuState extends MusicBeatState
 		add(textGroup);
 		add(lockGroup);
 
-		#if mobile
 		addVirtualPad(UP_DOWN, A);
-		#end
 	}
 
 	public var curSelection:Int = 0;

@@ -5,7 +5,6 @@ var brimstoneHand:FlxSprite;
 var brimStoneHandOccured:Bool = false;
 
 function onCreate() {
-	trace('heepnooo');
 	if (PlayState.old) {
 		var consistentPosition:Array<Float> = [-800, -300];
 		var resizeBG:Float = 0.7;
@@ -35,47 +34,17 @@ function onCreate() {
 		stageForeground.active = false;
 		foreground.add(stageForeground);
 	} else {
-		var consistentPosition:Array<Float> = [-800, -300];
-		var resizeBG:Float = 0.7;
+		var consistentPosition:Array<Float> = [-2005/2, -1125/2];
+		var resizeBG:Float = 1.7;
 		PlayState.defaultCamZoom = 0.65;
 		var background:FlxSprite = new FlxSprite(consistentPosition[0], consistentPosition[1]);
 		background.loadGraphic(Paths.image('BACKGROUND'));
 		background.setGraphicSize(Std.int(background.width * resizeBG));
 		background.updateHitbox();
 		background.antialiasing = true;
-		background.scrollFactor.set(0.6, 0.6);
+		background.scrollFactor.set(1, 1);
 		background.active = false;
 		add(background);
-
-		var grass:FlxSprite = new FlxSprite(consistentPosition[0], consistentPosition[1]);
-		grass.loadGraphic(Paths.image('Behind the clouds and fence'));
-		grass.setGraphicSize(Std.int(grass.width * resizeBG));
-		grass.updateHitbox();
-		grass.antialiasing = true;
-		grass.scrollFactor.set(0.7, 0.7);
-		grass.active = false;
-		add(grass);
-
-		var fog:FlxSprite = new FlxSprite(consistentPosition[0], consistentPosition[1]);
-		fog.loadGraphic(Paths.image('Behind the Fence'));
-		fog.setGraphicSize(Std.int(fog.width * resizeBG));
-		fog.updateHitbox();
-		fog.scrollFactor.set(0.8, 0.8);
-		fog.antialiasing = true;
-		fog.active = false;
-		add(fog);
-
-		var midground = new FlxSprite(consistentPosition[0], consistentPosition[1]);
-		var name:String = 'MIDGROUND';
-		if (PlayState.SONG.song == 'Left-Unchecked')
-			name = name + ' BLOOD';
-		midground.loadGraphic(Paths.image(name));
-		midground.setGraphicSize(Std.int(midground.width * resizeBG));
-		midground.updateHitbox();
-		midground.antialiasing = true;
-		// midground.scrollFactor.set(0.9, 0.9);
-		midground.active = false;
-		add(midground);
 
 		var stageForeground = new FlxSprite(consistentPosition[0] - 100, consistentPosition[1]);
 		stageForeground.loadGraphic(Paths.image('FOREGROUND TREE'));
@@ -130,7 +99,7 @@ function onCreatePost() {
 }
 
 function onBeat(beat) {
-	if (hypnoGuide != null && PlayState.instance.curSong == 'Safety Lullaby')
+	if (hypnoGuide != null)
 		{
 			if (beat == 2) FlxTween.tween(hypnoGuide, {alpha: 1.0}, 0.5, {ease: FlxEase.cubeInOut});
 			if (beat == 14) FlxTween.tween(hypnoGuide, {alpha: 0.0}, 0.5, {ease: FlxEase.cubeInOut});

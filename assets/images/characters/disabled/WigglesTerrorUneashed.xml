@@ -1,79 +1,78 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="WigglesTerrorUneashed.png">
-	<!-- Created with Adobe Animate version 22.0.7.214 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="WigglesTerror0000" x="5" y="5" width="503" height="357" frameX="-227" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0001" x="508" y="5" width="321" height="357" frameX="-333" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0002" x="829" y="5" width="167" height="243" frameX="-385" frameY="-251" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0003" x="996" y="5" width="238" height="357" frameX="-365" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0004" x="1234" y="5" width="227" height="357" frameX="-372" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0005" x="1461" y="5" width="36" height="357" frameX="-461" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0006" x="1497" y="5" width="342" height="357" frameX="-304" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0007" x="1839" y="5" width="440" height="357" frameX="-209" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0008" x="2279" y="5" width="220" height="357" frameX="-370" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0009" x="2499" y="5" width="490" height="433" frameX="-327" frameY="-64" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0010" x="2989" y="5" width="253" height="357" frameX="-361" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0011" x="3242" y="5" width="241" height="357" frameX="-365" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0012" x="3483" y="5" width="226" height="357" frameX="-369" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0013" x="3709" y="5" width="223" height="357" frameX="-365" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0014" x="5" y="438" width="226" height="357" frameX="-368" frameY="-138" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0015" x="231" y="438" width="567" height="362" frameX="0" frameY="-132" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0016" x="798" y="438" width="594" height="362" frameX="-92" frameY="-132" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0017" x="1392" y="438" width="433" height="353" frameX="-143" frameY="-141" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0018" x="1825" y="438" width="371" height="311" frameX="-275" frameY="-162" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0019" x="2196" y="438" width="33" height="353" frameX="-452" frameY="-141" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0020" x="2229" y="438" width="350" height="406" frameX="-278" frameY="-88" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0021" x="2579" y="438" width="128" height="155" frameX="-460" frameY="-340" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0022" x="2707" y="438" width="304" height="357" frameX="-323" frameY="-137" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0023" x="3011" y="438" width="296" height="358" frameX="-325" frameY="-136" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0024" x="3011" y="438" width="296" height="358" frameX="-325" frameY="-136" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0025" x="3011" y="438" width="296" height="358" frameX="-325" frameY="-136" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0026" x="3011" y="438" width="296" height="358" frameX="-325" frameY="-136" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0027" x="3011" y="438" width="296" height="358" frameX="-325" frameY="-136" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0028" x="3011" y="438" width="296" height="358" frameX="-325" frameY="-136" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0029" x="3011" y="438" width="296" height="358" frameX="-325" frameY="-136" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0030" x="3307" y="438" width="617" height="431" frameX="-153" frameY="-61" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0031" x="5" y="869" width="418" height="454" frameX="-286" frameY="-40" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0032" x="423" y="869" width="295" height="488" frameX="-352" frameY="0" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0033" x="718" y="869" width="641" height="268" frameX="-155" frameY="-224" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0034" x="1359" y="869" width="257" height="402" frameX="-361" frameY="-91" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0035" x="1616" y="869" width="294" height="345" frameX="-342" frameY="-148" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0036" x="1910" y="869" width="312" height="336" frameX="-330" frameY="-157" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0037" x="1910" y="869" width="312" height="336" frameX="-330" frameY="-157" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0038" x="2222" y="869" width="321" height="329" frameX="-328" frameY="-164" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0039" x="2222" y="869" width="321" height="329" frameX="-328" frameY="-164" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0040" x="2222" y="869" width="321" height="329" frameX="-328" frameY="-164" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0041" x="2222" y="869" width="321" height="329" frameX="-328" frameY="-164" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0042" x="2222" y="869" width="321" height="329" frameX="-328" frameY="-164" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0043" x="2222" y="869" width="321" height="329" frameX="-328" frameY="-164" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0044" x="2222" y="869" width="321" height="329" frameX="-328" frameY="-164" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0045" x="2543" y="869" width="631" height="359" frameX="-414" frameY="-133" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0046" x="3174" y="869" width="741" height="359" frameX="-299" frameY="-133" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0047" x="5" y="1357" width="470" height="327" frameX="-393" frameY="-148" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0048" x="475" y="1357" width="421" height="361" frameX="-295" frameY="-131" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0049" x="896" y="1357" width="323" height="367" frameX="-399" frameY="-125" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0050" x="1219" y="1357" width="378" height="413" frameX="-410" frameY="-80" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0051" x="1597" y="1357" width="100" height="368" frameX="-509" frameY="-124" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0052" x="1697" y="1357" width="330" height="368" frameX="-397" frameY="-124" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0053" x="2027" y="1357" width="324" height="368" frameX="-397" frameY="-124" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0054" x="2027" y="1357" width="324" height="368" frameX="-397" frameY="-124" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0055" x="2027" y="1357" width="324" height="368" frameX="-397" frameY="-124" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0056" x="2027" y="1357" width="324" height="368" frameX="-397" frameY="-124" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0057" x="2027" y="1357" width="324" height="368" frameX="-397" frameY="-124" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0058" x="2027" y="1357" width="324" height="368" frameX="-397" frameY="-124" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0059" x="2027" y="1357" width="324" height="368" frameX="-397" frameY="-124" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0060" x="2351" y="1357" width="712" height="314" frameX="-111" frameY="-179" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0061" x="3063" y="1357" width="114" height="315" frameX="-407" frameY="-179" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0062" x="3177" y="1357" width="227" height="178" frameX="-380" frameY="-315" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0063" x="3404" y="1357" width="428" height="149" frameX="-268" frameY="-345" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0064" x="5" y="1770" width="326" height="339" frameX="-315" frameY="-155" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0065" x="331" y="1770" width="353" height="339" frameX="-287" frameY="-155" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0066" x="684" y="1770" width="329" height="342" frameX="-323" frameY="-152" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0067" x="1013" y="1770" width="316" height="342" frameX="-323" frameY="-152" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0068" x="1329" y="1770" width="314" height="342" frameX="-325" frameY="-152" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0069" x="1329" y="1770" width="314" height="342" frameX="-325" frameY="-152" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0070" x="1329" y="1770" width="314" height="342" frameX="-325" frameY="-152" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0071" x="1329" y="1770" width="314" height="342" frameX="-325" frameY="-152" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0072" x="1329" y="1770" width="314" height="342" frameX="-325" frameY="-152" frameWidth="1045" frameHeight="497"/>
-	<SubTexture name="WigglesTerror0073" x="1329" y="1770" width="314" height="342" frameX="-325" frameY="-152" frameWidth="1045" frameHeight="497"/>
+	
+	
+	<SubTexture name="WigglesTerror0000" x="2" y="2" width="251" height="178" frameX="-114" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0001" x="254" y="2" width="160" height="178" frameX="-167" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0002" x="414" y="2" width="83" height="121" frameX="-193" frameY="-126" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0003" x="498" y="2" width="119" height="178" frameX="-183" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0004" x="617" y="2" width="113" height="178" frameX="-186" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0005" x="730" y="2" width="18" height="178" frameX="-231" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0006" x="748" y="2" width="171" height="178" frameX="-152" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0007" x="919" y="2" width="220" height="178" frameX="-105" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0008" x="1139" y="2" width="110" height="178" frameX="-185" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0009" x="1249" y="2" width="245" height="216" frameX="-164" frameY="-32" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0010" x="1494" y="2" width="126" height="178" frameX="-181" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0011" x="1621" y="2" width="120" height="178" frameX="-183" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0012" x="1741" y="2" width="113" height="178" frameX="-185" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0013" x="1854" y="2" width="111" height="178" frameX="-183" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0014" x="2" y="219" width="113" height="178" frameX="-184" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0015" x="115" y="219" width="283" height="181" frameX="0" frameY="-66" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0016" x="399" y="219" width="297" height="181" frameX="-46" frameY="-66" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0017" x="696" y="219" width="216" height="176" frameX="-72" frameY="-71" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0018" x="912" y="219" width="185" height="155" frameX="-138" frameY="-81" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0019" x="1098" y="219" width="16" height="176" frameX="-226" frameY="-71" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0020" x="1114" y="219" width="175" height="203" frameX="-139" frameY="-44" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0021" x="1289" y="219" width="64" height="77" frameX="-230" frameY="-170" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0022" x="1353" y="219" width="152" height="178" frameX="-162" frameY="-69" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0023" x="1505" y="219" width="148" height="179" frameX="-163" frameY="-68" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0024" x="1505" y="219" width="148" height="179" frameX="-163" frameY="-68" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0025" x="1505" y="219" width="148" height="179" frameX="-163" frameY="-68" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0026" x="1505" y="219" width="148" height="179" frameX="-163" frameY="-68" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0027" x="1505" y="219" width="148" height="179" frameX="-163" frameY="-68" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0028" x="1505" y="219" width="148" height="179" frameX="-163" frameY="-68" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0029" x="1505" y="219" width="148" height="179" frameX="-163" frameY="-68" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0030" x="1653" y="219" width="308" height="215" frameX="-77" frameY="-31" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0031" x="2" y="434" width="209" height="227" frameX="-143" frameY="-20" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0032" x="211" y="434" width="147" height="244" frameX="-176" frameY="0" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0033" x="359" y="434" width="320" height="134" frameX="-78" frameY="-112" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0034" x="679" y="434" width="128" height="201" frameX="-181" frameY="-46" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0035" x="808" y="434" width="147" height="172" frameX="-171" frameY="-74" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0036" x="955" y="434" width="156" height="168" frameX="-165" frameY="-79" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0037" x="955" y="434" width="156" height="168" frameX="-165" frameY="-79" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0038" x="1111" y="434" width="160" height="164" frameX="-164" frameY="-82" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0039" x="1111" y="434" width="160" height="164" frameX="-164" frameY="-82" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0040" x="1111" y="434" width="160" height="164" frameX="-164" frameY="-82" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0041" x="1111" y="434" width="160" height="164" frameX="-164" frameY="-82" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0042" x="1111" y="434" width="160" height="164" frameX="-164" frameY="-82" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0043" x="1111" y="434" width="160" height="164" frameX="-164" frameY="-82" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0044" x="1111" y="434" width="160" height="164" frameX="-164" frameY="-82" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0045" x="1271" y="434" width="315" height="179" frameX="-207" frameY="-67" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0046" x="1587" y="434" width="370" height="179" frameX="-150" frameY="-67" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0047" x="2" y="678" width="235" height="163" frameX="-197" frameY="-74" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0048" x="237" y="678" width="210" height="180" frameX="-148" frameY="-66" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0049" x="448" y="678" width="161" height="183" frameX="-200" frameY="-63" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0050" x="609" y="678" width="189" height="206" frameX="-205" frameY="-40" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0051" x="798" y="678" width="50" height="184" frameX="-255" frameY="-62" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0052" x="848" y="678" width="165" height="184" frameX="-199" frameY="-62" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0053" x="1013" y="678" width="162" height="184" frameX="-199" frameY="-62" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0054" x="1013" y="678" width="162" height="184" frameX="-199" frameY="-62" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0055" x="1013" y="678" width="162" height="184" frameX="-199" frameY="-62" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0056" x="1013" y="678" width="162" height="184" frameX="-199" frameY="-62" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0057" x="1013" y="678" width="162" height="184" frameX="-199" frameY="-62" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0058" x="1013" y="678" width="162" height="184" frameX="-199" frameY="-62" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0059" x="1013" y="678" width="162" height="184" frameX="-199" frameY="-62" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0060" x="1175" y="678" width="356" height="157" frameX="-56" frameY="-90" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0061" x="1531" y="678" width="57" height="157" frameX="-204" frameY="-90" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0062" x="1588" y="678" width="113" height="89" frameX="-190" frameY="-158" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0063" x="1702" y="678" width="214" height="74" frameX="-134" frameY="-173" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0064" x="2" y="885" width="163" height="169" frameX="-158" frameY="-78" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0065" x="165" y="885" width="176" height="169" frameX="-144" frameY="-78" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0066" x="342" y="885" width="164" height="171" frameX="-162" frameY="-76" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0067" x="506" y="885" width="158" height="171" frameX="-162" frameY="-76" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0068" x="664" y="885" width="157" height="171" frameX="-163" frameY="-76" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0069" x="664" y="885" width="157" height="171" frameX="-163" frameY="-76" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0070" x="664" y="885" width="157" height="171" frameX="-163" frameY="-76" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0071" x="664" y="885" width="157" height="171" frameX="-163" frameY="-76" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0072" x="664" y="885" width="157" height="171" frameX="-163" frameY="-76" frameWidth="522" frameHeight="248" />
+	<SubTexture name="WigglesTerror0073" x="664" y="885" width="157" height="171" frameX="-163" frameY="-76" frameWidth="522" frameHeight="248" />
 </TextureAtlas>

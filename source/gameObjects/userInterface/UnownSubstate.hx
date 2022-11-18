@@ -138,9 +138,7 @@ class UnownSubstate extends MusicBeatSubState
 		timerTxt.font = Paths.font('metro.otf');
 		add(timerTxt);
 
-		#if mobile
 		FlxG.stage.window.textInputEnabled = true;
-		#end
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 	}
 
@@ -222,9 +220,7 @@ class UnownSubstate extends MusicBeatSubState
 
 	override function destroy():Void
 	{
-		#if mobile
 		FlxG.stage.window.textInputEnabled = false;
-		#end
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 		super.destroy();
 	}

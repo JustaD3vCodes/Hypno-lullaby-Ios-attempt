@@ -72,10 +72,8 @@ class PastaNightSelect extends MusicBeatSubState
 
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-		#if mobile
 		addVirtualPad(LEFT_RIGHT, A);
 		addVirtualPadCamera();
-		#end
 	}
 
 	public static var selector:Int = -1;

@@ -9,11 +9,9 @@ import flixel.input.actions.FlxActionManager;
 import flixel.input.actions.FlxActionSet;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
-#if mobile
 import mobile.flixel.FlxButton;
 import mobile.flixel.FlxHitbox;
 import mobile.flixel.FlxVirtualPad;
-#end
 
 enum abstract Action(String) to String from String
 {
@@ -336,7 +334,6 @@ class Controls extends FlxActionSet
 		setKeyboardScheme(scheme, false);
 	}
 
-	#if mobile
 	public var trackedinputsUI:Array<FlxActionInput> = [];
 	public var trackedinputsNOTES:Array<FlxActionInput> = [];
 
@@ -472,7 +469,6 @@ class Controls extends FlxActionSet
 			}
 		}
 	}
-	#end
 
 	override function update()
 	{

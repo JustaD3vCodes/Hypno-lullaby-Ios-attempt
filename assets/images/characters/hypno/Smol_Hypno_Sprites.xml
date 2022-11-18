@@ -1,137 +1,136 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="Smol Hypno Sprites.png">
-	<!-- Created with Adobe Animate version 21.0.9.42677 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Smol H Down0000" x="30" y="30" width="115" height="157" frameX="0" frameY="-7" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0001" x="30" y="30" width="115" height="157" frameX="0" frameY="-7" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0002" x="165" y="30" width="112" height="161" frameX="-1" frameY="-3" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0003" x="165" y="30" width="112" height="161" frameX="-1" frameY="-3" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0004" x="297" y="30" width="111" height="164" frameX="-2" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0005" x="428" y="30" width="114" height="164" frameX="-2" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0006" x="562" y="30" width="121" height="164" frameX="-1" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0007" x="562" y="30" width="121" height="164" frameX="-1" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0008" x="703" y="30" width="118" height="164" frameX="-1" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0009" x="703" y="30" width="118" height="164" frameX="-1" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0010" x="841" y="30" width="114" height="164" frameX="-1" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0011" x="841" y="30" width="114" height="164" frameX="-1" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0012" x="975" y="30" width="111" height="164" frameX="-1" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0013" x="975" y="30" width="111" height="164" frameX="-1" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down0014" x="1106" y="30" width="110" height="164" frameX="-1" frameY="0" frameWidth="122" frameHeight="164"/>
-	<SubTexture name="Smol H Down Miss0000" x="1236" y="30" width="110" height="149" frameX="-107" frameY="-89" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0001" x="1366" y="30" width="306" height="283"/>
-	<SubTexture name="Smol H Down Miss0002" x="1692" y="30" width="263" height="254" frameX="-19" frameY="-25" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0003" x="1975" y="30" width="250" height="244" frameX="-24" frameY="-19" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0004" x="1975" y="30" width="250" height="244" frameX="-24" frameY="-19" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0005" x="2245" y="30" width="250" height="245" frameX="-25" frameY="-18" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0006" x="2245" y="30" width="250" height="245" frameX="-25" frameY="-18" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0007" x="2245" y="30" width="250" height="245" frameX="-25" frameY="-18" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0008" x="2245" y="30" width="250" height="245" frameX="-25" frameY="-18" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0009" x="2245" y="30" width="250" height="245" frameX="-25" frameY="-18" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0010" x="2245" y="30" width="250" height="245" frameX="-25" frameY="-18" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0011" x="2245" y="30" width="250" height="245" frameX="-25" frameY="-18" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0012" x="2245" y="30" width="250" height="245" frameX="-25" frameY="-18" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0013" x="2245" y="30" width="250" height="245" frameX="-25" frameY="-18" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Down Miss0014" x="2245" y="30" width="250" height="245" frameX="-25" frameY="-18" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Idle0000" x="2515" y="30" width="124" height="174" frameX="0" frameY="-4" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0001" x="2515" y="30" width="124" height="174" frameX="0" frameY="-4" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0002" x="2659" y="30" width="122" height="177" frameX="0" frameY="-1" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0003" x="2801" y="30" width="122" height="176" frameX="0" frameY="-2" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0004" x="2943" y="30" width="127" height="178" frameX="-1" frameY="0" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0005" x="2943" y="30" width="127" height="178" frameX="-1" frameY="0" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0006" x="3090" y="30" width="134" height="178" frameX="-1" frameY="0" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0007" x="3090" y="30" width="134" height="178" frameX="-1" frameY="0" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0008" x="3244" y="30" width="130" height="178" frameX="-1" frameY="0" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0009" x="3394" y="30" width="130" height="178" frameX="-1" frameY="0" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0010" x="3544" y="30" width="126" height="178" frameX="-1" frameY="0" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Idle0011" x="3544" y="30" width="126" height="178" frameX="-1" frameY="0" frameWidth="135" frameHeight="178"/>
-	<SubTexture name="Smol H Left0000" x="3690" y="30" width="150" height="161" frameX="-1" frameY="0" frameWidth="151" frameHeight="161"/>
-	<SubTexture name="Smol H Left0001" x="3690" y="30" width="150" height="161" frameX="-1" frameY="0" frameWidth="151" frameHeight="161"/>
-	<SubTexture name="Smol H Left0002" x="3860" y="30" width="149" height="161" frameX="-1" frameY="0" frameWidth="151" frameHeight="161"/>
-	<SubTexture name="Smol H Left0003" x="3860" y="30" width="149" height="161" frameX="-1" frameY="0" frameWidth="151" frameHeight="161"/>
-	<SubTexture name="Smol H Left0004" x="30" y="333" width="150" height="161" frameX="-1" frameY="0" frameWidth="151" frameHeight="161"/>
-	<SubTexture name="Smol H Left0005" x="200" y="333" width="151" height="161"/>
-	<SubTexture name="Smol H Left0006" x="371" y="333" width="151" height="161"/>
-	<SubTexture name="Smol H Left0007" x="542" y="333" width="151" height="161"/>
-	<SubTexture name="Smol H Left0008" x="713" y="333" width="151" height="161"/>
-	<SubTexture name="Smol H Left0009" x="713" y="333" width="151" height="161"/>
-	<SubTexture name="Smol H Left0010" x="884" y="333" width="151" height="161"/>
-	<SubTexture name="Smol H Left0011" x="884" y="333" width="151" height="161"/>
-	<SubTexture name="Smol H Left0012" x="1055" y="333" width="151" height="161"/>
-	<SubTexture name="Smol H Left0013" x="1055" y="333" width="151" height="161"/>
-	<SubTexture name="Smol H Left0014" x="1226" y="333" width="151" height="161"/>
-	<SubTexture name="Smol H Left Miss0000" x="1397" y="333" width="142" height="153" frameX="-190" frameY="-75" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0001" x="1559" y="333" width="326" height="283" frameX="0" frameY="0" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0002" x="1905" y="333" width="304" height="254" frameX="-23" frameY="-21" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0003" x="2229" y="333" width="313" height="281" frameX="-14" frameY="-11" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0004" x="2562" y="333" width="313" height="281" frameX="-14" frameY="-11" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0005" x="2895" y="333" width="311" height="282" frameX="-16" frameY="-8" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0006" x="3226" y="333" width="311" height="282" frameX="-16" frameY="-8" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0007" x="3557" y="333" width="311" height="282" frameX="-16" frameY="-8" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0008" x="30" y="636" width="311" height="282" frameX="-16" frameY="-8" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0009" x="361" y="636" width="311" height="282" frameX="-16" frameY="-8" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0010" x="692" y="636" width="311" height="282" frameX="-16" frameY="-8" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0011" x="1023" y="636" width="311" height="282" frameX="-16" frameY="-8" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0012" x="1354" y="636" width="311" height="282" frameX="-16" frameY="-8" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0013" x="1354" y="636" width="311" height="282" frameX="-16" frameY="-8" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Left Miss0014" x="1354" y="636" width="311" height="282" frameX="-16" frameY="-8" frameWidth="332" frameHeight="292"/>
-	<SubTexture name="Smol H Right0000" x="1685" y="636" width="126" height="166" frameX="-3" frameY="0" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0001" x="1685" y="636" width="126" height="166" frameX="-3" frameY="0" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0002" x="1831" y="636" width="125" height="163" frameX="-2" frameY="-3" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0003" x="1831" y="636" width="125" height="163" frameX="-2" frameY="-3" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0004" x="1976" y="636" width="132" height="161" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0005" x="1976" y="636" width="132" height="161" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0006" x="2128" y="636" width="138" height="162" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0007" x="2286" y="636" width="138" height="162" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0008" x="2444" y="636" width="134" height="162" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0009" x="2444" y="636" width="134" height="162" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0010" x="2598" y="636" width="127" height="162" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0011" x="2598" y="636" width="127" height="162" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0012" x="2745" y="636" width="123" height="162" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0013" x="2745" y="636" width="123" height="162" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right0014" x="2888" y="636" width="124" height="162" frameX="0" frameY="-5" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right Miss0000" x="1685" y="636" width="126" height="166" frameX="-90" frameY="-92" frameWidth="138" frameHeight="167"/>
-	<SubTexture name="Smol H Right Miss0001" x="3032" y="636" width="306" height="283"/>
-	<SubTexture name="Smol H Right Miss0002" x="3358" y="636" width="262" height="253" frameX="-22" frameY="-15" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0003" x="3640" y="636" width="248" height="246" frameX="-19" frameY="-23" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0004" x="30" y="939" width="248" height="246" frameX="-19" frameY="-23" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0005" x="298" y="939" width="250" height="246" frameX="-17" frameY="-24" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0006" x="298" y="939" width="250" height="246" frameX="-17" frameY="-24" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0007" x="298" y="939" width="250" height="246" frameX="-17" frameY="-24" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0008" x="298" y="939" width="250" height="246" frameX="-17" frameY="-24" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0009" x="298" y="939" width="250" height="246" frameX="-17" frameY="-24" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0010" x="298" y="939" width="250" height="246" frameX="-17" frameY="-24" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0011" x="298" y="939" width="250" height="246" frameX="-17" frameY="-24" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0012" x="298" y="939" width="250" height="246" frameX="-17" frameY="-24" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0013" x="298" y="939" width="250" height="246" frameX="-17" frameY="-24" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Right Miss0014" x="298" y="939" width="250" height="246" frameX="-17" frameY="-24" frameWidth="306" frameHeight="283"/>
-	<SubTexture name="Smol H Up0000" x="568" y="939" width="142" height="179" frameX="-9" frameY="0" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0001" x="568" y="939" width="142" height="179" frameX="-9" frameY="0" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0002" x="730" y="939" width="147" height="169" frameX="-3" frameY="-10" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0003" x="730" y="939" width="147" height="169" frameX="-3" frameY="-10" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0004" x="897" y="939" width="158" height="165" frameX="-1" frameY="-14" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0005" x="1075" y="939" width="159" height="164" frameX="0" frameY="-15" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0006" x="1254" y="939" width="166" height="164" frameX="0" frameY="-15" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0007" x="1254" y="939" width="166" height="164" frameX="0" frameY="-15" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0008" x="1440" y="939" width="161" height="164" frameX="0" frameY="-15" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0009" x="1440" y="939" width="161" height="164" frameX="0" frameY="-15" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0010" x="1621" y="939" width="153" height="164" frameX="0" frameY="-15" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0011" x="1621" y="939" width="153" height="164" frameX="0" frameY="-15" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0012" x="1794" y="939" width="149" height="164" frameX="0" frameY="-15" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0013" x="1794" y="939" width="149" height="164" frameX="0" frameY="-15" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up0014" x="1963" y="939" width="150" height="164" frameX="0" frameY="-15" frameWidth="166" frameHeight="179"/>
-	<SubTexture name="Smol H Up Miss0000" x="2133" y="939" width="134" height="170" frameX="-58" frameY="-150" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0001" x="2287" y="939" width="306" height="319" frameX="-43" frameY="0" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0002" x="2613" y="939" width="262" height="303" frameX="-57" frameY="-15" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0003" x="2895" y="939" width="282" height="291" frameX="0" frameY="-26" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0004" x="2895" y="939" width="282" height="291" frameX="0" frameY="-26" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0005" x="3197" y="939" width="282" height="293" frameX="0" frameY="-26" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0006" x="3197" y="939" width="282" height="293" frameX="0" frameY="-26" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0007" x="3499" y="939" width="282" height="293" frameX="0" frameY="-26" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0008" x="3499" y="939" width="282" height="293" frameX="0" frameY="-26" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0009" x="30" y="1278" width="281" height="312" frameX="-37" frameY="-6" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0010" x="331" y="1278" width="281" height="319" frameX="-21" frameY="-1" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0011" x="632" y="1278" width="281" height="318" frameX="-20" frameY="-2" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0012" x="933" y="1278" width="281" height="318" frameX="-20" frameY="-2" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0013" x="1234" y="1278" width="281" height="318" frameX="-20" frameY="-2" frameWidth="349" frameHeight="320"/>
-	<SubTexture name="Smol H Up Miss0014" x="1234" y="1278" width="281" height="318" frameX="-20" frameY="-2" frameWidth="349" frameHeight="320"/>
+	
+	
+	<SubTexture name="Smol H Down0000" x="15" y="15" width="57" height="78" frameX="0" frameY="-4" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0001" x="15" y="15" width="57" height="78" frameX="0" frameY="-4" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0002" x="82" y="15" width="56" height="80" frameX="-1" frameY="-2" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0003" x="82" y="15" width="56" height="80" frameX="-1" frameY="-2" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0004" x="148" y="15" width="55" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0005" x="214" y="15" width="57" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0006" x="281" y="15" width="60" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0007" x="281" y="15" width="60" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0008" x="351" y="15" width="59" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0009" x="351" y="15" width="59" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0010" x="420" y="15" width="57" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0011" x="420" y="15" width="57" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0012" x="487" y="15" width="55" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0013" x="487" y="15" width="55" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down0014" x="553" y="15" width="55" height="82" frameX="-1" frameY="0" frameWidth="61" frameHeight="82" />
+	<SubTexture name="Smol H Down Miss0000" x="618" y="15" width="55" height="74" frameX="-54" frameY="-45" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0001" x="683" y="15" width="153" height="141" />
+	<SubTexture name="Smol H Down Miss0002" x="846" y="15" width="131" height="127" frameX="-10" frameY="-13" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0003" x="987" y="15" width="125" height="122" frameX="-12" frameY="-10" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0004" x="987" y="15" width="125" height="122" frameX="-12" frameY="-10" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0005" x="1122" y="15" width="125" height="122" frameX="-13" frameY="-9" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0006" x="1122" y="15" width="125" height="122" frameX="-13" frameY="-9" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0007" x="1122" y="15" width="125" height="122" frameX="-13" frameY="-9" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0008" x="1122" y="15" width="125" height="122" frameX="-13" frameY="-9" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0009" x="1122" y="15" width="125" height="122" frameX="-13" frameY="-9" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0010" x="1122" y="15" width="125" height="122" frameX="-13" frameY="-9" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0011" x="1122" y="15" width="125" height="122" frameX="-13" frameY="-9" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0012" x="1122" y="15" width="125" height="122" frameX="-13" frameY="-9" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0013" x="1122" y="15" width="125" height="122" frameX="-13" frameY="-9" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Down Miss0014" x="1122" y="15" width="125" height="122" frameX="-13" frameY="-9" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Idle0000" x="1257" y="15" width="62" height="87" frameX="0" frameY="-2" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0001" x="1257" y="15" width="62" height="87" frameX="0" frameY="-2" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0002" x="1329" y="15" width="61" height="88" frameX="0" frameY="-1" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0003" x="1400" y="15" width="61" height="88" frameX="0" frameY="-1" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0004" x="1471" y="15" width="63" height="89" frameX="-1" frameY="0" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0005" x="1471" y="15" width="63" height="89" frameX="-1" frameY="0" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0006" x="1545" y="15" width="67" height="89" frameX="-1" frameY="0" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0007" x="1545" y="15" width="67" height="89" frameX="-1" frameY="0" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0008" x="1622" y="15" width="65" height="89" frameX="-1" frameY="0" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0009" x="1697" y="15" width="65" height="89" frameX="-1" frameY="0" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0010" x="1772" y="15" width="63" height="89" frameX="-1" frameY="0" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Idle0011" x="1772" y="15" width="63" height="89" frameX="-1" frameY="0" frameWidth="67" frameHeight="89" />
+	<SubTexture name="Smol H Left0000" x="1845" y="15" width="75" height="80" frameX="-1" frameY="0" frameWidth="75" frameHeight="80" />
+	<SubTexture name="Smol H Left0001" x="1845" y="15" width="75" height="80" frameX="-1" frameY="0" frameWidth="75" frameHeight="80" />
+	<SubTexture name="Smol H Left0002" x="1930" y="15" width="74" height="80" frameX="-1" frameY="0" frameWidth="75" frameHeight="80" />
+	<SubTexture name="Smol H Left0003" x="1930" y="15" width="74" height="80" frameX="-1" frameY="0" frameWidth="75" frameHeight="80" />
+	<SubTexture name="Smol H Left0004" x="15" y="166" width="75" height="80" frameX="-1" frameY="0" frameWidth="75" frameHeight="80" />
+	<SubTexture name="Smol H Left0005" x="100" y="166" width="75" height="80" />
+	<SubTexture name="Smol H Left0006" x="185" y="166" width="75" height="80" />
+	<SubTexture name="Smol H Left0007" x="271" y="166" width="75" height="80" />
+	<SubTexture name="Smol H Left0008" x="356" y="166" width="75" height="80" />
+	<SubTexture name="Smol H Left0009" x="356" y="166" width="75" height="80" />
+	<SubTexture name="Smol H Left0010" x="442" y="166" width="75" height="80" />
+	<SubTexture name="Smol H Left0011" x="442" y="166" width="75" height="80" />
+	<SubTexture name="Smol H Left0012" x="527" y="166" width="75" height="80" />
+	<SubTexture name="Smol H Left0013" x="527" y="166" width="75" height="80" />
+	<SubTexture name="Smol H Left0014" x="613" y="166" width="75" height="80" />
+	<SubTexture name="Smol H Left Miss0000" x="698" y="166" width="71" height="76" frameX="-95" frameY="-38" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0001" x="779" y="166" width="163" height="141" frameX="0" frameY="0" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0002" x="952" y="166" width="152" height="127" frameX="-12" frameY="-11" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0003" x="1114" y="166" width="156" height="140" frameX="-7" frameY="-6" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0004" x="1281" y="166" width="156" height="140" frameX="-7" frameY="-6" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0005" x="1447" y="166" width="155" height="141" frameX="-8" frameY="-4" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0006" x="1613" y="166" width="155" height="141" frameX="-8" frameY="-4" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0007" x="1778" y="166" width="155" height="141" frameX="-8" frameY="-4" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0008" x="15" y="318" width="155" height="141" frameX="-8" frameY="-4" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0009" x="180" y="318" width="155" height="141" frameX="-8" frameY="-4" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0010" x="346" y="318" width="155" height="141" frameX="-8" frameY="-4" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0011" x="511" y="318" width="155" height="141" frameX="-8" frameY="-4" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0012" x="677" y="318" width="155" height="141" frameX="-8" frameY="-4" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0013" x="677" y="318" width="155" height="141" frameX="-8" frameY="-4" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Left Miss0014" x="677" y="318" width="155" height="141" frameX="-8" frameY="-4" frameWidth="166" frameHeight="146" />
+	<SubTexture name="Smol H Right0000" x="842" y="318" width="63" height="83" frameX="-2" frameY="0" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0001" x="842" y="318" width="63" height="83" frameX="-2" frameY="0" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0002" x="915" y="318" width="62" height="81" frameX="-1" frameY="-2" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0003" x="915" y="318" width="62" height="81" frameX="-1" frameY="-2" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0004" x="988" y="318" width="66" height="80" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0005" x="988" y="318" width="66" height="80" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0006" x="1064" y="318" width="69" height="81" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0007" x="1143" y="318" width="69" height="81" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0008" x="1222" y="318" width="67" height="81" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0009" x="1222" y="318" width="67" height="81" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0010" x="1299" y="318" width="63" height="81" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0011" x="1299" y="318" width="63" height="81" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0012" x="1372" y="318" width="61" height="81" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0013" x="1372" y="318" width="61" height="81" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right0014" x="1444" y="318" width="62" height="81" frameX="0" frameY="-3" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right Miss0000" x="842" y="318" width="63" height="83" frameX="-45" frameY="-46" frameWidth="69" frameHeight="83" />
+	<SubTexture name="Smol H Right Miss0001" x="1516" y="318" width="153" height="141" />
+	<SubTexture name="Smol H Right Miss0002" x="1679" y="318" width="131" height="126" frameX="-11" frameY="-8" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0003" x="1820" y="318" width="124" height="123" frameX="-10" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0004" x="15" y="469" width="124" height="123" frameX="-10" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0005" x="149" y="469" width="125" height="123" frameX="-9" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0006" x="149" y="469" width="125" height="123" frameX="-9" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0007" x="149" y="469" width="125" height="123" frameX="-9" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0008" x="149" y="469" width="125" height="123" frameX="-9" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0009" x="149" y="469" width="125" height="123" frameX="-9" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0010" x="149" y="469" width="125" height="123" frameX="-9" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0011" x="149" y="469" width="125" height="123" frameX="-9" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0012" x="149" y="469" width="125" height="123" frameX="-9" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0013" x="149" y="469" width="125" height="123" frameX="-9" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Right Miss0014" x="149" y="469" width="125" height="123" frameX="-9" frameY="-12" frameWidth="153" frameHeight="141" />
+	<SubTexture name="Smol H Up0000" x="284" y="469" width="71" height="89" frameX="-5" frameY="0" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0001" x="284" y="469" width="71" height="89" frameX="-5" frameY="0" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0002" x="365" y="469" width="73" height="84" frameX="-2" frameY="-5" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0003" x="365" y="469" width="73" height="84" frameX="-2" frameY="-5" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0004" x="448" y="469" width="79" height="82" frameX="-1" frameY="-7" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0005" x="537" y="469" width="79" height="82" frameX="0" frameY="-8" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0006" x="627" y="469" width="83" height="82" frameX="0" frameY="-8" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0007" x="627" y="469" width="83" height="82" frameX="0" frameY="-8" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0008" x="720" y="469" width="80" height="82" frameX="0" frameY="-8" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0009" x="720" y="469" width="80" height="82" frameX="0" frameY="-8" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0010" x="810" y="469" width="76" height="82" frameX="0" frameY="-8" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0011" x="810" y="469" width="76" height="82" frameX="0" frameY="-8" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0012" x="897" y="469" width="74" height="82" frameX="0" frameY="-8" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0013" x="897" y="469" width="74" height="82" frameX="0" frameY="-8" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up0014" x="981" y="469" width="75" height="82" frameX="0" frameY="-8" frameWidth="83" frameHeight="89" />
+	<SubTexture name="Smol H Up Miss0000" x="1066" y="469" width="67" height="85" frameX="-29" frameY="-75" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0001" x="1143" y="469" width="153" height="159" frameX="-22" frameY="0" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0002" x="1306" y="469" width="131" height="151" frameX="-29" frameY="-8" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0003" x="1447" y="469" width="141" height="145" frameX="0" frameY="-13" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0004" x="1447" y="469" width="141" height="145" frameX="0" frameY="-13" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0005" x="1598" y="469" width="141" height="146" frameX="0" frameY="-13" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0006" x="1598" y="469" width="141" height="146" frameX="0" frameY="-13" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0007" x="1749" y="469" width="141" height="146" frameX="0" frameY="-13" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0008" x="1749" y="469" width="141" height="146" frameX="0" frameY="-13" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0009" x="15" y="639" width="140" height="156" frameX="-19" frameY="-3" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0010" x="165" y="639" width="140" height="159" frameX="-11" frameY="-1" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0011" x="316" y="639" width="140" height="159" frameX="-10" frameY="-1" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0012" x="466" y="639" width="140" height="159" frameX="-10" frameY="-1" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0013" x="617" y="639" width="140" height="159" frameX="-10" frameY="-1" frameWidth="174" frameHeight="160" />
+	<SubTexture name="Smol H Up Miss0014" x="617" y="639" width="140" height="159" frameX="-10" frameY="-1" frameWidth="174" frameHeight="160" />
 </TextureAtlas>

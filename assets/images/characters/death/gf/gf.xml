@@ -1,73 +1,72 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="gf.png">
-	<!-- Created with Adobe Animate version 21.0.1.37179 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="GF_DIZZLE_LOOP instance 10000" x="5" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10001" x="5" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10002" x="573" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10003" x="573" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10004" x="1141" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10005" x="1141" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10006" x="1709" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10007" x="1709" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10008" x="2277" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10009" x="2277" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10010" x="2845" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10011" x="2845" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10012" x="3413" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10013" x="3413" y="5" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10014" x="5" y="724" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10015" x="5" y="724" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10016" x="573" y="724" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10017" x="573" y="724" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10018" x="1141" y="724" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_LOOP instance 10019" x="1141" y="724" width="563" height="714"/>
-	<SubTexture name="GF_DIZZLE_OPENING instance 10000" x="1709" y="724" width="508" height="746" frameX="-22" frameY="-106" frameWidth="583" frameHeight="852"/>
-	<SubTexture name="GF_DIZZLE_OPENING instance 10001" x="1709" y="724" width="508" height="746" frameX="-22" frameY="-106" frameWidth="583" frameHeight="852"/>
-	<SubTexture name="GF_DIZZLE_OPENING instance 10002" x="2222" y="724" width="583" height="695" frameX="0" frameY="0" frameWidth="583" frameHeight="852"/>
-	<SubTexture name="GF_DIZZLE_OPENING instance 10003" x="2222" y="724" width="583" height="695" frameX="0" frameY="0" frameWidth="583" frameHeight="852"/>
-	<SubTexture name="GF_DIZZLE_OPENING instance 10004" x="2810" y="724" width="565" height="714" frameX="-8" frameY="-5" frameWidth="583" frameHeight="852"/>
-	<SubTexture name="GF_DIZZLE_OPENING instance 10005" x="2810" y="724" width="565" height="714" frameX="-8" frameY="-5" frameWidth="583" frameHeight="852"/>
-	<SubTexture name="GF_DIZZLE_OPENING instance 10006" x="3380" y="724" width="563" height="715" frameX="-7" frameY="-2" frameWidth="583" frameHeight="852"/>
-	<SubTexture name="GF_DIZZLE_OPENING instance 10007" x="3380" y="724" width="563" height="715" frameX="-7" frameY="-2" frameWidth="583" frameHeight="852"/>
-	<SubTexture name="GF_WAKEUP instance 10000" x="5" y="1475" width="567" height="712" frameX="-44" frameY="0" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10001" x="5" y="1475" width="567" height="712" frameX="-44" frameY="0" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10002" x="577" y="1475" width="572" height="707" frameX="-40" frameY="-5" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10003" x="577" y="1475" width="572" height="707" frameX="-40" frameY="-5" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10004" x="1154" y="1475" width="614" height="655" frameX="-10" frameY="-57" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10005" x="1154" y="1475" width="614" height="655" frameX="-10" frameY="-57" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10006" x="1773" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10007" x="1773" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10008" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10009" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10010" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10011" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10012" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10013" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10014" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10015" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10016" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10017" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10018" x="2392" y="1475" width="614" height="663" frameX="-5" frameY="-49" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10019" x="3011" y="1475" width="613" height="668" frameX="0" frameY="-44" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10020" x="3011" y="1475" width="613" height="668" frameX="0" frameY="-44" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10021" x="5" y="2192" width="612" height="701" frameX="-2" frameY="-12" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10022" x="5" y="2192" width="612" height="701" frameX="-2" frameY="-12" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10023" x="622" y="2192" width="614" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10024" x="622" y="2192" width="614" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10025" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10026" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10027" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10028" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10029" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10030" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10031" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10032" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10033" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10034" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10035" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10036" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10037" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10038" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
-	<SubTexture name="GF_WAKEUP instance 10039" x="1241" y="2192" width="615" height="700" frameX="0" frameY="-13" frameWidth="624" frameHeight="713"/>
+	
+	
+	<SubTexture name="GF_DIZZLE_LOOP instance 10000" x="2" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10001" x="2" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10002" x="286" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10003" x="286" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10004" x="570" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10005" x="570" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10006" x="854" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10007" x="854" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10008" x="1138" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10009" x="1138" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10010" x="1422" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10011" x="1422" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10012" x="1706" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10013" x="1706" y="2" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10014" x="2" y="362" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10015" x="2" y="362" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10016" x="286" y="362" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10017" x="286" y="362" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10018" x="570" y="362" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_LOOP instance 10019" x="570" y="362" width="281" height="357" />
+	<SubTexture name="GF_DIZZLE_OPENING instance 10000" x="854" y="362" width="254" height="373" frameX="-11" frameY="-53" frameWidth="291" frameHeight="426" />
+	<SubTexture name="GF_DIZZLE_OPENING instance 10001" x="854" y="362" width="254" height="373" frameX="-11" frameY="-53" frameWidth="291" frameHeight="426" />
+	<SubTexture name="GF_DIZZLE_OPENING instance 10002" x="1111" y="362" width="291" height="347" frameX="0" frameY="0" frameWidth="291" frameHeight="426" />
+	<SubTexture name="GF_DIZZLE_OPENING instance 10003" x="1111" y="362" width="291" height="347" frameX="0" frameY="0" frameWidth="291" frameHeight="426" />
+	<SubTexture name="GF_DIZZLE_OPENING instance 10004" x="1405" y="362" width="282" height="357" frameX="-4" frameY="-3" frameWidth="291" frameHeight="426" />
+	<SubTexture name="GF_DIZZLE_OPENING instance 10005" x="1405" y="362" width="282" height="357" frameX="-4" frameY="-3" frameWidth="291" frameHeight="426" />
+	<SubTexture name="GF_DIZZLE_OPENING instance 10006" x="1690" y="362" width="281" height="357" frameX="-4" frameY="-1" frameWidth="291" frameHeight="426" />
+	<SubTexture name="GF_DIZZLE_OPENING instance 10007" x="1690" y="362" width="281" height="357" frameX="-4" frameY="-1" frameWidth="291" frameHeight="426" />
+	<SubTexture name="GF_WAKEUP instance 10000" x="2" y="737" width="283" height="356" frameX="-22" frameY="0" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10001" x="2" y="737" width="283" height="356" frameX="-22" frameY="0" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10002" x="288" y="737" width="286" height="353" frameX="-20" frameY="-3" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10003" x="288" y="737" width="286" height="353" frameX="-20" frameY="-3" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10004" x="577" y="737" width="307" height="327" frameX="-5" frameY="-29" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10005" x="577" y="737" width="307" height="327" frameX="-5" frameY="-29" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10006" x="886" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10007" x="886" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10008" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10009" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10010" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10011" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10012" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10013" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10014" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10015" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10016" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10017" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10018" x="1196" y="737" width="307" height="331" frameX="-3" frameY="-25" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10019" x="1505" y="737" width="306" height="334" frameX="0" frameY="-22" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10020" x="1505" y="737" width="306" height="334" frameX="0" frameY="-22" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10021" x="2" y="1096" width="306" height="350" frameX="-1" frameY="-6" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10022" x="2" y="1096" width="306" height="350" frameX="-1" frameY="-6" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10023" x="311" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10024" x="311" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10025" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10026" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10027" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10028" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10029" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10030" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10031" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10032" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10033" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10034" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10035" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10036" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10037" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10038" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
+	<SubTexture name="GF_WAKEUP instance 10039" x="620" y="1096" width="307" height="350" frameX="0" frameY="-7" frameWidth="312" frameHeight="356" />
 </TextureAtlas>

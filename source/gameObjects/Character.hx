@@ -114,10 +114,14 @@ class Character extends FNFSprite
 				addOffset("singRIGHTmiss", -1, -60);
 				addOffset("singDOWNmiss", -18, -136);
 
+				setGraphicSize(Std.int(width * 2));
 				playAnim('idle');
 
 				characterData.facingDirection = LEFT;
 				characterData.healthbarColors = [165, 0, 77];
+
+				characterData.offsetX = Std.int(width / 2);
+				characterData.offsetY = Std.int(height / 2);
 				characterData.camOffsetX = 50;
 				characterData.camOffsetY = 50;
 				characterData.zoomOffset = 0.05;
@@ -305,16 +309,18 @@ class Character extends FNFSprite
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
 
-				addOffset("idle");
-				addOffset("singUP", -5, 181);
-				addOffset("singLEFT", 115, -69);
-				addOffset("singRIGHT", -3, -27);
-				addOffset("singDOWN", -2, -211);
+				addOffset("idle", -700, 0);
+				addOffset("singUP", -5 - 700, 181);
+				addOffset("singLEFT", 115 - 700, -69);
+				addOffset("singRIGHT", -3 - 700, -27);
+				addOffset("singDOWN", -2 - 700, -211);
 
 				playAnim('idle');
-
+				setGraphicSize(Std.int(width * 2));
 				characterData.facingDirection = LEFT;
 				characterData.healthbarColors = [249, 223, 68];
+				characterData.offsetX = 600;
+				characterData.offsetY = 100;
 				characterData.camOffsetX = -200;
 				characterData.camOffsetY = 170;
 				characterData.zoomOffset = -0.15;
@@ -819,16 +825,16 @@ class Character extends FNFSprite
 				addOffset('idle', -4, 6);
 				addOffset('singLEFT', 59, -94);
 				addOffset('singRIGHT', 4, -139);
-				addOffset('singDOWN', 11, -348);
-				addOffset('singUP', -3, 141);
+				addOffset('singDOWN', 11, -312);
+				addOffset('singUP', -3, 111);
 
-				setGraphicSize(Std.int(width * 1.3));
+				setGraphicSize(Std.int(width * 2.3));
 				updateHitbox();
 
 				playAnim('idle');
 
-				characterData.offsetX = -300;
-				characterData.offsetY = 100;
+				characterData.offsetX = -300 + 100;
+				characterData.offsetY = 100 + 100;
 				characterData.camOffsetX = 200;
 				characterData.camOffsetY = 200;
 				characterData.healthbarColors = [249, 223, 68];
@@ -852,13 +858,13 @@ class Character extends FNFSprite
 				addOffset('psyshock', -312, 22);
 				addOffset('psyshock particle', -940, 190);
 
-				setGraphicSize(Std.int(width * 1.3));
+				setGraphicSize(Std.int(width * 2.3));
 				updateHitbox();
 
 				playAnim('idle');
 
-				characterData.offsetX = -250;
-				characterData.offsetY = 100;
+				characterData.offsetX = -250 + 10;
+				characterData.offsetY = 100 + 100;
 				characterData.camOffsetX = 200;
 				characterData.healthbarColors = [249, 223, 68];
 				characterData.facingDirection = RIGHT;

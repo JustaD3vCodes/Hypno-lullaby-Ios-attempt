@@ -58,10 +58,8 @@ class GameOverSubstate extends MusicBeatSubState
 
 		gameoverStart(daBf, x, y);
 
-		#if mobile
 		addVirtualPad(NONE, A_B);
 		addVirtualPadCamera();
-		#end
 	}
 
 	public static var daBf:String = '';

@@ -71,20 +71,25 @@ class TitleState extends MusicBeatState
 
 		persistentUpdate = true;
 
-		staticBG = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/title/staticBG'));
+		staticBG = new FlxSprite(320, 360/2).loadGraphic(Paths.image('menus/title/staticBG'));
+		staticBG.scale.set(2,2);
 		add(staticBG);
 
 		bgTreesFar = new FlxBackdrop(Paths.image('menus/title/bgTreesfar'), 1, 1, true, true, 1, 1);
+		bgTreesFar.scale.set(2,2);
 		add(bgTreesFar);
 
 		bgTrees = new FlxBackdrop(Paths.image('menus/title/bgTrees'), 1, 1, true, true, 1, 1);
-		bgTrees.x += 350;
+		bgTrees.x += 349;
+		bgTrees.scale.set(2,2);
 		add(bgTrees);
 
 		bgGrass = new FlxBackdrop(Paths.image('menus/title/bgGrass'), 1, 1, true, true, 1, 1);
+		bgGrass.scale.set(2,2);
 		add(bgGrass);
 
-		var vintage:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/title/darknessOverlay'));
+		var vintage:FlxSprite = new FlxSprite(320, 360/2).loadGraphic(Paths.image('menus/title/darknessOverlay'));
+		vintage.scale.set(2,2);
 		add(vintage);
 
 		/*if (!FlxG.save.data.notFirstTime)
@@ -106,7 +111,8 @@ class TitleState extends MusicBeatState
 		logoBl.antialiasing = true;
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, true);
 		logoBl.animation.play('bump');
-		logoBl.setGraphicSize(Std.int(logoBl.width * 0.6));
+	//	logoBl.setGraphicSize(Std.int(logoBl.width * 1.6));
+		logoBl.scale.set(2.6, 2.6);
 		logoBl.updateHitbox();
 		// logoBl.x += ;
 		// logoBl.y += 200;
@@ -246,14 +252,12 @@ class TitleState extends MusicBeatState
 			#end
 		}
 
-		#if mobile
 		var justTouched:Bool = false;
 		for (touch in FlxG.touches.list)
 			if (touch.justPressed)
 				justTouched = true;
-		#end
 
-		if (pressedEnter #if mobile || justTouched #end && !transitioning && skippedIntro)
+		if (pressedEnter || justTouched && !transitioning && skippedIntro)
 		{
 			titleText.visible = false;
 			titleTextSelected.visible = true;

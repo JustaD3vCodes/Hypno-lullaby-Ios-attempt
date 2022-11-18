@@ -31,15 +31,14 @@
 	<source path="source" />
 
 	<!-- to be able to not have the mobile assets in another builds -saw -->
-	<assets path="mobile" rename="assets/mobile" if="mobile" />
+	<assets path="mobile" rename="assets/mobile" />
 
 	<assets path="assets" />
 
 	<assets path="shitpost" library="shitpost" embed="true" />
 	<assets path="FE-CrashDialog.exe" type="template" if="windows release" />
 
-	<define name="VIDEOS_ALLOWED" if="desktop || android" />
-	<define name="DISCORD_ALLOWED" if="cpp" unless="mobile" />
+	<define name="VIDEOS_ALLOWED" if="android" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -56,7 +55,6 @@
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
 	<!--Optimise inputs, be careful you will get null errors if you don't use conditionals in your game-->
-	<haxedef name="FLX_NO_TOUCH" if="desktop" />
 
 	<!--Disable the Flixel core focus lost screen-->
 	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />

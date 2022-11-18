@@ -610,10 +610,8 @@ class ShopState extends MusicBeatState
 
 		CoolUtil.lerpSnap = true;
 
-		#if mobile
 		addVirtualPad(LEFT_FULL, A_B);
 		addVirtualPadCamera();
-		#end
 	}
 
 	function addToFreeplayList(i:String, ?library:String)

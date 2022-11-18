@@ -1129,7 +1129,6 @@ class PlayState extends MusicBeatState
 			];
 		}
 
-		#if mobile
 		addMobileControls();
 		_virtualPad = new FlxVirtualPad(NONE, P);
 		_virtualPad.alpha = 0.75;
@@ -1138,7 +1137,6 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.add(camcontrol);
 		camcontrol.bgColor.alpha = 0;
 		_virtualPad.cameras = [camcontrol];		
-		#end
 
 		if (!Init.trueSettings.get('Controller Mode'))
 		{
@@ -2369,73 +2367,73 @@ class PlayState extends MusicBeatState
 						switch (dadOpponent.animation.curAnim.curFrame)
 						{
 							case 0 | 1:
-								pendulumOffset[0] = 814;
+								pendulumOffset[0] = 814-30;
 								pendulumOffset[1] = 264;
 							case 2 | 3:
-								pendulumOffset[0] = 813;
+								pendulumOffset[0] = 813-30;
 								pendulumOffset[1] = 270;
 							case 4:
-								pendulumOffset[0] = 813;
+								pendulumOffset[0] = 813-30;
 								pendulumOffset[1] = 266;
 							case 5:
-								pendulumOffset[0] = 813;
+								pendulumOffset[0] = 813-30;
 								pendulumOffset[1] = 263;
 							case 6:
-								pendulumOffset[0] = 814;
+								pendulumOffset[0] = 814-30;
 								pendulumOffset[1] = 255;
 							case 7:
-								pendulumOffset[0] = 811;
+								pendulumOffset[0] = 811-30;
 								pendulumOffset[1] = 251;
 							case 8 | 9:
-								pendulumOffset[0] = 809;
+								pendulumOffset[0] = 809-30;
 								pendulumOffset[1] = 249;
 							case 10 | 11 | 12 | 13 | 14:
-								pendulumOffset[0] = 808;
+								pendulumOffset[0] = 808-30;
 								pendulumOffset[1] = 248;
 						}
 					case 'singLEFT':
 						switch (dadOpponent.animation.curAnim.curFrame)
 						{
 							case 0:
-								pendulumOffset[0] = 775;
-								pendulumOffset[1] = 336;
+								pendulumOffset[0] = 775-30;
+								pendulumOffset[1] = 336-60;
 							case 1:
-								pendulumOffset[0] = 790;
-								pendulumOffset[1] = 351;
+								pendulumOffset[0] = 790-30;
+								pendulumOffset[1] = 351-60;
 							case 2:
-								pendulumOffset[0] = 826;
-								pendulumOffset[1] = 366;
+								pendulumOffset[0] = 826-30;
+								pendulumOffset[1] = 366-60;
 							case 3 | 4:
-								pendulumOffset[0] = 830;
-								pendulumOffset[1] = 378;
+								pendulumOffset[0] = 830-30;
+								pendulumOffset[1] = 378-60;
 							case 5 | 6:
-								pendulumOffset[0] = 831;
-								pendulumOffset[1] = 393;
+								pendulumOffset[0] = 831-30;
+								pendulumOffset[1] = 393-60;
 							case 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17:
-								pendulumOffset[0] = 832;
-								pendulumOffset[1] = 396;
+								pendulumOffset[0] = 832-30;
+								pendulumOffset[1] = 396-60;
 						}
 					case 'singRIGHT':
 						switch (dadOpponent.animation.curAnim.curFrame)
 						{
 							case 0 | 1 | 2:
 								pendulumOffset[0] = 866;
-								pendulumOffset[1] = 609;
+								pendulumOffset[1] = 609-60;
 							case 3:
 								pendulumOffset[0] = 858;
-								pendulumOffset[1] = 612;
+								pendulumOffset[1] = 612-60;
 							case 4:
 								pendulumOffset[0] = 881;
-								pendulumOffset[1] = 610;
+								pendulumOffset[1] = 610-60;
 							case 5:
 								pendulumOffset[0] = 901;
-								pendulumOffset[1] = 597;
+								pendulumOffset[1] = 597-60;
 							case 6:
 								pendulumOffset[0] = 903;
-								pendulumOffset[1] = 590;
+								pendulumOffset[1] = 590-60;
 							case 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17:
 								pendulumOffset[0] = 908;
-								pendulumOffset[1] = 586;
+								pendulumOffset[1] = 586-60;
 						}
 					case 'singUP':
 						switch (dadOpponent.animation.curAnim.curFrame)
@@ -2469,32 +2467,32 @@ class PlayState extends MusicBeatState
 						switch (dadOpponent.animation.curAnim.curFrame)
 						{
 							case 0:
-								pendulumOffset[0] = 700;
-								pendulumOffset[1] = 222;
+								pendulumOffset[0] = 700+20;
+								pendulumOffset[1] = 222-40;
 							case 1:
-								pendulumOffset[0] = 705;
-								pendulumOffset[1] = 237;
+								pendulumOffset[0] = 705+20;
+								pendulumOffset[1] = 237-40;
 							case 2:
-								pendulumOffset[0] = 692;
-								pendulumOffset[1] = 220;
+								pendulumOffset[0] = 692+20;
+								pendulumOffset[1] = 220-40;
 							case 3 | 4:
-								pendulumOffset[0] = 687;
-								pendulumOffset[1] = 213;
+								pendulumOffset[0] = 687+20;
+								pendulumOffset[1] = 213-40;
 							case 5:
-								pendulumOffset[0] = 690;
-								pendulumOffset[1] = 220;
+								pendulumOffset[0] = 690+20;
+								pendulumOffset[1] = 220-40;
 							case 6:
-								pendulumOffset[0] = 689;
-								pendulumOffset[1] = 227;
+								pendulumOffset[0] = 689+20;
+								pendulumOffset[1] = 227-40;
 							case 7:
-								pendulumOffset[0] = 680;
-								pendulumOffset[1] = 242;
+								pendulumOffset[0] = 680+20;
+								pendulumOffset[1] = 242-40;
 							case 8:
-								pendulumOffset[0] = 679;
-								pendulumOffset[1] = 243;
+								pendulumOffset[0] = 679+20;
+								pendulumOffset[1] = 243-40;
 							case 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17:
-								pendulumOffset[0] = 673;
-								pendulumOffset[1] = 253;
+								pendulumOffset[0] = 673+20;
+								pendulumOffset[1] = 253-40;
 						}
 					case 'psyshock':
 						switch (dadOpponent.animation.curAnim.curFrame)
@@ -2524,8 +2522,8 @@ class PlayState extends MusicBeatState
 				}
 				if (pendulum != null)
 				{
-					pendulum.x = dadOpponent.x + pendulumOffset[0];
-					pendulum.y = dadOpponent.y + pendulumOffset[1];
+					pendulum.x = dadOpponent.x-200 + pendulumOffset[0];
+					pendulum.y = dadOpponent.y-130 + pendulumOffset[1];
 				}
 			}
 
@@ -4040,10 +4038,8 @@ class PlayState extends MusicBeatState
 		if (!songLoops)
 		{
 			canPause = false;
-			#if mobile
 			mobileControls.visible = false;
 			_virtualPad.visible = false;
-			#end
 			songMusic.volume = 0;
 			vocals.volume = 0;
 
@@ -4303,10 +4299,8 @@ class PlayState extends MusicBeatState
 	{
 		inCutscene = false;
 
-		#if mobile
 		mobileControls.visible = true;
 		_virtualPad.visible = true;
-		#end
 
 		Conductor.songPosition = -(Conductor.crochet * 5);
 		swagCounter = 0;
