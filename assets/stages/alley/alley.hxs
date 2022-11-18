@@ -129,16 +129,6 @@ function onCreatePost() {
 	hypnoGuide.alpha = 0.0001;
 }
 
-function onUpdate(elapsed) {
-    if (FlxG.mouse.overlaps(purinHitbox))
-		{
-			if (FlxG.mouse.pressed && FlxG.save.data.itemsPurchased.contains('Lit Candle'))
-				{
-					PlayState.instance.purinActivate();
-				}
-		}
-}
-
 function onBeat(beat) {
 	if (hypnoGuide != null && PlayState.instance.curSong == 'Safety Lullaby')
 		{

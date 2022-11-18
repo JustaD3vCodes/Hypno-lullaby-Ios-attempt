@@ -118,14 +118,14 @@ class FlxSoundTray extends Sprite
 			{
 				visible = false;
 				active = false;
-    		}
+			}
 
-            if (FlxG.save.data != null)
-				{
-					FlxG.save.data.mute = FlxG.sound.muted;
-					FlxG.save.data.volume = FlxG.sound.volume;
-					FlxG.save.flush();
-				}
+			if (FlxG.save.data != null)
+			{
+				FlxG.save.data.mute = FlxG.sound.muted;
+				FlxG.save.data.volume = FlxG.sound.volume;
+				FlxG.save.flush();
+			}
 		}
 	}
 
@@ -141,7 +141,7 @@ class FlxSoundTray extends Sprite
 			var sound = Paths.sound('ui_soundChange');
 			if (sound != null)
 				FlxG.sound.load(sound).play();
-            trace(up);
+			trace(up);
 		}
 
 		_timer = 1;

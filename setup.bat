@@ -10,6 +10,7 @@ haxelib install openfl
 haxelib install flixel 4.8.1
 haxelib install flixel-addons
 haxelib install flixel-ui
+haxelib git flxanimate https://github.com/Dot-Stuff/flxanimate
 haxelib install hscript
 haxelib install newgrounds
 haxelib run lime setup

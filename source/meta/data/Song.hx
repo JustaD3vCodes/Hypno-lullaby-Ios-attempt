@@ -2,10 +2,9 @@ package meta.data;
 
 import haxe.Json;
 import haxe.format.JsonParser;
-import lime.utils.Assets;
 import meta.data.Section.SwagSection;
 import meta.state.PlayState;
-import sys.io.File;
+import openfl.utils.Assets;
 
 using StringTools;
 
@@ -46,20 +45,17 @@ class Song
 
 	public static function loadFromJson(jsonInput:String, ?folder:String, ?library:String, old:Bool):SwagSong
 	{
-		var rawJson;
 		PlayState.old = old;
 		PlayState.songLibrary = library;
-		if (library != null)
-			rawJson = Assets.getText(Paths.songJson(folder.toLowerCase(), jsonInput.toLowerCase(), PlayState.old, PlayState.songLibrary)).trim();
-		else 
-			rawJson = File.getContent(Paths.songJson(folder.toLowerCase(), jsonInput.toLowerCase(), PlayState.old, PlayState.songLibrary)).trim();
 
+		var rawJson:String = Assets.getText(Paths.songJson(folder.toLowerCase(), jsonInput.toLowerCase(), PlayState.old, PlayState.songLibrary)).trim();
 		while (!rawJson.endsWith("}"))
 			rawJson = rawJson.substr(0, rawJson.length - 1);
 		return parseJSONshit(rawJson);
 	}
 
-	public static function parseJSONshit(rawJson:String):SwagSong {
+	public static function parseJSONshit(rawJson:String):SwagSong
+	{
 		var swagShit:SwagSong = cast Json.parse(rawJson).song;
 		swagShit.validScore = true;
 		return swagShit;

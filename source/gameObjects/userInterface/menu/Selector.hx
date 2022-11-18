@@ -1,9 +1,7 @@
 package gameObjects.userInterface.menu;
 
-import flixel.FlxBasic;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
 import meta.data.dependency.FNFSprite;
 import meta.data.font.Alphabet;

@@ -1,24 +1,13 @@
 package gameObjects.userInterface;
 
-import flixel.FlxBasic;
-import flixel.FlxCamera;
 import flixel.FlxG;
-import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.FlxState;
-import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
-import flixel.math.FlxMath;
 import flixel.text.FlxText;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
 import flixel.ui.FlxBar;
 import flixel.util.FlxColor;
 import flixel.util.FlxSort;
-import flixel.util.FlxTimer;
 import meta.CoolUtil;
-import meta.InfoHud;
-import meta.data.Conductor;
 import meta.data.Timings;
 import meta.state.PlayState;
 import meta.state.menus.StoryMenuState;
@@ -29,6 +18,7 @@ class ClassHUD extends FlxSpriteGroup
 {
 	// set up variables and stuff here
 	var centerMark:FlxText; // small side bar like kade engine that tells you engine info
+
 	public var scoreBar:FlxText;
 	public var accuracyBar:FlxText;
 
@@ -39,11 +29,14 @@ class ClassHUD extends FlxSpriteGroup
 	public var healthBar:FlxBar;
 
 	private var SONG = PlayState.SONG;
+
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
+
 	private var stupidHealth:Float = 0;
 
 	public var iconGroup:FlxTypedSpriteGroup<HealthIcon>;
+
 	private var timingsMap:Map<String, FlxText> = [];
 
 	// eep
@@ -66,7 +59,8 @@ class ClassHUD extends FlxSpriteGroup
 		var fontSize:Int = 16;
 
 		divider = " • ";
-		if (!PlayState.buriedNotes) {
+		if (!PlayState.buriedNotes)
+		{
 			healthBarBG = new FlxSprite(0,
 				barY).loadGraphic(Paths.image(ForeverTools.returnSkinAsset('healthBar', PlayState.assetModifier, PlayState.changeableSkin, 'UI')));
 			healthBarBG.screenCenter(X);
@@ -111,13 +105,16 @@ class ClassHUD extends FlxSpriteGroup
 			add(centerMark);
 			if (Init.trueSettings.get('Downscroll'))
 				centerMark.y = (FlxG.height - centerMark.height / 2);
-			else centerMark.y = (FlxG.height / 24) - 24;
+			else
+				centerMark.y = (FlxG.height / 24) - 24;
 			centerMark.screenCenter(X);
 			centerMark.antialiasing = true;
-		} else {
+		}
+		else
+		{
 			font = 'poke.ttf';
 			fontSize = 24;
-			
+
 			scoreBar = new FlxText(FlxG.width / 2, 4, 0, scoreDisplay, 20);
 			scoreBar.setFormat(Paths.font(font), 24, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			accuracyBar = new FlxText(FlxG.width / 2, 4, 0, scoreDisplay, 20);
@@ -146,17 +143,19 @@ class ClassHUD extends FlxSpriteGroup
 		}
 
 		// counter
-		if (Init.trueSettings.get('Counter') != 'None') {
+		if (Init.trueSettings.get('Counter') != 'None')
+		{
 			var judgementNameArray:Array<String> = [];
 			for (i in Timings.judgementsMap.keys())
 				judgementNameArray.insert(Timings.judgementsMap.get(i)[0], i);
 			judgementNameArray.sort(sortByShit);
-			for (i in 0...judgementNameArray.length) {
-				var textAsset:FlxText = new FlxText(5 + (!left ? (FlxG.width - 10) : 0),
+			for (i in 0...judgementNameArray.length)
+			{
+				var textAsset:FlxText = new FlxText(5
+					+ (!left ? (FlxG.width - 10) : 0),
 					(FlxG.height / 2)
 					- (counterTextSize * (judgementNameArray.length / 2))
-					+ (i * counterTextSize), 0,
-					'', counterTextSize);
+					+ (i * counterTextSize), 0, '', counterTextSize);
 				if (!left)
 					textAsset.x -= textAsset.text.length * counterTextSize;
 				textAsset.setFormat(Paths.font("vcr.ttf"), counterTextSize, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -179,7 +178,8 @@ class ClassHUD extends FlxSpriteGroup
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		if (curSongName != PlayState.songDisplayName) {
+		if (curSongName != PlayState.songDisplayName)
+		{
 			var infoDisplay:String = '- ${CoolUtil.dashToSpace(PlayState.songDisplayName) + " [" + CoolUtil.difficultyFromNumber(PlayState.storyDifficulty)}] -\n';
 			centerMark.text = infoDisplay;
 			centerMark.screenCenter(X);
@@ -215,7 +215,8 @@ class ClassHUD extends FlxSpriteGroup
 		// update counter
 		if (Init.trueSettings.get('Counter') != 'None')
 		{
-			for (i in timingsMap.keys()) {
+			for (i in timingsMap.keys())
+			{
 				timingsMap[i].text = '${(i.charAt(0).toUpperCase() + i.substring(1, i.length))}: ${Timings.gottenJudgements.get(i)}';
 				timingsMap[i].x = (5 + (!left ? (FlxG.width - 10) : 0) - (!left ? (6 * counterTextSize) : 0));
 			}
@@ -225,5 +226,4 @@ class ClassHUD extends FlxSpriteGroup
 		PlayState.detailsSub = scoreBar.text + accuracyBar.text;
 		PlayState.updateRPC(false);
 	}
-
 }

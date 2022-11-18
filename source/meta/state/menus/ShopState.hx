@@ -27,14 +27,16 @@ import meta.MusicBeat.MusicBeatState;
 import meta.data.Conductor;
 import meta.data.Highscore;
 import meta.data.Song;
+#if DISCORD_ALLOWED
+import meta.data.dependency.Discord;
+#end
 import meta.data.font.Alphabet;
 import meta.state.menus.FreeplayState;
 import meta.subState.UnlockSubstate.LockSprite;
 import openfl.display.GraphicsShader;
 import openfl.events.MouseEvent;
 import openfl.filters.ShaderFilter;
-import sys.FileSystem;
-import sys.io.File;
+import openfl.utils.Assets;
 import sys.thread.Mutex;
 import sys.thread.Thread;
 
@@ -67,7 +69,6 @@ class ShopState extends MusicBeatState
 {
 	// SHOP RELATED VARIABLES
 	var itemArray:Array<ShopItem> = [];
-	var folderList:Array<String> = CoolUtil.returnAssetsLibrary('images/shop', 'assets');
 	var itemSprites:FlxTypedSpriteGroup<FlxSprite>;
 	var itemPrices:FlxTypedSpriteGroup<FlxText>;
 	var itemsCreated:Int = 0;
@@ -145,7 +146,14 @@ class ShopState extends MusicBeatState
 	{
 		super.create();
 
-		var rawJson = File.getContent(Paths.getPath('images/shop/shopText.json', TEXT)).trim();
+		#if DISCORD_ALLOWED
+		if (!freeplaySelected)
+			Discord.changePresence('BROWSING THE SHOP', 'Freeplay Menu');
+		else
+			Discord.changePresence('CHOOSING A SONG', 'Freeplay Menu');
+		#end
+
+		var rawJson = Assets.getText(Paths.getPath('images/shop/shopText.json', TEXT)).trim();
 		while (!rawJson.endsWith("}"))
 			rawJson = rawJson.substr(0, rawJson.length - 1);
 		shopLines = cast Json.parse(rawJson).shopLines;
@@ -156,18 +164,27 @@ class ShopState extends MusicBeatState
 		Conductor.songPosition = 0;
 		Conductor.changeBPM(166);
 
-		if (FlxG.save.data.freeplayFirstTime == false) {
+		if (FlxG.save.data.freeplayFirstTime == false)
+		{
 			FlxG.save.data.freeplayFirstTime = true;
 			playIntro = true;
 			FlxG.save.flush();
 		}
 
+		glitchingno = new FlxGraphicsShader("", Paths.shader('glitch'));
+		glitchingno.data.time.value = [0.0];
+		glitchingno.data.prob.value = [0.0];
+		glitchingno.data.intensityChromatic.value = [0.0];
+
+		chromaticAberration = new ShaderFilter(new GraphicsShader("", Paths.shader('shopShader')));
+		chromaticAberration.shader.data.aberration.value = [0.0];
+		chromaticAberration.shader.data.effectTime.value = [aberrateTimeValue];
+		FlxG.camera.setFilters([chromaticAberration]);
+
 		// initialize shop music
 		FlxG.sound.playMusic(Paths.music('FreeplayMenu'), 0, true);
 		if (!playIntro)
 			FlxG.sound.music.fadeIn(0.5, 0, 1);
-
-		// FlxG.stage.addEventListener(MouseEvent.MOUSE_WHEEL, scroll);
 
 		// instantiate the new groups
 		shopGroup = new FlxTypedGroup<FlxObject>();
@@ -294,13 +311,12 @@ class ShopState extends MusicBeatState
 
 		// my DUMBASS doesnt know how to sort arrays. so i just put a number in the folder name first if somebody can help that woud be awesome im so sorry - sector : - (
 
-		for (i in folderList)
+		for (i in CoolUtil.returnAssetsLibrary('images/shop', 'assets'))
 		{
 			trace('found folder: ' + i);
-			if (FileSystem.exists(Paths.getPath('images/shop/${i}/${i}.json', TEXT)))
+			if (Assets.exists(Paths.getPath('images/shop/${i}/${i}.json', TEXT)))
 			{
-				var rawJson = File.getContent(Paths.getPath('images/shop/${i}/${i}.json', TEXT));
-				var swagShit:ShopItem = cast Json.parse(rawJson).itemDetail;
+				var swagShit:ShopItem = cast Json.parse(Assets.getText(Paths.getPath('images/shop/${i}/${i}.json', TEXT))).itemDetail;
 				itemArray.push(swagShit);
 
 				trace('images/shop/${i}/item');
@@ -402,9 +418,9 @@ class ShopState extends MusicBeatState
 		var rightPointer:FlxSprite = new FlxSprite();
 		rightPointer.frames = Paths.getSparrowAtlas('menus/menu/campaign_menu_UI_assets');
 		rightPointer.animation.addByPrefix('idle', 'arrow push right', 0, false);
-        rightPointer.animation.play('idle');
-        rightPointer.animation.curAnim.curFrame = 1;
-        rightPointer.y = FlxG.height / 2 - rightPointer.height / 2;
+		rightPointer.animation.play('idle');
+		rightPointer.animation.curAnim.curFrame = 1;
+		rightPointer.y = FlxG.height / 2 - rightPointer.height / 2;
 		rightPointer.x = FlxG.width - 64 - rightPointer.width;
 		shopGroup.add(rightPointer);
 
@@ -467,10 +483,11 @@ class ShopState extends MusicBeatState
 				// create lock sprite lol
 				var lockSprite:LockSprite = new LockSprite();
 				lockSprite.lockIdentifier = limiter;
-				
+
 				if (!FlxG.save.data.unlockedSongs.contains(CoolUtil.spaceToDash(songs[i].songName.toLowerCase())))
 					lockSprite.locked = true;
-				else { 
+				else
+				{
 					lockSprite.locked = false;
 					lockSprite.alpha = 0;
 				}
@@ -584,7 +601,7 @@ class ShopState extends MusicBeatState
 		menuDisplacement = FlxG.width * (freeplaySelected ? -1 : 0);
 
 		var portraitText:String = '';
-		
+
 		if (FlxG.save.data.playedSongs.contains(CoolUtil.spaceToDash(songs[verticalSelection].songName.toLowerCase())))
 			portraitText = grpSongs.members[verticalSelection].text;
 		else
@@ -592,6 +609,11 @@ class ShopState extends MusicBeatState
 		switchPortrait(portraitText);
 
 		CoolUtil.lerpSnap = true;
+
+		#if mobile
+		addVirtualPad(LEFT_FULL, A_B);
+		addVirtualPadCamera();
+		#end
 	}
 
 	function addToFreeplayList(i:String, ?library:String)
@@ -600,7 +622,7 @@ class ShopState extends MusicBeatState
 		{
 			var old:Bool = j == 0 ? true : false;
 			var icon:String = 'gf';
-			var chartExists:Bool = FileSystem.exists(Paths.songJson(i, i + '-hard', old, library));
+			var chartExists:Bool = Assets.exists(Paths.songJson(i, i + '-hard', old, library));
 			if (library != null)
 				chartExists = openfl.utils.Assets.exists(Paths.songJson(i, i + '-hard', old, library), TEXT);
 			if (chartExists)
@@ -641,36 +663,6 @@ class ShopState extends MusicBeatState
 		}
 	}
 
-	function scroll(event:MouseEvent)
-	{
-		if (freeplaySelected && canControl)
-			updateVerticalSelection(verticalSelection - event.delta, grpSongs.members.length - 1);
-	}
-
-	function onMouseDown(event:MouseEvent)
-	{
-		if (freeplaySelected && canControl)
-		{
-			canControl = false;
-			for (j in grpSongs)
-			{
-				if (j.textIdentifier == verticalSelection)
-				{
-					selectedItem = j;
-					break;
-				}
-			}
-			if (selectedItem != null)
-			{
-				FlxG.sound.play(Paths.sound('confirmMenu'));
-				FlxFlicker.flicker(selectedItem, 0.85, 0.06 * 2, true, false, function(flick:FlxFlicker)
-				{
-					zoomIn = true;
-				});
-			}
-		}
-	}
-
 	public var limiter:Int = 0;
 
 	public var menuDisplacement:Float = 0;
@@ -688,6 +680,8 @@ class ShopState extends MusicBeatState
 	public var prevY:Float = 0;
 
 	public var freeplayBlankPortrait:FreeplayPortrait;
+	public var glitchingno:FlxGraphicsShader;
+	public var chromaticAberration:ShaderFilter;
 
 	public var aberrateValue:Float = 0;
 	public var glitchValue:Float = 0;
@@ -717,12 +711,18 @@ class ShopState extends MusicBeatState
 			if (left && freeplaySelected)
 			{
 				freeplaySelected = false;
+				#if DISCORD_ALLOWED
+				Discord.changePresence('BROWSING THE SHOP', 'Freeplay Menu');
+				#end
 				shopSign.animation.play('signThing', true);
 				shuffleCartridgeIdle(true);
 				cartridgePlayIdle(true);
 			}
 			if (right && !freeplaySelected)
 			{
+				#if DISCORD_ALLOWED
+				Discord.changePresence('CHOOSING A SONG', 'Freeplay Menu');
+				#end
 				freeplaySelected = true;
 			}
 		}
@@ -842,10 +842,12 @@ class ShopState extends MusicBeatState
 						- lock.width / 2;
 					// yeah im stupid
 					lock.y = (item.members[0].y) - (lock.height / 4);
-					if (lock.animation.curAnim.name != 'unlock') {
+					if (lock.animation.curAnim.name != 'unlock')
+					{
 						if (lock.locked)
 							lock.alpha = item.members[0].alpha;
-						else lock.alpha = 0;
+						else
+							lock.alpha = 0;
 					}
 				}
 
@@ -854,12 +856,12 @@ class ShopState extends MusicBeatState
 				{
 					case 'missingno' | 'isotope':
 						// trace('m,,issingno hveorv');
-				//		for (j in item.members)
-				//			if (j.shader != glitchingno)
-				//				j.shader = glitchingno;
-				//		glitchValue += (fakeElapsed / (1 / 15)) / 15;
-				//		glitchingno.data.prob.value = [0.25 + Math.abs(Math.sin((fakeElapsed * 2) * Math.PI))];
-				//		glitchingno.data.time.value = [glitchValue / 2];
+						for (j in item.members)
+							if (j.shader != glitchingno)
+								j.shader = glitchingno;
+						glitchValue += (fakeElapsed / (1 / 15)) / 15;
+						glitchingno.data.prob.value = [0.25 + Math.abs(Math.sin((fakeElapsed * 2) * Math.PI))];
+						glitchingno.data.time.value = [glitchValue / 2];
 
 					// freeplayActivePortrait.shader = glitchingno;
 					default:
@@ -906,7 +908,7 @@ class ShopState extends MusicBeatState
 				else
 					moverCooldown = 0;
 				updateVerticalSelection(newSelection, grpSongs.members.length - 1);
-				
+
 				if (controls.ACCEPT)
 				{
 					if (FlxG.save.data.unlockedSongs.contains(songs[verticalSelection].songName.toLowerCase()))
@@ -933,27 +935,28 @@ class ShopState extends MusicBeatState
 						FlxG.sound.play(Paths.sound('errorMenu'));
 						camera.shake(0.005, 0.06);
 
-						// auto unlock 
+						// auto unlock
 						/*
-						if (Main.hypnoDebug) {
-							var selectedLock:LockSprite = null;
-							for (j in grpLocked)
-							{
-								if (j.lockIdentifier == verticalSelection)
+							if (Main.hypnoDebug) {
+								var selectedLock:LockSprite = null;
+								for (j in grpLocked)
 								{
-									selectedLock = j;
-									break;
+									if (j.lockIdentifier == verticalSelection)
+									{
+										selectedLock = j;
+										break;
+									}
 								}
-							}
-							if (selectedLock != null)
-								selectedLock.unlock();
+								if (selectedLock != null)
+									selectedLock.unlock();
 						}*/
 					}
 				}
 			}
 			else if (!canControl)
 			{
-				if (endingFreeplay) {
+				if (endingFreeplay)
+				{
 					killThread = true;
 					var realElapsed:Float = (fakeElapsed / (1 / 60));
 					freeplayBlankPortrait.alpha = FlxMath.lerp(freeplayBlankPortrait.alpha, 0, realElapsed / 6);
@@ -968,7 +971,26 @@ class ShopState extends MusicBeatState
 					}
 
 					//
-				
+					if (zoomIn)
+					{
+						if (chromaticAberration != null)
+						{
+							if (aberrateTimeValue < 1.35)
+							{
+								aberrateValue += (fakeElapsed / (1 / 15)) * (speed * 1.12);
+								aberrateTimeValue += (fakeElapsed / (1 / 15)) * speed;
+								speed += 0.0003125 * (fakeElapsed / (1 / 160));
+								chromaticAberration.shader.data.aberration.value = [aberrateValue];
+								chromaticAberration.shader.data.effectTime.value = [aberrateTimeValue];
+							}
+							if (aberrateTimeValue > 1)
+							{
+								selectedItem.alpha = FlxMath.lerp(selectedItem.alpha, 0, realElapsed);
+								if (selectedItem.alpha <= 0.01)
+									gotoSong();
+							}
+						}
+					}
 				}
 				//
 			}
@@ -1066,9 +1088,10 @@ class ShopState extends MusicBeatState
 								}
 							case 1:
 								{
-									if (FlxG.save.data.itemsPurchased.length == 0) changeShopDialogue('Sell? You literally have nothing on you, what the hell is wrong with your brain.');
-									else if (FlxG.save.data.itemsPurchased.length > 0) changeShopDialogue("Why would I buy your shit back, I'm trying to get rid of it you moron.");
-								
+									if (FlxG.save.data.itemsPurchased.length == 0)
+										changeShopDialogue('Sell? You literally have nothing on you, what the hell is wrong with your brain.');
+									else if (FlxG.save.data.itemsPurchased.length > 0)
+										changeShopDialogue("Why would I buy your shit back, I'm trying to get rid of it you moron.");
 								}
 							case 2:
 								{
@@ -1164,6 +1187,12 @@ class ShopState extends MusicBeatState
 						if (!FlxG.save.data.cartridgesOwned.contains('LostSilverWeek'))
 							FlxG.save.data.cartridgesOwned.push('LostSilverWeek');
 					}
+				case 'Pokemon Red':
+					{
+						if (!FlxG.save.data.cartridgesOwned.contains('GlitchWeek'))
+							FlxG.save.data.cartridgesOwned.push('GlitchWeek');
+						unlockSongCutscene(itemArray[curItemSelected].songUnlock);
+					}
 				case 'Broken Vinyl':
 					{
 						if (!FlxG.save.data.buyVinylFirstTime)
@@ -1227,10 +1256,13 @@ class ShopState extends MusicBeatState
 			var poop:String = Highscore.formatSong('shinto', PlayState.storyDifficulty);
 			PlayState.SONG = Song.loadFromJson(poop, 'shinto', null, false);
 
-			FlxTween.tween(blackOverlay, {alpha: 1.0}, 4.0, {ease: FlxEase.quadInOut, onComplete: function(twn:FlxTween)
-			{
-				Main.switchState(this, new PlayState());
-			}});
+			FlxTween.tween(blackOverlay, {alpha: 1.0}, 4.0, {
+				ease: FlxEase.quadInOut,
+				onComplete: function(twn:FlxTween)
+				{
+					Main.switchState(this, new PlayState());
+				}
+			});
 		});
 	}
 
@@ -1247,34 +1279,40 @@ class ShopState extends MusicBeatState
 		Main.switchState(this, new PlayState());
 	}
 
-	function unlockSongCutscene(?songUnlock:String = '') {
+	function unlockSongCutscene(?songUnlock:String = '')
+	{
 		inShop = false;
 		switchSubmenus();
 		inCutscene = true;
 		canControl = false;
 
-		new FlxTimer().start(0.25, function(tmr:FlxTimer){
+		new FlxTimer().start(0.25, function(tmr:FlxTimer)
+		{
 			var mySong:String = CoolUtil.spaceToDash(songUnlock.toLowerCase());
 			if (!FlxG.save.data.unlockedSongs.contains(mySong))
 				FlxG.save.data.unlockedSongs.push(mySong);
 			FlxG.save.flush();
 
 			freeplaySelected = true;
-			new FlxTimer().start(0.5, function(tmr:FlxTimer){
+			new FlxTimer().start(0.5, function(tmr:FlxTimer)
+			{
 				var selectionTo:Int = 0;
-				for (i in 0...songs.length) {
-					if (mySong.contains(CoolUtil.spaceToDash(songs[i].songName.toLowerCase()))) 
+				for (i in 0...songs.length)
+				{
+					if (mySong.contains(CoolUtil.spaceToDash(songs[i].songName.toLowerCase())))
 						selectionTo = i;
 				}
 
 				var curSelection = verticalSelection;
 				var selectionTimer:FlxTimer = new FlxTimer();
-				selectionTimer.start(0.1, function(tmr:FlxTimer){
+				selectionTimer.start(0.1, function(tmr:FlxTimer)
+				{
 					if (verticalSelection > selectionTo)
 						curSelection--;
 					else if (verticalSelection < selectionTo)
 						curSelection++;
-					else {
+					else
+					{
 						new FlxTimer().start(1, function(tmr:FlxTimer)
 						{
 							var selectedLock:LockSprite = null;
@@ -1304,7 +1342,6 @@ class ShopState extends MusicBeatState
 					}
 					updateVerticalSelection(curSelection, grpSongs.members.length - 1);
 				}, Std.int(Math.abs(verticalSelection - selectionTo)) + 1);
-				
 			});
 		});
 	}
@@ -1544,7 +1581,7 @@ class ShopState extends MusicBeatState
 						if (portrait != null && portrait != curPortrait)
 						{
 							//  get the new portrait
-							if (!FileSystem.exists(Paths.getPath('images/menus/freeplay/$portrait.png', IMAGE)))
+							if (!Assets.exists(Paths.getPath('images/menus/freeplay/$portrait.png', IMAGE)))
 								portrait = 'unknown';
 							mutex.acquire();
 							switchingPortraits = true;
@@ -1642,7 +1679,7 @@ class ShopState extends MusicBeatState
 			trace(item.toLowerCase());
 
 			if (!FlxG.save.data.playedSongs.contains(CoolUtil.spaceToDash(songs[verticalSelection].songName.toLowerCase())))
-				item = 'unknown'; 
+				item = 'unknown';
 			switchPortrait(item);
 		}
 	}

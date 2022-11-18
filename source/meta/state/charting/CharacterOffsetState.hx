@@ -4,21 +4,12 @@ import flixel.FlxG;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import gameObjects.Boyfriend;
-import gameObjects.Character;
 import meta.MusicBeat.MusicBeatState;
-import meta.data.dependency.FNFSprite;
 import meta.state.menus.StoryMenuState;
 
-class CharacterOffsetState extends MusicBeatState {
-	var currentState:Array<String> = [
-		'idle',
-		'singUP',
-		'singLEFT',
-		'singRIGHT',
-		'singDOWN',
-		'hit1',
-		'hit2',
-	];
+class CharacterOffsetState extends MusicBeatState
+{
+	var currentState:Array<String> = ['idle', 'singUP', 'singLEFT', 'singRIGHT', 'singDOWN', 'hit1', 'hit2',];
 	var offsetXback:Array<Int> = [0, 0, 0, 0, 0];
 	var offsetYback:Array<Int> = [0, 0, 0, 0, 0];
 	var offsetXfront:Array<Int> = [0, 0, 0, 0, 0];
@@ -28,20 +19,21 @@ class CharacterOffsetState extends MusicBeatState {
 
 	var selectedState:Int = 0;
 	var stateDisplay:FlxText;
-    
+
 	var back:Boyfriend;
 	var front:Boyfriend;
 
-    override public function create() {
-        super.create();
+	override public function create()
+	{
+		super.create();
 
 		var i = StoryMenuState.cartridgeList[0];
 		var fakeBack = new Boyfriend();
 		fakeBack.setCharacter(0, 0, 'hypno-cards');
 		fakeBack.playAnim('idle');
-        fakeBack.screenCenter();
-        add(fakeBack);
-        fakeBack.alpha = 0.5;
+		fakeBack.screenCenter();
+		add(fakeBack);
+		fakeBack.alpha = 0.5;
 
 		back = new Boyfriend();
 		back.setCharacter(0, 0, 'hypno-cards');
@@ -54,23 +46,24 @@ class CharacterOffsetState extends MusicBeatState {
 		front.playAnim('idle');
 		front.screenCenter();
 
-        add(back);
-        add(front);
+		add(back);
+		add(front);
 
 		stateDisplay = new FlxText(100, 20, 0, 'Current Anim: ', 20);
 		add(stateDisplay);
 		spriteDisplay = new FlxText(500, 20, 0, 'X: 0', 20);
 		add(spriteDisplay);
-        
+
 		FlxG.camera.bgColor = FlxColor.GRAY;
-        FlxG.camera.zoom = 0.9;
-    }
+		FlxG.camera.zoom = 0.9;
+	}
 
-    var isBack:Bool = false;
+	var isBack:Bool = false;
 
-    override public function update(elapsed:Float) {
-        super.update(elapsed);
-        
+	override public function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
 		var currentAnim:String = currentState[selectedState];
 		stateDisplay.text = "Current Anim: " + currentAnim;
 		spriteDisplay.text = "X Back: " + offsetXback[selectedState] + '\n' + "Y Back: " + offsetYback[selectedState] + '\n' + "X Front: "
@@ -86,10 +79,11 @@ class CharacterOffsetState extends MusicBeatState {
 			animPlay(currentAnim);
 		}
 
-        // var dude:Character = (isBack ? back : front);
-        var offsetX:Array<Int> = (isBack ? offsetXback : offsetXfront);
+		// var dude:Character = (isBack ? back : front);
+		var offsetX:Array<Int> = (isBack ? offsetXback : offsetXfront);
 		var offsetY:Array<Int> = (isBack ? offsetYback : offsetYfront);
-        if (FlxG.keys.pressed.SHIFT) {
+		if (FlxG.keys.pressed.SHIFT)
+		{
 			if (FlxG.keys.justPressed.LEFT)
 			{
 				offsetX[selectedState]++;
@@ -110,7 +104,9 @@ class CharacterOffsetState extends MusicBeatState {
 				offsetY[selectedState]--;
 				animPlay(currentAnim);
 			}
-        } else {
+		}
+		else
+		{
 			if (FlxG.keys.pressed.LEFT)
 			{
 				offsetX[selectedState]++;
@@ -131,16 +127,17 @@ class CharacterOffsetState extends MusicBeatState {
 				offsetY[selectedState]--;
 				animPlay(currentAnim);
 			}
-        }
-	
-		if (FlxG.keys.justPressed.H)
-            isBack = !isBack;
-    }
+		}
 
-    function animPlay(currentAnim:String) {
+		if (FlxG.keys.justPressed.H)
+			isBack = !isBack;
+	}
+
+	function animPlay(currentAnim:String)
+	{
 		back.addOffset(currentAnim, offsetXback[selectedState], offsetYback[selectedState]);
 		back.playAnim(currentAnim);
 		front.addOffset(currentAnim, offsetXfront[selectedState], offsetYfront[selectedState]);
 		front.playAnim(currentAnim);
-    }
+	}
 }

@@ -23,7 +23,8 @@ class AttachedText extends FlxText
 			setPosition(sprTracker.x + xAdd, sprTracker.y + yAdd);
 			// angle = sprTracker.angle;
 			alpha = sprTracker.alpha;
-		} else
-            destroy();
+		}
+		else
+			destroy();
 	}
 }

@@ -1,25 +1,23 @@
 package meta.state.menus;
 
-import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.system.FlxSound;
 import flixel.text.FlxText;
-import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import flixel.tweens.misc.ColorTween;
 import flixel.util.FlxColor;
 import gameObjects.userInterface.HealthIcon;
-import lime.utils.Assets;
 import meta.MusicBeat.MusicBeatState;
-import meta.data.*;
-import meta.data.Song.SwagSong;
+import meta.data.Highscore;
+import meta.data.Song;
+#if DISCORD_ALLOWED
+import meta.data.dependency.Discord;
+#end
 import meta.data.font.Alphabet;
 import openfl.media.Sound;
-import sys.FileSystem;
+import openfl.utils.Assets;
 import sys.thread.Mutex;
 import sys.thread.Thread;
 
@@ -63,29 +61,31 @@ class FreeplayState extends MusicBeatState
 
 		mutex = new Mutex();
 
-
 		var folderSongs:Array<String> = CoolUtil.returnAssetsLibrary('songs', 'assets');
 		for (i in folderSongs)
 		{
 			if (!existingSongs.contains(i.toLowerCase()))
 			{
-				for (j in 0...2) {
+				for (j in 0...2)
+				{
 					var old:Bool = j == 0 ? true : false;
 					var icon:String = 'gf';
-					var chartExists:Bool = FileSystem.exists(Paths.songJson(i, i, old));
+					var chartExists:Bool = Assets.exists(Paths.songJson(i, i, old));
 					if (chartExists)
 					{
 						var castSong:SwagSong = Song.loadFromJson(i, i, old);
 						icon = (castSong != null) ? castSong.player2 : 'gf';
 						addSong(CoolUtil.spaceToDash(castSong.song), 1, (i == 'pasta-night') ? 'hypno-cards' : icon, old, FlxColor.WHITE);
 					}
-
 				}
 			}
 		}
 
 		// LOAD MUSIC
 		// ForeverTools.resetMenuMusic();
+		#if DISCORD_ALLOWED
+		Discord.changePresence('FREEPLAY MENU', 'Main Menu');
+		#end
 
 		// LOAD CHARACTERS
 		bg = new FlxSprite().loadGraphic(Paths.image('menus/base/menuDesat'));
@@ -96,7 +96,7 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName + (songs[i].old ? ' LEGACY':''), true, false);
+			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName + (songs[i].old ? ' LEGACY' : ''), true, false);
 			songText.isMenuItem = true;
 			songText.targetY = i;
 			grpSongs.add(songText);
@@ -138,6 +138,10 @@ class FreeplayState extends MusicBeatState
 		selector.size = 40;
 		selector.text = ">";
 		// add(selector);
+
+		#if mobile
+		addVirtualPad(LEFT_FULL, A_B);
+		#end
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, ?library:String, old:Bool, songColor:FlxColor)
@@ -145,8 +149,8 @@ class FreeplayState extends MusicBeatState
 		///*
 		var coolDifficultyArray = [];
 		for (i in CoolUtil.difficultyArray)
-			if (FileSystem.exists(Paths.songJson(songName, songName + '-' + i, old))
-				|| (FileSystem.exists(Paths.songJson(songName, songName, old)) && i == "NORMAL"))
+			if (Assets.exists(Paths.songJson(songName, songName + '-' + i, old))
+				|| (Assets.exists(Paths.songJson(songName, songName, old)) && i == "NORMAL"))
 				coolDifficultyArray.push(i);
 
 		if (coolDifficultyArray.length > 0)
@@ -351,6 +355,7 @@ class FreeplayState extends MusicBeatState
 class SongMetadata
 {
 	public static var nameToData:Map<String, SongMetadata> = [];
+
 	public var songName:String = "";
 	public var week:Int = 0;
 	public var songCharacter:String = "";
@@ -361,7 +366,7 @@ class SongMetadata
 	public function new(song:String, week:Int, songCharacter:String, library:String, old:Bool, songColor:FlxColor)
 	{
 		this.songName = song;
-		nameToData.set(songName+(old ? "-old" : ""), this);
+		nameToData.set(songName + (old ? "-old" : ""), this);
 		this.old = old;
 		this.week = week;
 		this.songCharacter = songCharacter;

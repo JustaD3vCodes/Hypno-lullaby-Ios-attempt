@@ -1,16 +1,12 @@
 package gameObjects.userInterface.notes;
 
+import meta.data.Timings;
+import meta.data.Conductor;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.math.FlxMath;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-import gameObjects.userInterface.notes.*;
 import gameObjects.userInterface.notes.Strumline.UIStaticArrow;
-import meta.*;
-import meta.data.*;
-import meta.data.Section.SwagSection;
 import meta.data.dependency.FNFSprite;
 import meta.state.PlayState;
 
@@ -53,10 +49,11 @@ class Note extends FNFSprite
 	public var noteSpeed(get, set):Float = 0;
 	public var noteDirection:Float = 0;
 
-	public var parentNote:Note; 
+	public var parentNote:Note;
 	public var childrenNotes:Array<Note> = [];
 
 	public static var swagWidth:Float = 160 * 0.7;
+
 	public var lane:Int = 0;
 	// it has come to this.
 	public var endHoldOffset:Float = Math.NEGATIVE_INFINITY;
@@ -83,12 +80,14 @@ class Note extends FNFSprite
 			downscrollNote = true;
 
 		// determine parent note
-		if (isSustainNote && prevNote != null) {
+		if (isSustainNote && prevNote != null)
+		{
 			parentNote = prevNote;
 			while (parentNote.parentNote != null)
 				parentNote = parentNote.parentNote;
 			parentNote.childrenNotes.push(this);
-		} else if (!isSustainNote)
+		}
+		else if (!isSustainNote)
 			parentNote = null;
 	}
 
@@ -98,8 +97,7 @@ class Note extends FNFSprite
 
 		if (lane == PlayState.playerLane)
 		{
-			if (strumTime > Conductor.songPosition - (Timings.msThreshold) 
-				&& strumTime < Conductor.songPosition + (Timings.msThreshold))
+			if (strumTime > Conductor.songPosition - (Timings.msThreshold) && strumTime < Conductor.songPosition + (Timings.msThreshold))
 				canBeHit = true;
 			else
 				canBeHit = false;
@@ -124,7 +122,8 @@ class Note extends FNFSprite
 		switch (assetModifier)
 		{
 			case 'pixel': // pixel arrows default
-				switch (PlayState.SONG.song.toLowerCase()) {
+				switch (PlayState.SONG.song.toLowerCase())
+				{
 					case 'brimstone':
 						if (isSustainNote)
 						{
@@ -140,23 +139,23 @@ class Note extends FNFSprite
 						}
 						else
 						{
-							if (noteType == 1) //gengar notes
-								{
-									newNote.loadGraphic(Paths.image('UI/pixel/gega'), true, 48, 48);
-									newNote.animation.add('blueScroll', [0, 4, 8, 12], 12, true);
-									newNote.animation.add('purpleScroll', [1, 5, 9, 13], 12, true);
-									newNote.animation.add('greenScroll', [2, 6, 10, 14], 12, true);
-									newNote.animation.add('redScroll', [3, 7, 11, 15], 12, true);
-									newNote.spriteOffet = -24;
-								}
+							if (noteType == 1) // gengar notes
+							{
+								newNote.loadGraphic(Paths.image('UI/pixel/gega'), true, 48, 48);
+								newNote.animation.add('blueScroll', [0, 4, 8, 12], 12, true);
+								newNote.animation.add('purpleScroll', [1, 5, 9, 13], 12, true);
+								newNote.animation.add('greenScroll', [2, 6, 10, 14], 12, true);
+								newNote.animation.add('redScroll', [3, 7, 11, 15], 12, true);
+								newNote.spriteOffet = -24;
+							}
 							else
-								{
-									newNote.loadGraphic(Paths.image('UI/pixel/NOTES_buried'), true, 32, 32);
-									newNote.animation.add('greenScroll', [6]);
-									newNote.animation.add('redScroll', [7]);
-									newNote.animation.add('blueScroll', [5]);
-									newNote.animation.add('purpleScroll', [4]);
-								}
+							{
+								newNote.loadGraphic(Paths.image('UI/pixel/NOTES_buried'), true, 32, 32);
+								newNote.animation.add('greenScroll', [6]);
+								newNote.animation.add('redScroll', [7]);
+								newNote.animation.add('blueScroll', [5]);
+								newNote.animation.add('purpleScroll', [4]);
+							}
 						}
 						newNote.antialiasing = false;
 						newNote.setGraphicSize(Std.int(newNote.width * PlayState.daPixelZoom * PlayState.buriedResize));
@@ -165,7 +164,8 @@ class Note extends FNFSprite
 						if (isSustainNote)
 						{
 							newNote.loadGraphic(Paths.image(ForeverTools.returnSkinAsset('shitno_ends1', assetModifier, Init.trueSettings.get("Note Skin"),
-								'UI')), true, 7, 6);
+								'UI')), true, 7,
+								6);
 							newNote.animation.add('purpleholdend', [4]);
 							newNote.animation.add('greenholdend', [6]);
 							newNote.animation.add('redholdend', [7]);
@@ -178,8 +178,8 @@ class Note extends FNFSprite
 						else
 						{
 							newNote.loadGraphic(Paths.image(ForeverTools.returnSkinAsset('shitno_arrows1', assetModifier, Init.trueSettings.get("Note Skin"),
-								'UI')), true, 19,
-								19);
+								'UI')), true,
+								19, 19);
 							newNote.animation.add('greenScroll', [6]);
 							newNote.animation.add('redScroll', [7]);
 							newNote.animation.add('blueScroll', [5]);
@@ -217,9 +217,8 @@ class Note extends FNFSprite
 						newNote.updateHitbox();
 				}
 			default: // base game arrows for no reason whatsoever
-				newNote.frames = Paths.getSparrowAtlas(ForeverTools.returnSkinAsset('NOTE_assets', assetModifier, Init.trueSettings.get("Note Skin"),
-					'UI'));
-				
+				newNote.frames = Paths.getSparrowAtlas(ForeverTools.returnSkinAsset('NOTE_assets', assetModifier, Init.trueSettings.get("Note Skin"), 'UI'));
+
 				newNote.animation.addByPrefix('greenScroll', 'green0');
 				newNote.animation.addByPrefix('redScroll', 'red0');
 				newNote.animation.addByPrefix('blueScroll', 'blue0');
@@ -233,12 +232,13 @@ class Note extends FNFSprite
 				newNote.animation.addByPrefix('redhold', 'red hold piece');
 				newNote.animation.addByPrefix('bluehold', 'blue hold piece');
 
-				if (noteType == 2) {
+				if (noteType == 2)
+				{
 					newNote.frames = Paths.getSparrowAtlas(ForeverTools.returnSkinAsset('hellbell/Bronzong_Gong_mechanic', assetModifier,
 						Init.trueSettings.get("Note Skin"), 'UI'));
 					newNote.animation.addByPrefix('bellScroll', 'spacebar0');
 					newNote.animation.addByPrefix('bellhold', 'spacebar hold piece0');
-					newNote.animation.addByPrefix('bellholdend', 'spacebar hold end0');					
+					newNote.animation.addByPrefix('bellholdend', 'spacebar hold end0');
 					newNote.setGraphicSize(Std.int(newNote.width * 0.875));
 					newNote.updateHitbox();
 				}
@@ -263,12 +263,14 @@ class Note extends FNFSprite
 				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.5 * prevNote.noteSpeed;
 				if (prevNote.noteType == 2)
 					prevNote.scale.y /= 0.875;
-				if (assetModifier == 'pixel' && !PlayState.buriedNotes) {
+				if (assetModifier == 'pixel' && !PlayState.buriedNotes)
+				{
 					prevNote.scale.y *= 0.834;
 					prevNote.scale.y *= (6 / newNote.height); // Auto adjust note size
 				}
 				prevNote.updateHitbox();
-				if (assetModifier == 'pixel' && !PlayState.buriedNotes) {
+				if (assetModifier == 'pixel' && !PlayState.buriedNotes)
+				{
 					prevNote.scale.y *= PlayState.daPixelZoom;
 					prevNote.updateHitbox();
 				}
@@ -278,13 +280,16 @@ class Note extends FNFSprite
 		return newNote;
 	}
 
-	function get_noteSpeed():Float {
+	function get_noteSpeed():Float
+	{
 		return noteSpeed;
 	}
 
-	function set_noteSpeed(value:Float):Float {
+	function set_noteSpeed(value:Float):Float
+	{
 		var ratio:Float = value / noteSpeed;
-		if (customScrollspeed && isSustainNote && !animation.curAnim.name.endsWith('end')) {
+		if (customScrollspeed && isSustainNote && !animation.curAnim.name.endsWith('end'))
+		{
 			scale.y *= ratio;
 			updateHitbox();
 		}

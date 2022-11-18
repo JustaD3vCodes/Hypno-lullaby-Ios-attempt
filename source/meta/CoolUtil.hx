@@ -1,14 +1,10 @@
 package meta;
 
 import flixel.math.FlxMath;
-import lime.utils.Assets;
+import openfl.utils.Assets;
 import meta.state.PlayState;
 
 using StringTools;
-
-#if !html5
-import sys.FileSystem;
-#end
 
 class CoolUtil
 {
@@ -55,9 +51,7 @@ class CoolUtil
 
 	public static function getOffsetsFromTxt(path:String):Array<Array<String>>
 	{
-		var fullText:String = Assets.getText(path);
-
-		var firstArray:Array<String> = fullText.split('\n');
+		var firstArray:Array<String> = Assets.getText(path).split('\n');
 		var swagOffsets:Array<Array<String>> = [];
 
 		for (i in firstArray)
@@ -68,25 +62,25 @@ class CoolUtil
 
 	public static function returnAssetsLibrary(library:String, ?subDir:String = 'assets/images'):Array<String>
 	{
-		//
 		var libraryArray:Array<String> = [];
-		var unfilteredLibrary = FileSystem.readDirectory('$subDir/$library');
 
-		for (folder in unfilteredLibrary)
+		for (folder in Assets.list().filter(list -> list.contains('$subDir/$library')))
 		{
-			if (!folder.contains('.'))
-				libraryArray.push(folder);
+			// simulating da FileSystem.readDirectory?
+			var daFolder:String = folder.replace('$subDir/$library/', '');
+			if (daFolder.contains('/'))
+				daFolder = daFolder.replace(daFolder.substring(daFolder.indexOf('/'), daFolder.length), ''); // fancy
+
+			if (!daFolder.startsWith('.') && !libraryArray.contains(daFolder))
+				libraryArray.push(daFolder);
 		}
-		trace(libraryArray);
 
 		return libraryArray;
 	}
 
 	public static function getAnimsFromTxt(path:String):Array<Array<String>>
 	{
-		var fullText:String = Assets.getText(path);
-
-		var firstArray:Array<String> = fullText.split('\n');
+		var firstArray:Array<String> = Assets.getText(path).split('\n');
 		var swagOffsets:Array<Array<String>> = [];
 
 		for (i in firstArray)
@@ -108,7 +102,9 @@ class CoolUtil
 	}
 
 	public static var lerpSnap:Bool = false;
-	public static function fakeLerp(val1:Float, val2:Float, ratio:Float) {
+
+	public static function fakeLerp(val1:Float, val2:Float, ratio:Float)
+	{
 		if (lerpSnap)
 			return FlxMath.lerp(val1, val2, 1);
 		return FlxMath.lerp(val1, val2, ratio);

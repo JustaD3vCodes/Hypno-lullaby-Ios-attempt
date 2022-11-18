@@ -1,31 +1,18 @@
 package;
 
-import cpp.Pointer;
-import flixel.FlxBasic;
 import flixel.FlxG;
 import flixel.FlxGame;
-import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.addons.transition.FlxTransitionableState;
-import flixel.util.FlxColor;
-import haxe.CallStack.StackItem;
-import haxe.CallStack;
-import haxe.io.Path;
-import lime.app.Application;
-import meta.*;
+import meta.InfoHud;
 import meta.data.PlayerSettings;
 import meta.data.ScriptHandler;
+#if DISCORD_ALLOWED
+import meta.data.dependency.Discord;
+#end
 import meta.data.dependency.FNFTransition;
-import meta.data.dependency.FNFUIState;
-import openfl.Assets;
 import openfl.Lib;
-import openfl.display.FPS;
 import openfl.display.Sprite;
-import openfl.events.Event;
-import openfl.events.UncaughtErrorEvent;
-import sys.FileSystem;
-import sys.io.File;
-import sys.io.Process;
 
 // Here we actually import the states and metadata, and just the metadata.
 // It's nice to have modularity so that we don't have ALL elements loaded at the same time.
@@ -78,7 +65,7 @@ class Main extends Sprite
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
 	var infoCounter:InfoHud; // initialize the heads up display that shows information before creating it.
 
-	public static var hypnoDebug:Bool = true;
+	public static var hypnoDebug:Bool = false;
 
 	// heres gameweeks set up!
 
@@ -93,23 +80,26 @@ class Main extends Sprite
 		['Safety-Lullaby', 'Left-Unchecked', 'Lost-Cause'],
 		['Frostbite', 'Insomnia', 'Monochrome'],
 		['Missingno', 'Brimstone'],
-		['Amusia', 'Dissension', 'Purin', 'Death-Toll', 'Isotope', 'Bygone-Purpose', 'Pasta-Night', 'Shinto', 'Shitno']
+		[
+			'Amusia',
+			'Dissension',
+			'Purin',
+			'Death-Toll',
+			'Isotope',
+			'Bygone-Purpose',
+			'Pasta-Night',
+			'Shinto',
+			'Shitno'
+		]
 	];
 
 	// most of these variables are just from the base game!
 	// be sure to mess around with these if you'd like.
-
-	public static function main():Void
-	{
-		Lib.current.addChild(new Main());
-	}
-
 	// calls a function to set the game up
 	public function new()
 	{
 		super();
 
-		trace("hi");
 		/**
 			ok so, haxe html5 CANNOT do 120 fps. it just cannot.
 			so here i just set the framerate to 60 if its complied in html5.
@@ -117,7 +107,7 @@ class Main extends Sprite
 			note studders and shit its weird.
 		**/
 
-		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
+		SUtil.uncaughtErrorHandler();
 
 		// simply said, a state is like the 'surface' area of the window where everything is drawn.
 		// if you've used gamemaker you'll probably understand the term surface better
@@ -137,15 +127,21 @@ class Main extends Sprite
 			// if set to negative one, it is done so automatically, which is the default.
 		}
 
-		FlxTransitionableState.skipNextTransIn = true;
-		
-		// here we set up the base game
-		var gameCreate:FlxGame;
-		gameCreate = new FlxGame(gameWidth, gameHeight, mainClassState, zoom, framerate, framerate, skipSplash);
-		addChild(gameCreate); // and create it afterwards
+		SUtil.check();
 
-		// default game FPS settings, I'll probably comment over them later.
-		// addChild(new FPS(10, 3, 0xFFFFFF));
+		FlxTransitionableState.skipNextTransIn = true;
+		#if debug
+		hypnoDebug = true;
+		#end
+
+		// here we set up the base game
+		addChild(new FlxGame(gameWidth, gameHeight, mainClassState, zoom, framerate, framerate, skipSplash));
+
+		// begin the discord rich presence
+		#if DISCORD_ALLOWED
+		Discord.initializeRPC();
+		Discord.changePresence('');
+		#end
 
 		// test initialising the player settings
 		PlayerSettings.init();
@@ -173,14 +169,15 @@ class Main extends Sprite
 		if (!FlxTransitionableState.skipNextTransIn)
 		{
 			curState.openSubState(new FNFTransition(0.35, false));
-			FNFTransition.finishCallback = function() {
+			FNFTransition.finishCallback = function()
+			{
 				FlxG.switchState(target);
 			};
 			return trace('changed state');
 		}
 		FlxTransitionableState.skipNextTransIn = false;
 		// load the state
-		FlxG.switchState(target);		
+		FlxG.switchState(target);
 	}
 
 	public static function updateFramerate(newFramerate:Int)
@@ -196,62 +193,8 @@ class Main extends Sprite
 			FlxG.drawFramerate = newFramerate;
 			FlxG.updateFramerate = newFramerate;
 		}
-	}
 
-	function onCrash(e:UncaughtErrorEvent):Void
-	{
-		var errMsg:String = "";
-		var path:String;
-		var callStack:Array<StackItem> = CallStack.exceptionStack(true);
-		var dateNow:String = Date.now().toString();
-
-		dateNow = StringTools.replace(dateNow, " ", "_");
-		dateNow = StringTools.replace(dateNow, ":", "'");
-
-		path = "./crash/" + "FE_" + dateNow + ".txt";
-
-		for (stackItem in callStack)
-		{
-			switch (stackItem)
-			{
-				case FilePos(s, file, line, column):
-					errMsg += file + " (line " + line + ")\n";
-				default:
-					Sys.println(stackItem);
-			}
-		}
-
-		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/Yoshubs/Forever-Engine";
-
-//		if (!FileSystem.exists("./crash/"))
-//			FileSystem.createDirectory("./crash/");
-
-	//	File.saveContent(path, errMsg + "\n");
-
-		Sys.println(errMsg);
-		Sys.println("Crash dump saved in " + Path.normalize(path));
-
-		var crashDialoguePath:String = "FE-CrashDialog";
-
-		#if windows
-		crashDialoguePath += ".exe";
-		#end
-
-		if (FileSystem.exists("./" + crashDialoguePath))
-		{
-			Sys.println("Found crash dialog: " + crashDialoguePath);
-
-			#if linux
-			crashDialoguePath = "./" + crashDialoguePath;
-			#end
-			new Process(crashDialoguePath, [path]);
-		}
-		else
-		{
-			Sys.println("No crash dialog found! Making a simple alert instead...");
-			Application.current.window.alert(errMsg, "Error!");
-		}
-
-		Sys.exit(1);
+		FlxG.game.focusLostFramerate = newFramerate;
+		Lib.current.stage.frameRate = newFramerate;
 	}
 }

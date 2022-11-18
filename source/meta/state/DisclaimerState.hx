@@ -1,33 +1,13 @@
 package meta.state;
 
-import flixel.addons.display.FlxBackdrop;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.FlxState;
-import flixel.addons.display.FlxGridOverlay;
-import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.addons.transition.TransitionData;
-import flixel.graphics.FlxGraphic;
-import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.group.FlxGroup;
-import flixel.input.gamepad.FlxGamepad;
-import flixel.math.FlxPoint;
-import flixel.math.FlxRect;
-import flixel.system.FlxSound;
-import flixel.system.ui.FlxSoundTray;
-import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import lime.app.Application;
 import meta.MusicBeat.MusicBeatState;
-import meta.data.*;
 import flash.system.System;
-import meta.data.font.Alphabet;
-import meta.state.menus.*;
-import openfl.Assets;
 
 using StringTools;
 
@@ -47,15 +27,18 @@ class DisclaimerState extends MusicBeatState
 	override public function create():Void
 	{
 		super.create();
-		if (FlxG.save.data.seenDisclaimer == null || FlxG.save.data.seenDisclaimer == false) {
+		if (FlxG.save.data.seenDisclaimer == null || FlxG.save.data.seenDisclaimer == false)
+		{
 			startDisclaimer();
 		}
-		else {
+		else
+		{
 			Main.switchState(this, new TitleState());
 		}
 	}
 
-	function startDisclaimer() {
+	function startDisclaimer()
+	{
 		warningbox = new FlxSprite();
 		warningbox.frames = Paths.getSparrowAtlas('menus/title/selectors');
 		warningbox.animation.addByPrefix('warningbox', 'warningbox', 24, true);
@@ -102,7 +85,7 @@ class DisclaimerState extends MusicBeatState
 		pussytext.frames = Paths.getSparrowAtlas('menus/title/selectortext');
 		pussytext.animation.addByPrefix('pussytext', 'pussytext', 24, true);
 		pussytext.animation.addByPrefix('selectpussytext', 'selectpussytext', 24, true);
-		pussytext.animation.play('selectpussytext');		
+		pussytext.animation.play('selectpussytext');
 		pussytext.screenCenter();
 		pussytext.y += 100;
 		pussytext.x -= 185;
@@ -121,95 +104,113 @@ class DisclaimerState extends MusicBeatState
 		continuetext.alpha = 0;
 
 		add(pussybox);
-		add(continuebox);	
+		add(continuebox);
 		add(pussytext);
 		add(continuetext);
 		add(warningbox);
 		add(warningtext);
 
-		new FlxTimer().start(0.6, function(tmr:FlxTimer) {			
+		new FlxTimer().start(0.6, function(tmr:FlxTimer)
+		{
 			FlxTween.tween(warningbox, {'scale.x': 1, 'scale.y': 1, alpha: 1}, 0.5, {
 				ease: FlxEase.backOut,
 				onComplete: function(twn:FlxTween)
 				{
-					new FlxTimer().start(0.5, function(tmr:FlxTimer) {
+					new FlxTimer().start(0.5, function(tmr:FlxTimer)
+					{
 						FlxTween.tween(warningtext, {'scale.x': 1, 'scale.y': 1, alpha: 1}, 0.5, {ease: FlxEase.backOut});
-						new FlxTimer().start(1.5, function(tmr:FlxTimer) {
+						new FlxTimer().start(1.5, function(tmr:FlxTimer)
+						{
 							continuebox.alpha = 1;
 							pussybox.alpha = 1;
-							FlxTween.tween(pussybox, {y: pussybox.y + 200}, 1, {ease: FlxEase.bounceOut});	
-							new FlxTimer().start(0.3, function(tmr:FlxTimer) {
+							FlxTween.tween(pussybox, {y: pussybox.y + 200}, 1, {ease: FlxEase.bounceOut});
+							new FlxTimer().start(0.3, function(tmr:FlxTimer)
+							{
 								FlxTween.tween(continuebox, {y: continuebox.y + 200}, 1, {
-									ease: FlxEase.bounceOut, 
+									ease: FlxEase.bounceOut,
 									onComplete: function(twn:FlxTween)
+									{
+										new FlxTimer().start(0.5, function(tmr:FlxTimer)
 										{
-											new FlxTimer().start(0.5, function(tmr:FlxTimer) {
-												FlxTween.tween(pussytext, {'scale.x': 1, 'scale.y': 1, alpha: 1}, 0.5, {ease: FlxEase.backOut});
-												new FlxTimer().start(0.3, function(tmr:FlxTimer) {
-													FlxTween.tween(continuetext, {'scale.x': 1, 'scale.y': 1, alpha: 1}, 0.5, {ease: FlxEase.backOut});
-													canselect = true;
-												});	
-											});	
-										}
-								});														
-							});						
-						});	
-					});	
+											FlxTween.tween(pussytext, {'scale.x': 1, 'scale.y': 1, alpha: 1}, 0.5, {ease: FlxEase.backOut});
+											new FlxTimer().start(0.3, function(tmr:FlxTimer)
+											{
+												FlxTween.tween(continuetext, {'scale.x': 1, 'scale.y': 1, alpha: 1}, 0.5, {ease: FlxEase.backOut});
+												#if mobile
+												addVirtualPad(LEFT_RIGHT, A);
+												#end
+												canselect = true;
+											});
+										});
+									}
+								});
+							});
+						});
+					});
 				}
-			});	
-		});	
-		
-		addVirtualPad(LEFT_RIGHT, A);
+			});
+		});
 	}
 
-	function updateDisclaimer() {
+	function updateDisclaimer()
+	{
 		var leftright:Bool = (controls.UI_LEFT_P || controls.UI_RIGHT_P);
-		var accept:Bool = controls.ACCEPT;	
+		var accept:Bool = controls.ACCEPT;
 
-		if (canselect) {
-			if (leftright) {	
+		if (canselect)
+		{
+			if (leftright)
+			{
 				FlxG.sound.play(Paths.sound('scrollMenu'), 0.5);
-				if (selection == 0)	{
-					new FlxTimer().start(0.02, function(tmr:FlxTimer) {
+				if (selection == 0)
+				{
+					new FlxTimer().start(0.02, function(tmr:FlxTimer)
+					{
 						selection = 1;
 						pussytext.animation.play('pussytext');
-						continuetext.animation.play('selectcontinuetext');	
-					});	
+						continuetext.animation.play('selectcontinuetext');
+					});
 				}
-				else if (selection == 1) {
-					new FlxTimer().start(0.02, function(tmr:FlxTimer) {
+				else if (selection == 1)
+				{
+					new FlxTimer().start(0.02, function(tmr:FlxTimer)
+					{
 						selection = 0;
 						pussytext.animation.play('selectpussytext');
 						continuetext.animation.play('continuetext');
-					});		
+					});
 				}
 			}
 
 			if (accept)
 			{
 				canselect = false;
-				if (selection == 0) {
+				if (selection == 0)
+				{
 					FlxG.camera.flash(FlxColor.WHITE, 1);
 					FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
-					new FlxTimer().start(0.5, function(tmr:FlxTimer) {
+					new FlxTimer().start(0.5, function(tmr:FlxTimer)
+					{
 						FlxG.sound.play(Paths.sound('HEHEHEHA'), 0.7);
-						new FlxTimer().start(1.3, function(tmr:FlxTimer) {
+						new FlxTimer().start(1.3, function(tmr:FlxTimer)
+						{
 							System.exit(0);
-						});				
-					});		
-				}		
-				else if (selection == 1) {
+						});
+					});
+				}
+				else if (selection == 1)
+				{
 					FlxG.camera.flash(FlxColor.WHITE, 1);
 					FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
-					new FlxTimer().start(0.6, function(tmr:FlxTimer) {
-						if (FlxG.save.data.seenDisclaimer == null 
-							|| FlxG.save.data.seenDisclaimer == false)
-							{
-								FlxG.save.data.seenDisclaimer = true;
-								FlxG.save.flush();
-							}
-							Main.switchState(this, new TitleState());
-					});				
+					new FlxTimer().start(0.6, function(tmr:FlxTimer)
+					{
+						if (FlxG.save.data.seenDisclaimer == null || FlxG.save.data.seenDisclaimer == false)
+						{
+							FlxG.save.data.seenDisclaimer = true;
+							FlxG.save.flush();
+						}
+						Main.switchState(this, new TitleState());
+					});
 				}
 			}
 		}
@@ -217,7 +218,8 @@ class DisclaimerState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		if (FlxG.save.data.seenDisclaimer == null || FlxG.save.data.seenDisclaimer == false) {
+		if (FlxG.save.data.seenDisclaimer == null || FlxG.save.data.seenDisclaimer == false)
+		{
 			updateDisclaimer();
 		}
 

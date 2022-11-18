@@ -14,7 +14,7 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
 class FNFSprite extends FlxSprite
 {
 	public var animOffsets:Map<String, Array<Dynamic>>;
-	
+
 	public function new(x:Float = 0, y:Float = 0)
 	{
 		super(x, y);

@@ -212,6 +212,24 @@ function onCreate() {
 	pastaBoppers.push(peach);
 	pastaBoppers.push(shitno);
 	
+	gb = new FNFSprite(25000, 350); //lazy since im not motivated to really work on this project anymore
+	gb.frames = Paths.getSparrowAtlas('GB_PastaNight_Assets');
+	gb.animation.addByPrefix('idle', 'GBWalkPioladepana', 24, true);
+	gb.playAnim('idle');
+	gb.antialiasing = true;
+	gb.setGraphicSize(Std.int(gb.width * 1.65));
+	gb.scrollFactor.set(0.9, 0.9);
+	add(gb);
+
+	gold = new FNFSprite(10000, 50); //lazy since im not motivated to really work on this project anymore
+	gold.frames = Paths.getSparrowAtlas('GOLD_PASTA_NIGHT');
+	gold.animation.addByPrefix('idle', 'GOLD PASTA NIGHT instance 1', 24, true);
+	gold.playAnim('idle');
+	gold.antialiasing = true;
+	gold.setGraphicSize(Std.int(gold.width * 1.65));
+	gold.scrollFactor.set(0.9, 0.9);
+	add(gold);
+
 	var chair:FNFSprite = new FNFSprite(tableboppers.x - 535, tableboppers.y + 65).loadGraphic(Paths.image('CHAIRS'));
 	chair.antialiasing = true;
 	chair.setGraphicSize(Std.int(chair.width * (consistentSize * 0.75)));
@@ -221,6 +239,7 @@ function onCreate() {
 	//filmGrain = new ShaderFilter(new GraphicsShader("", Paths.shader('filmgrain')));
 	//PlayState.camGame.setFilters([filmGrain]);
 	filmGrain = new ShaderFilter(new GraphicsShader("", Paths.shader('old')));
+	filmGrain.shader.data.iTime.value = [0.0];
 	PlayState.camGame.setFilters([filmGrain]);
 }
 
@@ -244,4 +263,14 @@ function onUpdate(elapsed) {
 	
 	var swagRect = FlxRect.weak(0, 0, saled.width, saled.height - 16);
 	saled.clipRect = swagRect;
+
+	if (gb != null)
+		{
+			gb.x -= elapsed / (0.25 / 60);
+		}
+
+	if (gold != null)
+		{
+			gold.x -= elapsed / (0.25 / 60);
+		}
 }

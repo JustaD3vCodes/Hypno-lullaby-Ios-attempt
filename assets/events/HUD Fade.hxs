@@ -6,11 +6,12 @@ function eventFunction(params) {
 	if (Math.isNaN(val1) || val1 <= 0 || val1 == '')
 		val1 = 1;
     //
-    trace('this thing fades the hud why doesnt it work');
+    trace('this thing fades the hud why doesnt it work'); //because the value is ".0833333333333333' 
+	trace(val1 * (Conductor.stepCrochet / 1000));
 	FlxTween.tween(PlayState.camHUD, {alpha: 1}, 
-	    val1 * (Conductor.stepCrochet / 1000), {ease: FlxEase.linear});
+	    0.85, {ease: FlxEase.linear});
 	FlxTween.tween(PlayState.uiHUD, {alpha: 0.6}, 
-		val1 * (Conductor.stepCrochet / 1000), {ease: FlxEase.linear});
+		0.85, {ease: FlxEase.linear});
     //
 	for (i in PlayState.strumHUD) {
 		FlxTween.tween(i, {alpha: 0.8}, 

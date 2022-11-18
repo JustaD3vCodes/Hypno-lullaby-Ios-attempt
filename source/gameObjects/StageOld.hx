@@ -1,24 +1,12 @@
 package gameObjects;
 
 import flixel.FlxBasic;
-import flixel.FlxCamera;
-import flixel.FlxG;
-import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.FlxState;
-import flixel.addons.effects.FlxTrail;
-import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxPoint;
-import flixel.math.FlxRect;
-import flixel.system.FlxSound;
-import flixel.text.FlxText;
-import flixel.tweens.FlxTween;
-import gameObjects.background.*;
+import gameObjects.background.BackgroundDancer;
 import haxe.ds.List;
 import meta.CoolUtil;
-import meta.data.Conductor;
 import meta.data.dependency.FNFSprite;
 import meta.state.PlayState;
 
@@ -41,8 +29,6 @@ class StageOld extends FlxTypedGroup<FlxSprite>
 	public var bygonStuff:haxe.ds.List<FlxSprite> = new haxe.ds.List<FlxSprite>(); // did you just.... make a list kade?????
 	public var bygonNewStuff:haxe.ds.List<FlxSprite> = new haxe.ds.List<FlxSprite>();
 
-
-
 	public var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
 
 	public var brimstoneBackground:FlxSprite;
@@ -54,7 +40,9 @@ class StageOld extends FlxTypedGroup<FlxSprite>
 	public var foreground:FlxTypedGroup<FlxBasic>;
 
 	public var pastaBoppers:Array<FNFSprite> = [];
+
 	var saled:FNFSprite;
+
 	public var gold:FNFSprite;
 
 	public function new(curStage)
@@ -67,7 +55,8 @@ class StageOld extends FlxTypedGroup<FlxSprite>
 		{
 			// this is because I want to avoid editing the fnf chart type
 			// custom stage stuffs will come with forever charts
-			switch (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase())) {
+			switch (CoolUtil.spaceToDash(PlayState.SONG.song.toLowerCase()))
+			{
 				case 'missingno':
 					curStage = 'missingno';
 				case 'dissension':
@@ -110,7 +99,6 @@ class StageOld extends FlxTypedGroup<FlxSprite>
 		//
 		switch (curStage)
 		{
-
 			case 'core':
 				PlayState.defaultCamZoom = 0.8;
 				curStage = 'core';
@@ -141,7 +129,6 @@ class StageOld extends FlxTypedGroup<FlxSprite>
 
 			case 'pokecenter':
 
-				
 			default:
 				PlayState.defaultCamZoom = 0.9;
 				curStage = 'stage';
@@ -175,15 +162,14 @@ class StageOld extends FlxTypedGroup<FlxSprite>
 		}
 	}
 
-
 	// get the dad's position
 	public function dadPosition(curStage, boyfriend:Character, dad:Character, camPos:FlxPoint):Void
 	{
 		var characterArray:Array<Character> = [dad, boyfriend];
-		for (char in characterArray) {
+		for (char in characterArray)
+		{
 			switch (char.curCharacter)
 			{
-
 				/*
 					if (isStoryMode)
 					{
@@ -191,11 +177,11 @@ class StageOld extends FlxTypedGroup<FlxSprite>
 						tweenCamIn();
 				}*/
 				/*
-				case 'spirit':
-					var evilTrail = new FlxTrail(char, null, 4, 24, 0.3, 0.069);
-					evilTrail.changeValuesEnabled(false, false, false, false);
-					add(evilTrail);
-					*/
+					case 'spirit':
+						var evilTrail = new FlxTrail(char, null, 4, 24, 0.3, 0.069);
+						evilTrail.changeValuesEnabled(false, false, false, false);
+						add(evilTrail);
+				 */
 			}
 		}
 	}
@@ -211,7 +197,7 @@ class StageOld extends FlxTypedGroup<FlxSprite>
 
 			case 'alley':
 				dad.x -= 300;
-				if (!PlayState.old) 
+				if (!PlayState.old)
 					boyfriend.x += 50;
 
 			default:
@@ -227,8 +213,6 @@ class StageOld extends FlxTypedGroup<FlxSprite>
 	var trainFinishing:Bool = false;
 	var trainCooldown:Int = 0;
 	var startedMoving:Bool = false;
-
-	
 
 	override function add(Object:FlxSprite):FlxSprite
 	{

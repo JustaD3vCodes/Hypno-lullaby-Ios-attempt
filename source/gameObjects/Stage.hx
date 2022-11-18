@@ -1,6 +1,5 @@
 package gameObjects;
 
-import flixel.FlxBasic;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
@@ -8,14 +7,17 @@ import haxe.ds.StringMap;
 import meta.data.ScriptHandler;
 import meta.state.PlayState;
 
-class Stage extends FlxTypedGroup<FlxSprite> {
+class Stage extends FlxTypedGroup<FlxSprite>
+{
 	var stageBuild:ForeverModule;
+
 	public var foreground:FlxSpriteGroup;
 
 	public var curStage:String;
 
-    public function new(?stage:String = 'stage') {
-        super();
+	public function new(?stage:String = 'stage')
+	{
+		super();
 
 		this.curStage = stage;
 
@@ -25,7 +27,7 @@ class Stage extends FlxTypedGroup<FlxSprite> {
 		exposure.set('add', add);
 		exposure.set('foreground', foreground);
 		exposure.set('stage', this);
-        exposure.set('curStage', this.curStage);
+		exposure.set('curStage', this.curStage);
 		exposure.set('boyfriend', PlayState.boyfriend);
 		exposure.set('dad', PlayState.dadOpponent);
 		exposure.set('dadOpponent', PlayState.dadOpponent);
@@ -33,11 +35,12 @@ class Stage extends FlxTypedGroup<FlxSprite> {
 		Paths.setCurrentLevel('assets/stages/$stage');
 		if (stageBuild.exists("onCreate"))
 			stageBuild.get("onCreate")();
-        Paths.revertCurrentLevel();
+		Paths.revertCurrentLevel();
 		trace('$stage loaded successfully');
-    }
+	}
 
-	public function stageCreatePost() {
+	public function stageCreatePost()
+	{
 		stageBuild.set('add', PlayState.instance.add);
 		stageBuild.set('boyfriend', PlayState.boyfriend);
 		stageBuild.set('dad', PlayState.dadOpponent);
@@ -46,15 +49,17 @@ class Stage extends FlxTypedGroup<FlxSprite> {
 			stageBuild.get("onCreatePost")();
 	}
 
-	public function stageUpdate(curBeat:Int) {
+	public function stageUpdate(curBeat:Int)
+	{
 		if (stageBuild.exists("onBeat"))
 			stageBuild.get("onBeat")(curBeat);
-    }
+	}
 
-	public function stageUpdateStep(curStep:Int) {
+	public function stageUpdateStep(curStep:Int)
+	{
 		if (stageBuild.exists("onStep"))
 			stageBuild.get("onStep")(curStep);
-    }
+	}
 
 	public function stageUpdateConstant(elapsed:Float)
 	{
@@ -75,4 +80,3 @@ class Stage extends FlxTypedGroup<FlxSprite> {
 		return super.add(Object);
 	}
 }
-

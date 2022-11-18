@@ -23,9 +23,6 @@ var lavatopY:Float;
 var glowLY:Float;
 var glowRY:Float;
 
-var gaussian:ShaderFilter;
-//var blurAmount:Float = 0;
-
 function onCreate() {
     PlayState.defaultCamZoom = 0.65;
 	var resizeBG:Float = 0.75;
@@ -124,15 +121,9 @@ function onCreate() {
 
 	PlayState.ratingPosition.set(600, 800);
 	PlayState.bronzongMechanic = true;
-
-	gaussian = new ShaderFilter(new GraphicsShader("", Paths.shader('death-toll/gaussian')));
-	PlayState.camGame.setFilters([gaussian]);
-	PlayState.camHUD.setFilters([gaussian]);
 }
 
 function onCreatePost() {
-	PlayState.strumHUD[1].setFilters([gaussian]);
-
 	contractStep = 0;
 	lavamod = 60;
 	lavafloating = 0;
@@ -237,9 +228,6 @@ function onUpdate(elapsed) {
 		glowleft.y = glowLY + Math.sin((180 / Math.PI) * ((Conductor.songPosition / 1000) / lavamod)) * 8;
 		glowright.y = glowRY + Math.sin((180 / Math.PI) * ((Conductor.songPosition / 1000) / lavamod)) * 8;
 	}
-
-	gaussian.shader.data.amount.value = [blurAmount];
-	blurAmount = FlxMath.lerp(blurAmount, 0.0, (elapsed / (1 / 120)) * 0.01);
 }
 
 function onEvent(eventName) {

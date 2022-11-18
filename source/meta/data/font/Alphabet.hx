@@ -3,13 +3,9 @@ package meta.data.font;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
-import flixel.math.FlxRandom;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 
 using StringTools;
@@ -139,9 +135,9 @@ class Alphabet extends FlxTypedSpriteGroup<AlphaCharacter>
 			var isNumber:Bool = AlphaCharacter.numbers.contains(character);
 			var isSymbol:Bool = AlphaCharacter.symbols.contains(character);
 
-			if ((AlphaCharacter.alphabet.indexOf(character.toLowerCase()) != -1) 
-			|| (AlphaCharacter.numbers.contains(character)) 
-			|| (AlphaCharacter.symbols.contains(character)))
+			if ((AlphaCharacter.alphabet.indexOf(character.toLowerCase()) != -1)
+				|| (AlphaCharacter.numbers.contains(character))
+				|| (AlphaCharacter.symbols.contains(character)))
 			{
 				if (xPosResetted)
 				{
@@ -163,9 +159,10 @@ class Alphabet extends FlxTypedSpriteGroup<AlphaCharacter>
 				var letter:AlphaCharacter = new AlphaCharacter(this, xPos, 0, number, textSize, canUnown);
 				number++;
 
-				if (isBold) {
+				if (isBold)
+				{
 					letter.createBold(character);
-				} 
+				}
 				else
 				{
 					if (isNumber)
@@ -321,7 +318,8 @@ class Alphabet extends FlxTypedSpriteGroup<AlphaCharacter>
 				x = FlxMath.lerp(x, xTo, elapsed * 6);
 		}
 
-		if (controllable) {
+		if (controllable)
+		{
 			for (i in members)
 				i.x = x + i.posX;
 		}
@@ -357,7 +355,7 @@ class AlphaCharacter extends FlxSprite
 
 	public var posX:Float;
 	public var parent:Alphabet = null;
-	
+
 	public function new(parent:Alphabet, x:Float, y:Float, number:Int, textSize:Float = 1, canUnown:Bool)
 	{
 		super(x, y);
@@ -379,31 +377,38 @@ class AlphaCharacter extends FlxSprite
 
 	var isBold:Bool = false;
 	var letter:String = '';
+
 	public function createBold(letter:String, ?unown:Bool)
 	{
 		isBold = true;
 		if (this.letter == '')
 			this.letter = letter;
-		if (alphabet.contains(letter.toLowerCase()) || numbers.contains(letter.toLowerCase()) || symbols.contains(letter.toLowerCase())) {
-			if (unown) {
+		if (alphabet.contains(letter.toLowerCase()) || numbers.contains(letter.toLowerCase()) || symbols.contains(letter.toLowerCase()))
+		{
+			if (unown)
+			{
 				frames = altTex;
 				animation.addByPrefix(letter, letter.toUpperCase(), 24);
 				animation.play(letter);
 				scale.set(textSize / 3, textSize / 3);
 				updateHitbox();
 				offset.x -= textSize / 6;
-			
-			} else {
+			}
+			else
+			{
 				var isNumber:Bool = numbers.contains(letter);
 				var isSymbol:Bool = symbols.contains(letter);
-				
+
 				frames = tex;
-				if (isNumber) {
+				if (isNumber)
+				{
 					animation.addByPrefix(letter, "bold" + letter, 24);
 					animation.play(letter);
 					scale.set(textSize, textSize);
 					updateHitbox();
-				}  else if (isSymbol) {
+				}
+				else if (isSymbol)
+				{
 					switch (letter)
 					{
 						case '.':
@@ -444,14 +449,15 @@ class AlphaCharacter extends FlxSprite
 							offset.x += 3 * textSize;
 					}
 					// */
-				} else {
+				}
+				else
+				{
 					// or just load regular text
 					animation.addByPrefix(letter, letter.toUpperCase() + " bold", 24);
 					animation.play(letter);
 					scale.set(textSize, textSize);
 					updateHitbox();
 				}
-
 			}
 		}
 		//
@@ -463,6 +469,7 @@ class AlphaCharacter extends FlxSprite
 	var prevY:Float = 0;
 	var elapsedTotal:Float = 0;
 	var number:Int = 0;
+
 	public var isUnown:Bool = true;
 
 	var chances:Int = 0;
@@ -470,16 +477,19 @@ class AlphaCharacter extends FlxSprite
 	var curFrame:Int = 0;
 
 	var frameDivisor:Int = 4;
+
 	public var hasReverted:Bool = false;
 
 	public var canUnown:Bool = true;
 	public var fullFrames:Float = 0;
 
-	override public function update(elapsed:Float) {
+	override public function update(elapsed:Float)
+	{
 		super.update(elapsed);
-		
+
 		// i love math
-		if (elapsed > 0) {
+		if (elapsed > 0)
+		{
 			displacementFormula();
 
 			// unown chance
@@ -512,7 +522,8 @@ class AlphaCharacter extends FlxSprite
 		}
 	}
 
-	public function displacementFormula() {
+	public function displacementFormula()
+	{
 		elapsedTotal += FlxG.elapsed;
 		var elapsedAverage:Float = (1 / FlxG.drawFramerate);
 		var formula:Float = Math.sin(Math.PI * (elapsedTotal + ((number * elapsedAverage) * 24))) * ((FlxG.elapsed / (1 / 120)) / 16);
@@ -520,7 +531,7 @@ class AlphaCharacter extends FlxSprite
 		y = prevY + formula;
 		prevY -= y + formula;
 	}
-			
+
 	public function createLetter(letter:String):Void
 	{
 		var letterCase:String = "lowercase";

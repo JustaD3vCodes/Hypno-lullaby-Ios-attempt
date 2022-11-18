@@ -24,6 +24,7 @@ enum FlxActionMode
 {
 	A;
 	B;
+	P;
 	A_B;
 	A_B_C;
 	A_B_E;
@@ -55,6 +56,7 @@ class FlxVirtualPad extends FlxSpriteGroup
 
 	public var buttonA:FlxButton = new FlxButton(0, 0);
 	public var buttonB:FlxButton = new FlxButton(0, 0);
+	public var buttonP:FlxButton = new FlxButton(0, 0);
 	public var buttonC:FlxButton = new FlxButton(0, 0);
 	public var buttonD:FlxButton = new FlxButton(0, 0);
 	public var buttonE:FlxButton = new FlxButton(0, 0);
@@ -113,6 +115,8 @@ class FlxVirtualPad extends FlxSpriteGroup
 				add(buttonA = createButton(FlxG.width - 132, FlxG.height - 135, 132, 127, 'a', 0xFF0000));
 			case B:
 				add(buttonB = createButton(FlxG.width - 132, FlxG.height - 135, 132, 127, 'b', 0xFFCB00));
+			case P:
+				add(buttonP = createButton(0, 0, 132, 127, 'b', 0xFFCB00));
 			case A_B:
 				add(buttonB = createButton(FlxG.width - 258, FlxG.height - 135, 132, 127, 'b', 0xFFCB00));
 				add(buttonA = createButton(FlxG.width - 132, FlxG.height - 135, 132, 127, 'a', 0xFF0000));
@@ -176,6 +180,7 @@ class FlxVirtualPad extends FlxSpriteGroup
 
 		buttonA = null;
 		buttonB = null;
+		buttonP = null;
 		buttonC = null;
 		buttonD = null;
 		buttonE = null;
@@ -188,8 +193,11 @@ class FlxVirtualPad extends FlxSpriteGroup
 	private function createButton(X:Float, Y:Float, Width:Int, Height:Int, Graphic:String, Color:Int = 0xFFFFFF):FlxButton
 	{
 		var button:FlxButton = new FlxButton(X, Y);
-		button.frames = FlxTileFrames.fromGraphic(FlxGraphic.fromBitmapData(Assets.getBitmapData('assets/images/mobile/virtualpad/${Graphic}.png')),
+		button.frames = FlxTileFrames.fromFrame(FlxAtlasFrames.fromSparrow(Assets.getBitmapData('assets/mobile/virtualpad.png'),
+			Assets.getText('assets/mobile/virtualpad.xml'))
+			.getByName(Graphic),
 			FlxPoint.get(Width, Height));
+		button.resetSizeFromFrame();
 		button.solid = false;
 		button.immovable = true;
 		button.scrollFactor.set();

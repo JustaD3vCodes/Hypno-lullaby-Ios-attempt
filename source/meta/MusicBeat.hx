@@ -1,19 +1,18 @@
 package meta;
 
+import openfl.Lib;
 import flixel.FlxG;
 import flixel.FlxSubState;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.math.FlxRect;
-import flixel.util.FlxTimer;
-import meta.*;
-import meta.data.*;
-import meta.data.Conductor.BPMChangeEvent;
+import meta.data.Conductor;
+import meta.data.PlayerSettings;
 import meta.data.dependency.FNFUIState;
-import mobile.MobileControls;
-import mobile.flixel.FlxVirtualPad;
+#if mobile
 import flixel.FlxCamera;
 import flixel.input.actions.FlxActionInput;
 import flixel.util.FlxDestroyUtil;
+import mobile.MobileControls;
+import mobile.flixel.FlxVirtualPad;
+#end
 
 /* 
 	Music beat state happens to be the first thing on my list of things to add, it just so happens to be the backbone of
@@ -36,28 +35,26 @@ class MusicBeatState extends FNFUIState
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
 
+	#if mobile
 	var mobileControls:MobileControls;
 	var virtualPad:FlxVirtualPad;
-	var trackedInputsMobileControls:Array<FlxActionInput> = [];
-	var trackedInputsVirtualPad:Array<FlxActionInput> = [];
+	var trackedinputsMobileControls:Array<FlxActionInput> = [];
+	var trackedinputsVirtualPad:Array<FlxActionInput> = [];
 
 	public function addVirtualPad(DPad:FlxDPadMode, Action:FlxActionMode)
 	{
-		if (virtualPad != null)
-			removeVirtualPad();
-
 		virtualPad = new FlxVirtualPad(DPad, Action);
 		add(virtualPad);
 
 		controls.setVirtualPadUI(virtualPad, DPad, Action);
-		trackedInputsVirtualPad = controls.trackedInputsUI;
-		controls.trackedInputsUI = [];
+		trackedinputsVirtualPad = controls.trackedinputsUI;
+		controls.trackedinputsUI = [];
 	}
 
 	public function removeVirtualPad()
 	{
-		if (trackedInputsVirtualPad != [])
-			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
+		if (trackedinputsVirtualPad != [])
+			controls.removeVirtualControlsInput(trackedinputsVirtualPad);
 
 		if (virtualPad != null)
 			remove(virtualPad);
@@ -65,9 +62,6 @@ class MusicBeatState extends FNFUIState
 
 	public function addMobileControls(DefaultDrawTarget:Bool = true)
 	{
-		if (mobileControls != null)
-			removeMobileControls();
-
 		mobileControls = new MobileControls();
 
 		switch (MobileControls.mode)
@@ -77,12 +71,12 @@ class MusicBeatState extends FNFUIState
 			case 'Pad-Duo':
 				controls.setVirtualPadNOTES(mobileControls.virtualPad, BOTH_FULL, NONE);
 			case 'Hitbox':
-				controls.setHitBox(mobileControls.hitbox);
+				controls.setHitBox(mobileControls.hitbox, mobileControls.virtualPad);
 			case 'Keyboard': // do nothing
 		}
 
-		trackedInputsMobileControls = controls.trackedInputsNOTES;
-		controls.trackedInputsNOTES = [];
+		trackedinputsMobileControls = controls.trackedinputsNOTES;
+		controls.trackedinputsNOTES = [];
 
 		var camControls:FlxCamera = new FlxCamera();
 		FlxG.cameras.add(camControls, DefaultDrawTarget);
@@ -95,8 +89,8 @@ class MusicBeatState extends FNFUIState
 
 	public function removeMobileControls()
 	{
-		if (trackedInputsMobileControls != [])
-			controls.removeVirtualControlsInput(trackedInputsMobileControls);
+		if (trackedinputsMobileControls != [])
+			controls.removeVirtualControlsInput(trackedinputsMobileControls);
 
 		if (mobileControls != null)
 			remove(mobileControls);
@@ -112,17 +106,21 @@ class MusicBeatState extends FNFUIState
 			virtualPad.cameras = [camControls];
 		}
 	}
-	
+	#end
+
 	override function destroy()
 	{
-		if (trackedInputsMobileControls != [])
-			controls.removeVirtualControlsInput(trackedInputsMobileControls);
+		#if mobile
+		if (trackedinputsMobileControls != [])
+			controls.removeVirtualControlsInput(trackedinputsMobileControls);
 
-		if (trackedInputsVirtualPad != [])
-			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
+		if (trackedinputsVirtualPad != [])
+			controls.removeVirtualControlsInput(trackedinputsVirtualPad);
+		#end
 
 		super.destroy();
 
+		#if mobile
 		if (virtualPad != null)
 		{
 			virtualPad = FlxDestroyUtil.destroy(virtualPad);
@@ -134,14 +132,15 @@ class MusicBeatState extends FNFUIState
 			mobileControls = FlxDestroyUtil.destroy(mobileControls);
 			mobileControls = null;
 		}
+		#end
 	}
+
 	// class create event
 	override function create()
 	{
 		// dump
 		Paths.clearStoredMemory();
-		if ((!Std.isOfType(this,meta.state.PlayState)) 
-		&& (!Std.isOfType(this, meta.state.charting.OriginalChartingState)))
+		if ((!Std.isOfType(this, meta.state.PlayState)) && (!Std.isOfType(this, meta.state.charting.OriginalChartingState)))
 			Paths.clearUnusedMemory();
 
 		if (transIn != null)
@@ -168,27 +167,29 @@ class MusicBeatState extends FNFUIState
 		updateCurStep();
 		updateBeat();
 
-		// delta time bullshit 
+		// delta time bullshit
 		var trueStep:Int = curStep;
 		for (i in storedSteps)
 			if (i < oldStep)
 				storedSteps.remove(i);
-		for (i in oldStep...trueStep) {
-			if (!storedSteps.contains(i) && i > 0) {
+		for (i in oldStep...trueStep)
+		{
+			if (!storedSteps.contains(i) && i > 0)
+			{
 				curStep = i;
 				stepHit();
 				skippedSteps.push(i);
 			}
 		}
-		if (skippedSteps.length > 0) {
+		if (skippedSteps.length > 0)
+		{
 			trace('skipped steps $skippedSteps');
 			skippedSteps = [];
 		}
 		curStep = trueStep;
 
 		//
-		if (oldStep != curStep && curStep > 0 
-			&& !storedSteps.contains(curStep)) 
+		if (oldStep != curStep && curStep > 0 && !storedSteps.contains(curStep))
 			stepHit();
 		oldStep = curStep;
 	}
@@ -222,7 +223,7 @@ class MusicBeatState extends FNFUIState
 	{
 		if (curStep % 4 == 0)
 			beatHit();
-		
+
 		// trace('step $curStep');
 
 		if (!storedSteps.contains(curStep))
@@ -253,6 +254,59 @@ class MusicBeatSubState extends FlxSubState
 
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
+
+	#if mobile
+	var virtualPad:FlxVirtualPad;
+	var trackedinputsVirtualPad:Array<FlxActionInput> = [];
+
+	public function addVirtualPad(DPad:FlxDPadMode, Action:FlxActionMode)
+	{
+		virtualPad = new FlxVirtualPad(DPad, Action);
+		add(virtualPad);
+
+		controls.setVirtualPadUI(virtualPad, DPad, Action);
+		trackedinputsVirtualPad = controls.trackedinputsUI;
+		controls.trackedinputsUI = [];
+	}
+
+	public function removeVirtualPad()
+	{
+		if (trackedinputsVirtualPad != [])
+			controls.removeVirtualControlsInput(trackedinputsVirtualPad);
+
+		if (virtualPad != null)
+			remove(virtualPad);
+	}
+
+	public function addVirtualPadCamera(DefaultDrawTarget:Bool = true)
+	{
+		if (virtualPad != null)
+		{
+			var camControls:FlxCamera = new FlxCamera();
+			FlxG.cameras.add(camControls, DefaultDrawTarget);
+			camControls.bgColor.alpha = 0;
+			virtualPad.cameras = [camControls];
+		}
+	}
+	#end
+
+	override function destroy()
+	{
+		#if mobile
+		if (trackedinputsVirtualPad != [])
+			controls.removeVirtualControlsInput(trackedinputsVirtualPad);
+		#end
+
+		super.destroy();
+
+		#if mobile
+		if (virtualPad != null)
+		{
+			virtualPad = FlxDestroyUtil.destroy(virtualPad);
+			virtualPad = null;
+		}
+		#end
+	}
 
 	override function update(elapsed:Float)
 	{
