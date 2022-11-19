@@ -1131,7 +1131,12 @@ class PlayState extends MusicBeatState
 
 		addMobileControls();
 		_virtualPad = new FlxVirtualPad(NONE, P);
-		_virtualPad.alpha = 0.75;
+		
+		if (FlxG.save.data.bPosX != null && FlxG.save.data.bPosY != null)
+		{
+			mobileControls.virtualPad.buttonB.x = FlxG.save.data.bPosX;
+			mobileControls.virtualPad.buttonB.y = FlxG.save.data.bPosY;
+		}
 		add(_virtualPad);	
 		var camcontrol = new FlxCamera();
 		FlxG.cameras.add(camcontrol);

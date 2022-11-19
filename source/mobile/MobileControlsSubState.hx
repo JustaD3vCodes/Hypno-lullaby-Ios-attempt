@@ -26,6 +26,7 @@ class MobileControlsSubState extends FlxSubState
 	var downPozition:FlxText;
 	var leftPozition:FlxText;
 	var rightPozition:FlxText;
+	var bPozition:FlxText;
 	var funitext:FlxText;
 	var leftArrow:FlxSprite;
 	var rightArrow:FlxSprite;
@@ -33,9 +34,17 @@ class MobileControlsSubState extends FlxSubState
 	var buttonBinded:Bool = false;
 	var bindButton:FlxButton;
 	var resetButton:FlxButton;
+	public static var bPosX:Float;
+	public static var bPosY:Float;
 
 	override function create()
 	{
+		if (FlxG.save.data.bPosX != null && FlxG.save.data.bPosY != null)
+		{
+			bPosX = FlxG.save.data.bPosX;
+			bPosY = FlxG.save.data.bPosY;
+		}
+
 		for (i in 0...controlsItems.length)
 			if (controlsItems[i] == MobileControls.mode)
 				curSelected = i;
@@ -48,6 +57,10 @@ class MobileControlsSubState extends FlxSubState
 
 		var exitButton:FlxButton = new FlxButton(FlxG.width - 200, 50, 'Exit', function()
 		{
+			FlxG.save.data.bPosX = bPosX;
+			FlxG.save.data.bPosY = bPosY;
+			FlxG.save.flush();
+
 			MobileControls.mode = controlsItems[Math.floor(curSelected)];
 
 			if (controlsItems[Math.floor(curSelected)] == 'Pad-Custom')
@@ -79,7 +92,14 @@ class MobileControlsSubState extends FlxSubState
 		virtualPad.visible = false;
 		add(virtualPad);
 
+		if (FlxG.save.data.bPosX != null && FlxG.save.data.bPosY != null)
+		{
+			virtualPad.buttonB.x = bPosX;
+			virtualPad.buttonB.y = bPosY;
+		}
+
 		hitbox = new FlxHitbox();
+
 		hitbox.visible = false;
 		add(hitbox);
 
@@ -111,6 +131,13 @@ class MobileControlsSubState extends FlxSubState
 		rightArrow.animation.addByPrefix('idle', 'arrow right');
 		rightArrow.animation.play('idle');
 		add(rightArrow);
+
+		bPozition = new FlxText(10, FlxG.height - 4, 0, '', 21);
+		bPozition.setFormat(Assets.getFont('assets/mobile/menu/Funkin Bold.otf').fontName, 21, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE,
+			FlxColor.BLACK, true);
+		bPozition.borderSize = 3;
+		bPozition.borderQuality = 1;
+		add(rightPozition);
 
 		rightPozition = new FlxText(10, FlxG.height - 24, 0, '', 21);
 		rightPozition.setFormat(Assets.getFont('assets/mobile/menu/Funkin Bold.otf').fontName, 21, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE,
@@ -161,37 +188,42 @@ class MobileControlsSubState extends FlxSubState
 			else if (touch.overlaps(rightArrow) && touch.justPressed)
 				changeSelection(1);
 
-			if (controlsItems[Math.floor(curSelected)] == 'Pad-Custom')
+			if (buttonBinded)
 			{
-				if (buttonBinded)
+				if (touch.justReleased)
 				{
-					if (touch.justReleased)
-					{
-						bindButton = null;
-						buttonBinded = false;
-					}
-					else
-						moveButton(touch, bindButton);
+					bindButton = null;
+					buttonBinded = false;
 				}
 				else
+					moveButton(touch, bindButton);
+			}
+			else
+			{
+
+				if (controlsItems[Math.floor(curSelected)] == 'Pad-Custom')
 				{
 					if (virtualPad.buttonUp.justPressed)
 						moveButton(touch, virtualPad.buttonUp);
-
 					if (virtualPad.buttonDown.justPressed)
 						moveButton(touch, virtualPad.buttonDown);
-
 					if (virtualPad.buttonRight.justPressed)
 						moveButton(touch, virtualPad.buttonRight);
 
 					if (virtualPad.buttonLeft.justPressed)
 						moveButton(touch, virtualPad.buttonLeft);
 				}
+
+				if (virtualPad.buttonB.justPressed)
+					moveButton(touch, virtualPad.buttonLeft);
 			}
 		}
 
 		if (virtualPad != null)
 		{
+			if (virtualPad.buttonB != null)
+				rightPozition.text = 'BUTTON B X:' + virtualPad.buttonB.x + ' Y:' + virtualPad.buttonB.y;
+		
 			if (virtualPad.buttonUp != null)
 				upPozition.text = 'BUTTON UP X:' + virtualPad.buttonUp.x + ' Y:' + virtualPad.buttonUp.y;
 
@@ -203,6 +235,9 @@ class MobileControlsSubState extends FlxSubState
 
 			if (virtualPad.buttonRight != null)
 				rightPozition.text = 'BUTTON RIGHT X:' + virtualPad.buttonRight.x + ' Y:' + virtualPad.buttonRight.y;
+			
+			bPosX = virtualPad.buttonB.x;
+			bPosY = virtualPad.buttonB.y;
 		}
 	}
 
@@ -243,12 +278,12 @@ class MobileControlsSubState extends FlxSubState
 			case 'Pad-Right':
 				hitbox.visible = false;
 				remove(virtualPad);
-				virtualPad = new FlxVirtualPad(RIGHT_FULL, NONE);
+				virtualPad = new FlxVirtualPad(RIGHT_FULL, B);
 				add(virtualPad);
 			case 'Pad-Left':
 				hitbox.visible = false;
 				remove(virtualPad);
-				virtualPad = new FlxVirtualPad(LEFT_FULL, NONE);
+				virtualPad = new FlxVirtualPad(LEFT_FULL, B);
 				add(virtualPad);
 			case 'Pad-Custom':
 				hitbox.visible = false;
@@ -258,11 +293,14 @@ class MobileControlsSubState extends FlxSubState
 			case 'Pad-Duo':
 				hitbox.visible = false;
 				remove(virtualPad);
-				virtualPad = new FlxVirtualPad(BOTH_FULL, NONE);
+				virtualPad = new FlxVirtualPad(BOTH_FULL, B);
 				add(virtualPad);
 			case 'Hitbox':
 				hitbox.visible = true;
-				virtualPad.visible = false;
+				remove(virtualPad);
+				virtualPad = new FlxVirtualPad(NONE, B);
+				add(virtualPad);
+
 			case 'Keyboard':
 				hitbox.visible = false;
 				virtualPad.visible = false;

@@ -29,7 +29,8 @@ var frostbiteGuide:FlxSprite;
 var introFog:FlxSprite;
 
 function onCreate() {
-    PlayState.defaultCamZoom = 0.8;
+	dadOpponent.y += 100;
+    PlayState.defaultCamZoom = 0.7;
 	var consistentPosition:Array<Float> = [-800, -100];
 	var resizeBG:Float = 1;
 	var background:FlxSprite = new FlxSprite(-800, -300);
@@ -37,33 +38,19 @@ function onCreate() {
 	background.setGraphicSize(Std.int(background.width * resizeBG));
 	background.updateHitbox();
 	background.antialiasing = true;
-	background.scrollFactor.set(0.6, 0.6);
+	background.scrollFactor.set(1, 1);
 	background.active = false;
 	add(background);
-	
-	var charizard:FlxSprite = new FlxSprite(-50, -50).loadGraphic(Paths.image('Charizard'));
-	charizard.setGraphicSize(Std.int(charizard.width * 0.5));
-	charizard.updateHitbox();
-	charizard.antialiasing = true;
-	charizard.scrollFactor.set(0.7, 0.7);
-	charizard.active = false;
-	add(charizard);
 
-	var blastoise:FlxSprite = new FlxSprite(-400, 100).loadGraphic(Paths.image('Blastoise'));
-	blastoise.setGraphicSize(Std.int(blastoise.width * 0.4));
-	blastoise.updateHitbox();
-	blastoise.antialiasing = true;
-	blastoise.scrollFactor.set(0.8, 0.8);
-	blastoise.active = false;
-	add(blastoise);
-
-	var pokemons:FlxSprite = new FlxSprite(300, 200).loadGraphic(Paths.image('Pokemons'));
-	pokemons.setGraphicSize(Std.int(pokemons.width * 0.25));
-	pokemons.updateHitbox();
-	pokemons.antialiasing = true;
-	pokemons.scrollFactor.set(0.9, 0.9);
-	pokemons.active = false;
-	add(pokemons);
+	var backgroundv:FlxSprite = new FlxSprite(-800, -300);
+	backgroundv.loadGraphic(Paths.image('bgs'));
+	backgroundv.alpha = 50;
+	backgroundv.setGraphicSize(Std.int(background.width * resizeBG));
+	backgroundv.updateHitbox();
+	backgroundv.antialiasing = true;
+	backgroundv.scrollFactor.set(1, 1);
+	backgroundv.active = false;
+	add(background);
 
 	fog = new FlxSprite().loadGraphic(Paths.image('fog'));	
 	fog.antialiasing = true;
@@ -89,15 +76,16 @@ function onCreatePost() {
 	PlayState.instance.camPos.x -= 250;
 	PlayState.instance.camPos.y -= 50;
 	//
-	dadOpponent.setGraphicSize(Std.int(dadOpponent.width * 0.6));
+	dadOpponent.setGraphicSize(Std.int(dadOpponent.width * 1.3));
 	dadOpponent.resizeOffsets();
 
 	//FREAKACHU SUMMON ANIMATION
-	summonFreak = new FlxSprite(465, 275);
+	summonFreak = new FlxSprite(505, 405);
 	summonFreak.frames = Paths.getSparrowAtlas('characters/red/freakachu_entrance');
+	summonFreak.scale.set(2,2);
 	summonFreak.animation.addByPrefix('summon', "Freakachu entrance instance 1", 24, false);
 	PlayState.instance.add(summonFreak);
-	summonFreak.setGraphicSize(Std.int(summonFreak.width * 0.76));
+	summonFreak.setGraphicSize(Std.int(summonFreak.width * 1.76));
 	summonFreak.flipX = false;
 	summonFreak.antialiasing = true;
 	summonFreak.visible = false;
@@ -105,8 +93,8 @@ function onCreatePost() {
 	//FREAKACHU
 	freakachu = new Character().setCharacter(0, 0, 'freakachu');
 	freakachu.adjustPos = false;
-	freakachu.setCharacter(dadOpponent.x - 159, dadOpponent.y + 338, 'freakachu');
-	freakachu.setGraphicSize(Std.int(freakachu.width * 1.18));
+	freakachu.setCharacter(dadOpponent.x + -43, dadOpponent.y + 202, 'freakachu');
+	freakachu.setGraphicSize(Std.int(freakachu.width * 2.76));
 	freakachu.updateHitbox();
 	add(freakachu);
 	freakachu.visible = false;
@@ -115,11 +103,11 @@ function onCreatePost() {
 	//RED DEAD
 	reddead = new Character().setCharacter(0, 0, 'red-dead');
 	reddead.adjustPos = false;
-	reddead.setCharacter(dadOpponent.x - 23, dadOpponent.y + 13, 'red-dead');
+	reddead.setCharacter(dadOpponent.x + 240, dadOpponent.y, 'red-dead');
 	reddead.flipX = true;
 	reddead.flipLeftRight();
 	add(reddead);
-	reddead.setGraphicSize(Std.int(reddead.width * 0.6));
+	reddead.setGraphicSize(Std.int(reddead.width * 1.3));
 	reddead.resizeOffsets();
 	reddead.updateHitbox();
 	reddead.visible = false;
@@ -149,7 +137,7 @@ function onCreatePost() {
 
 	PlayState.instance.typhlosion = new Character().setCharacter(0, 0, 'typhlosion');
 	PlayState.instance.typhlosion.adjustPos = false;
-	PlayState.instance.typhlosion.setCharacter(boyfriend.x + 150, boyfriend.y + 200, 'typhlosion');
+	PlayState.instance.typhlosion.setCharacter(boyfriend.x + 250, boyfriend.y + 200, 'typhlosion');
 	PlayState.instance.typhlosion.updateHitbox();
 	PlayState.instance.add(PlayState.instance.typhlosion);
 	PlayState.instance.typhlosion.playAnim('idle');
@@ -209,7 +197,7 @@ function onUpdate(elapsed)
 				showingGuide = true;
 			}
 		
-		if (FlxG.keys.justPressed.SPACE)
+		if (PlayState.instance.virtualPad.buttonB.justpressed)
 			{
 				shownOnce = true;
 				if (showingGuide) FlxTween.tween(frostbiteGuide, {alpha: 0.0001}, 0.5, {ease: FlxEase.cubeInOut});

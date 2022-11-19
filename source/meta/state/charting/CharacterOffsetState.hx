@@ -28,26 +28,27 @@ class CharacterOffsetState extends MusicBeatState
 		super.create();
 
 		var i = StoryMenuState.cartridgeList[0];
+	/*
 		var fakeBack = new Boyfriend();
 		fakeBack.setCharacter(0, 0, 'hypno-cards');
 		fakeBack.playAnim('idle');
 		fakeBack.screenCenter();
 		add(fakeBack);
 		fakeBack.alpha = 0.5;
-
+*/
 		back = new Boyfriend();
-		back.setCharacter(0, 0, 'hypno-cards');
+		back.setCharacter(0, 0, 'red');
 		//
 		back.playAnim('idle');
 		back.screenCenter();
 
-		front = new Boyfriend();
-		front.setCharacter(0, 0, 'hypno-cards-front');
-		front.playAnim('idle');
-		front.screenCenter();
+	//	front = new Boyfriend();
+	//	front.setCharacter(0, 0, 'hypno-cards-front');
+	//	front.playAnim('idle');
+	//	front.screenCenter();
 
 		add(back);
-		add(front);
+	//	add(front);
 
 		stateDisplay = new FlxText(100, 20, 0, 'Current Anim: ', 20);
 		add(stateDisplay);
@@ -58,7 +59,7 @@ class CharacterOffsetState extends MusicBeatState
 		FlxG.camera.zoom = 0.9;
 	}
 
-	var isBack:Bool = false;
+	var isBack:Bool = true;
 
 	override public function update(elapsed:Float)
 	{
@@ -137,7 +138,7 @@ class CharacterOffsetState extends MusicBeatState
 	{
 		back.addOffset(currentAnim, offsetXback[selectedState], offsetYback[selectedState]);
 		back.playAnim(currentAnim);
-		front.addOffset(currentAnim, offsetXfront[selectedState], offsetYfront[selectedState]);
-		front.playAnim(currentAnim);
+//		front.addOffset(currentAnim, offsetXfront[selectedState], offsetYfront[selectedState]);
+//		front.playAnim(currentAnim);
 	}
 }

@@ -691,11 +691,11 @@ class Character extends FNFSprite
 				animation.addByPrefix('singRIGHT', 'DEAD RED right', 24, false);
 				animation.addByPrefix('singDOWN', 'DEAD RED down', 24, false);
 
-				addOffset('idle');
-				addOffset('singLEFT', 176, 3);
-				addOffset('singRIGHT', -86, -1);
-				addOffset('singDOWN', 19, -8);
-				addOffset('singUP', -1, 59);
+				addOffset('idle', -10, 2);
+				addOffset('singLEFT', 69, 0);
+				addOffset('singRIGHT', -56, 0);
+				addOffset('singDOWN', 0, 0);
+				addOffset('singUP', -11, 28);
 
 				playAnim('idle');
 
@@ -709,16 +709,16 @@ class Character extends FNFSprite
 				animation.addByPrefix('singRIGHT', 'Norm Red right', 24, false);
 				animation.addByPrefix('singDOWN', 'Norm Red down', 24, false);
 
-				addOffset('idle');
-				addOffset('singLEFT', 20);
-				addOffset('singRIGHT', -59);
-				addOffset('singDOWN', 11, 6);
-				addOffset('singUP', 0, 36);
+				addOffset('idle', -200);
+				addOffset('singLEFT', 9-200);
+				addOffset('singRIGHT', -29-200, -1);
+				addOffset('singDOWN', 10-200, 2);
+				addOffset('singUP', 5-200, 16);
 
 				playAnim('idle');
-
 				characterData.offsetX = -250;
-				// characterData.camOffsetX = 100;
+				characterData.offsetY = -240;
+				characterData.camOffsetY = -100;
 				characterData.healthbarColors = [255, 55, 55];
 
 			case 'typhlosion':
@@ -726,13 +726,18 @@ class Character extends FNFSprite
 				animation.addByIndices('idle', 'TYPHLOSION MECHANIC', generateIndicesAtPoint(1, 15), "", 24, false);
 				animation.addByIndices('fire', 'TYPHLOSION MECHANIC', generateIndicesAtPoint(16, 14), "", 24, false);
 				playAnim('idle');
-
+				setGraphicSize(Std.int(width * 2));
+				characterData.offsetX = -300;
+				characterData.offsetY = -260 + 250;
 				characterData.facingDirection = RIGHT;
 
 			case 'freakachu':
 				frames = Paths.getSparrowAtlas('characters/red/Freakachu');
 				animation.addByPrefix('idle', 'Freakachu IDLE', 24, false);
 				animation.addByPrefix('painsplit', 'Freakachu PAIN SPLIT', 24, false);
+				setGraphicSize(Std.int(width * 2));
+				characterData.offsetX = 111 / 2;
+				characterData.offsetY = 84 / 2;
 				playAnim('idle');
 				addOffset("painsplit", -5, 28);
 
@@ -759,9 +764,11 @@ class Character extends FNFSprite
 				addOffset("singLEFTmiss", 50);
 				addOffset("singDOWNmiss", -88, -77);
 
+				setGraphicSize(Std.int(width * 2));
 				playAnim('idle');
 
-				characterData.offsetY = 160;
+				characterData.offsetX = 77 - 300;
+				characterData.offsetY = 252 /2 + 250;
 				characterData.camOffsetY = -160;
 				characterData.healthbarColors = [234, 216, 255];
 
