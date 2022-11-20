@@ -31,31 +31,21 @@ var introFog:FlxSprite;
 function onCreate() {
 	dadOpponent.y += 100;
     PlayState.defaultCamZoom = 0.7;
-	var consistentPosition:Array<Float> = [-800, -100];
+	var consistentPosition:Array<Float> = [0, 500];
 	var resizeBG:Float = 1;
 	var background:FlxSprite = new FlxSprite(-800, -300);
 	background.loadGraphic(Paths.image('bg'));
-	background.setGraphicSize(Std.int(background.width * resizeBG));
+	background.setGraphicSize(Std.int(background.width * 2));
 	background.updateHitbox();
 	background.antialiasing = true;
 	background.scrollFactor.set(1, 1);
 	background.active = false;
 	add(background);
 
-	var backgroundv:FlxSprite = new FlxSprite(-800, -300);
-	backgroundv.loadGraphic(Paths.image('bgs'));
-	backgroundv.alpha = 50;
-	backgroundv.setGraphicSize(Std.int(background.width * resizeBG));
-	backgroundv.updateHitbox();
-	backgroundv.antialiasing = true;
-	backgroundv.scrollFactor.set(1, 1);
-	backgroundv.active = false;
-	add(background);
-
 	fog = new FlxSprite().loadGraphic(Paths.image('fog'));	
 	fog.antialiasing = true;
 	fog.scrollFactor.set(0.0, 0.0);
-	//fog.setGraphicSize(FlxG.width * 1.4, FlxG.height * 1.4);
+    fog.scale.set(2,2);
 	PlayState.instance.add(fog);
 	fog.screenCenter();
 	fog.visible = true;
@@ -66,6 +56,7 @@ function onCreate() {
 
 function onCreatePost() {
 	trace('create post');
+    PlayState.instance.dadStrums.visible = false;
 	fog.cameras = [PlayState.dialogueHUD];
 
 	PlayState.instance.minHealth = 0.0;

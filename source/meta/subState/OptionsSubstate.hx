@@ -373,18 +373,18 @@ class OptionsSubstate extends MusicBeatSubState
 		}
 		else
 		{
-			if (FlxG.keys.justPressed.ENTER)
+			if (controls.ACCEPT)
 			{
 				Init.trueSettings['Offset'] = offsetTemp;
 				closeSubmenu();
 			}
-			else if (FlxG.keys.justPressed.ESCAPE)
+			else if (controls.BACK)
 				closeSubmenu();
 
 			var move = 0;
-			if (FlxG.keys.pressed.LEFT)
+			if (controls.LEFT)
 				move = -1;
-			else if (FlxG.keys.pressed.RIGHT)
+			else if (controls.RIGHT)
 				move = 1;
 
 			offsetTemp += move * 0.1;
