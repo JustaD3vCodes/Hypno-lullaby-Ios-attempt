@@ -241,6 +241,7 @@ class PlayState extends MusicBeatState
 	public static var camGame:FlxCamera;
 	public static var vignetteCam:FlxCamera;
 	public static var dialogueHUD:FlxCamera;
+	public static var culHUD:FlxCamera;
 
 	public var camDisplaceX:Float = 0;
 	public var camDisplaceY:Float = 0; // might not use depending on result
@@ -868,6 +869,9 @@ class PlayState extends MusicBeatState
 		dialogueHUD = new FlxCamera();
 		dialogueHUD.bgColor.alpha = 0;
 		FlxG.cameras.add(dialogueHUD);
+		culHUD = new FlxCamera();
+		culHUD.bgColor.alpha = 0;
+		FlxG.cameras.add(culHUD);
 
 		if (Assets.exists(Paths.songJson(SONG.song.toLowerCase(), 'lyrics', false)))
 		{

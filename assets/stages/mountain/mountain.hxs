@@ -27,6 +27,7 @@ var freakachuActive:Bool = false;
 var frostbiteGuide:FlxSprite;
 
 var introFog:FlxSprite;
+var bg:FlxSprite;
 
 function onCreate() {
 	dadOpponent.y += 100;
@@ -51,6 +52,8 @@ function onCreate() {
 	fog.visible = true;
 	fog.alpha = 0.25;
 
+	freakachuJumpscare = new FlxSprite(0, 0).loadGraphic(Paths.image('Pikachu'));
+
 	camZoomTween = FlxTween.tween(this, {}, 0);
 }
 
@@ -66,7 +69,6 @@ function onCreatePost() {
 	PlayState.cameraCentered = true;
 	PlayState.instance.camPos.x -= 250;
 	PlayState.instance.camPos.y -= 50;
-	//
 	dadOpponent.setGraphicSize(Std.int(dadOpponent.width * 1.3));
 	dadOpponent.resizeOffsets();
 
@@ -105,13 +107,13 @@ function onCreatePost() {
 	reddead.playAnim('idle');
 
 	//FREAKACHU JUMPSCARE
-	freakachuJumpscare = new FlxSprite(0, 0).loadGraphic(Paths.image('jumpscares/Pikachu'));
 	freakachuJumpscare.scrollFactor.set(0.0, 0.0);
-	add(freakachuJumpscare);
+	freakachuJumpscare.scale.set(2, 2);
 	freakachuJumpscare.screenCenter();
 	freakachuJumpscare.antialiasing = true;
 	freakachuJumpscare.visible = false;
-	freakachuJumpscare.cameras = [PlayState.dialogueHUD];
+	freakachuJumpscare.cameras = [PlayState.culHUD];
+	PlayState.instance.add(freakachuJumpscare);
 
 	//FROSTBITE GUIDE
 	frostbiteGuide = new FlxSprite(530, 370);
@@ -216,12 +218,6 @@ function onUpdate(elapsed)
 				PlayState.boyfriend.characterData.camOffsetY = -160 + (PlayState.instance.coldnessDisplay * 150);
 			}
 
-		if (freakachuJumpscare != null)
-			{
-				imgScaleCur = FlxMath.lerp(imgScaleCur, imgScaleTarget, (elapsed / (1 / 120)) * 0.15);
-				freakachuJumpscare.scale.set(imgScaleCur, imgScaleCur);
-			}
-			
 		if (aberrationShader != null)
 			{
 				abbCur = FlxMath.lerp(abbCur, abbTarget, (elapsed / (1 / 120)) * 0.06);
@@ -296,24 +292,25 @@ function onEvent(eventName) {
 			PlayState.instance.canPause = false;
 			PlayState.instance.typhlosionUses = -1;
 			freakachuActive = false;
-			//blackScreenCover.visible = true;
 
 			aberrationShader = new ShaderFilter(new GraphicsShader("", Paths.shader('aberration')));
 			aberrationShader.shader.data.aberration.value = [0.0];
 			aberrationShader.shader.data.effectTime.value = [0.0];
 			PlayState.dialogueHUD.setFilters([aberrationShader]);
 
+			PlayState.dialogueHUD.alpha = 0;
+
 			new FlxTimer().start(10.12, function(tmr:FlxTimer)
 				{
 					imgScaleTarget = 0.35;
 					abbTarget = 0.35;
-					if (freakachuJumpscare != null) freakachuJumpscare.visible = true;
-					PlayState.dialogueHUD.shake(0.008, 3.08);
+					freakachuJumpscare.visible = true;
+					PlayState.culHUD.shake(0.008, 3.08);
 				});
 			
 			new FlxTimer().start(13.20, function(tmr:FlxTimer)
 				{
-					if (freakachuJumpscare != null) freakachuJumpscare.visible = false;
+					FreakachuJumpscare.visible = false;
 					PlayState.dialogueHUD.setFilters([]);
 					new FlxTimer().start(1.0, function(tmr:FlxTimer)
 						{
