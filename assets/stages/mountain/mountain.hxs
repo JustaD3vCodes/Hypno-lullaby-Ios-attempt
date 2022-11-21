@@ -59,7 +59,6 @@ function onCreate() {
 
 function onCreatePost() {
 	trace('create post');
-    PlayState.instance.dadStrums.visible = false;
 	fog.cameras = [PlayState.dialogueHUD];
 
 	PlayState.instance.minHealth = 0.0;
