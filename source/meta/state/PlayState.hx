@@ -1497,11 +1497,13 @@ class PlayState extends MusicBeatState
 	{
 		if (!frostSet)
 		{
-			frostbiteShader = new ShaderFilter(new GraphicsShader("", Paths.shader('snowfall')));
-			frostbiteShader.shader.data.amount.value = [200];
-			frostbiteShader.shader.data.intensity.value = [0.0];
-			frostbiteShader.shader.data.time.value = [0.0];
-			vignetteCam.setFilters([frostbiteShader]);
+			if (!Init.trueSettings.get('Disable heavy shaders')) {
+				frostbiteShader = new ShaderFilter(new GraphicsShader("", Paths.shader('snowfall')));
+				frostbiteShader.shader.data.amount.value = [200];
+				frostbiteShader.shader.data.intensity.value = [0.0];
+				frostbiteShader.shader.data.time.value = [0.0];
+				vignetteCam.setFilters([frostbiteShader]);
+			}
 			frostSet = true;
 		}
 	}
@@ -1517,7 +1519,8 @@ class PlayState extends MusicBeatState
 		{
 			snowIntensity = value;
 			trace(value);
-			frostbiteShader.shader.data.intensity.value = [snowIntensity];
+			if (Init.trueSettings.get('Disable heavy shaders'))
+				frostbiteShader.shader.data.intensity.value = [snowIntensity];
 		}
 		return snowIntensity;
 	}
@@ -1533,7 +1536,8 @@ class PlayState extends MusicBeatState
 		{
 			snowAmount = value;
 			trace(value);
-			frostbiteShader.shader.data.amount.value = [Std.int(snowAmount)];
+			if (!Init.trueSettings.get('Disable heavy shaders'))
+				frostbiteShader.shader.data.amount.value = [Std.int(snowAmount)];
 		}
 		return snowAmount;
 	}
@@ -2309,7 +2313,7 @@ class PlayState extends MusicBeatState
 				});
 			}
 
-			if (frostSet)
+			if (frostSet && !Init.trueSettings.get('Disable heavy shaders'))
 				frostbiteShader.shader.data.time.value = [Conductor.songPosition / (Conductor.stepCrochet * 8)];
 
 			var lerpVal = (elapsed * 2.4) * cameraSpeed;

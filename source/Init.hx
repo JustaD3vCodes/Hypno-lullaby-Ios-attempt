@@ -106,10 +106,10 @@ class Init extends FlxState
 			['None', 'Left', 'Right']
 		],
 		'Display Accuracy' => [true, Checkmark, 'Whether to display your accuracy on screen.', NOT_FORCED],
-		'Disable Antialiasing' => [
+		'Disable heavy shaders' => [
 			false,
 			Checkmark,
-			'Whether to disable Anti-aliasing. Helps improve performance in FPS.',
+			'Whether to disable heavy shaders and Anti-aliasing. Helps improve performance in FPS.',
 			NOT_FORCED
 		],
 		'No Camera Note Movement' => [

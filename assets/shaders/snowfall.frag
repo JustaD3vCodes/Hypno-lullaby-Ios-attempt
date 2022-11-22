@@ -16,6 +16,7 @@ float drawCircle(vec2 center, float radius) {
 
 void main()
 {
+    #pragma body
     uv = vec2(openfl_TextureCoordv.x * 2.0, openfl_TextureCoordv.y);
     // gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
     gl_FragColor = texture2D(bitmap, openfl_TextureCoordv);

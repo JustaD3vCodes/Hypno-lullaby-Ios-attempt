@@ -5,3 +5,4 @@ mods/
 docs/_build
 source/.DS_Store
 *.DS_Store
+.DS_Store
