@@ -8,18 +8,21 @@ function returnDelay()
 
 function eventFunction(params) {
 	PlayState.dadOpponent.setCharacter(PlayState.dadOpponent.x - 5, PlayState.dadOpponent.y + 125, 'gold-no-more');
-
+	PlayState.dadOpponent.x = PlayState.dadOpponent.x - 5 + PlayState.dadOpponent.width / 2 - 240;
+	PlayState.dadOpponent.y = PlayState.dadOpponent.y + 115 - PlayState.dadOpponent.height /2 + 96;
 	if (PlayState.staticValues.get('jumpscareSize') != 1.2)
 		PlayState.staticValues.set('jumpscareSize', 1.2);
 
 	new FlxTimer().start(Conductor.stepCrochet * 28 / 1000, function (timer:FlxTimer) {
 		PlayState.dadOpponent.setCharacter(PlayState.dadOpponent.x - 65, PlayState.dadOpponent.y + 400, 'gold-head-rip');
+			PlayState.dadOpponent.x = PlayState.dadOpponent.x - 5 + PlayState.dadOpponent.width / 2 - 240;
+			PlayState.dadOpponent.y = PlayState.dadOpponent.y + 125 - PlayState.dadOpponent.height /2 + 400;
 		if (PlayState.instance.botplaySubtext != null) {
 			PlayState.instance.botplaySubtext.text = 'owie';
 			PlayState.instance.botplaySubtext.x = (FlxG.width / 2) - (PlayState.instance.botplaySubtext.width / 2);
 		}
 		new FlxTimer().start(Conductor.stepCrochet * 31 / 1000, function (timer:FlxTimer) {
-			PlayState.dadOpponent.setCharacter(PlayState.dadOpponent.x + 60, PlayState.dadOpponent.y + 215, 'gold-headless');
+			PlayState.dadOpponent.setCharacter(PlayState.dadOpponent.x + 80, PlayState.dadOpponent.y, 'gold-headless');
 			PlayState.instance.pausePortraitPrefix = ['-nomore', '-nomore'];
 		});
 	});

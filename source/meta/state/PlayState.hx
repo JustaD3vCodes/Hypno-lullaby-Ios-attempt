@@ -4170,6 +4170,8 @@ class PlayState extends MusicBeatState
 				new FlxTimer().start(0.25, loopFade);
 			case "monochrome":
 				FlxG.sound.play(Paths.sound('ImDead' + FlxG.random.int(1, 7)), 1);
+				dadOpponent.x += 100; 
+				dadOpponent.y += 200; 
 				new FlxTimer().start(2, function(tmr:FlxTimer)
 				{
 					startCountdown();

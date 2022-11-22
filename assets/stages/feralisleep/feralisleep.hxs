@@ -5,7 +5,10 @@ var startingPosition:Array<FlxPoint> = [];
 
 function onCreate() {
     PlayState.defaultCamZoom = 0.8;
-	// PlayState.defaultCamZoom = 0.6;
+	
+	dadOpponent.x += 220;
+	dadOpponent.y += 200;
+	//PlayState.defaultCamZoom = 0.6;
 	var consistentPosition:Array<Float> = [-1000, -350];
 	//fog + 960 
 	// ground + 1360
@@ -59,8 +62,9 @@ function onCreatePost() {
 	PlayState.instance.feraligatr = new FlxSprite();
 	PlayState.instance.feraligatr.frames = Paths.getSparrowAtlas('characters/silver/Feralisleep');
 	PlayState.instance.feraligatr.animation.addByPrefix('idle', 'Feralisleep instance 1', 24, false);
-	PlayState.instance.feraligatr.setPosition(PlayState.dadOpponent.x - PlayState.instance.feraligatr.width, PlayState.dadOpponent.y - 250);
-	PlayState.instance.feraligatr.antialiasing = true;
+	PlayState.instance.feraligatr.setPosition(PlayState.dadOpponent.x - PlayState.instance.feraligatr.width*2, PlayState.dadOpponent.y - 150);
+	PlayState.instance.feraligatr.antialiasing = true;	
+	PlayState.instance.feraligatr.scale.set(2,2);
 	PlayState.instance.add(PlayState.instance.feraligatr);
 
 	PlayState.instance.remove(PlayState.dadOpponent);

@@ -679,6 +679,8 @@ class Character extends FNFSprite
 				addOffset('singDOWN', 62, -92);
 				playAnim('idle');
 
+				setGraphicSize(Std.int(width * 2));
+
 				characterData.facingDirection = RIGHT;
 				characterData.camOffsetX = -150;
 				characterData.camOffsetY = 150;
@@ -892,7 +894,7 @@ class Character extends FNFSprite
 				addOffset('singDOWN', 11, -348);
 				addOffset('singUP', -3, 181);
 
-				setGraphicSize(Std.int(width * 1.3));
+				setGraphicSize(Std.int(width * 2.3));
 				updateHitbox();
 
 				playAnim('idle');
@@ -907,7 +909,7 @@ class Character extends FNFSprite
 			case 'gold-no-more':
 				frames = Paths.getSparrowAtlas('characters/gold/GOLD_NO_MORE');
 				animation.addByPrefix('idle', "No More instance 1", 24, false);
-				setGraphicSize(Std.int(width * 1.3));
+				setGraphicSize(Std.int(width * 2.3));
 				updateHitbox();
 
 				playAnim('idle');
@@ -918,7 +920,7 @@ class Character extends FNFSprite
 			case 'gold-head-rip':
 				frames = Paths.getSparrowAtlas('characters/gold/GOLD_HEAD_RIPPING_OFF');
 				animation.addByPrefix('idle', "Head rips_OneLayer instance 1", 24, false);
-				setGraphicSize(Std.int(width * 1.3));
+				setGraphicSize(Std.int(width * 2.3));
 				updateHitbox();
 
 				playAnim('idle');
@@ -940,7 +942,7 @@ class Character extends FNFSprite
 				addOffset('singRIGHT', -103, 80);
 				addOffset('singDOWN', 50, -180);
 
-				setGraphicSize(Std.int(width * 1.3));
+				setGraphicSize(Std.int(width * 2.3));
 				updateHitbox();
 
 				playAnim('idle');

@@ -13,6 +13,7 @@ function eventFunction(params) {
 	celebi.animation.addByPrefix('spawn', 'Celebi Spawn Full', 24, false);
 	celebi.animation.addByIndices('recede', 'Celebi Spawn Full', [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], '', 24, false);
 	celebi.animation.addByPrefix('idle', 'Celebi Idle', 24, false);
+	celebi.scale.set(2,2);
 	celebi.animation.play('spawn');
 	// pick position
 	var direction:Int = -1;
@@ -32,6 +33,7 @@ function eventFunction(params) {
 		{
 			var note:CelebiNote = new CelebiNote(celebi.x + celebi.width / 2, celebi.y);
 			note.frames = Paths.getSparrowAtlas('characters/gold/Note_asset');
+			note.scale.set(2,2);
 			note.animation.addByPrefix('spawn', 'Note Full', 24, false);
 			note.animation.play('spawn');
 			//
