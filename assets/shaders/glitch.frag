@@ -1,7 +1,5 @@
-// https://www.shadertoy.com/view/XtyXzW
-
-#pragma header
 #extension GL_EXT_gpu_shader4 : enable
+#pragma header
 
 uniform float time;
 uniform float prob;

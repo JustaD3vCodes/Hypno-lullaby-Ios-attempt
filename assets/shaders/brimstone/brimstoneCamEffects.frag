@@ -8,49 +8,54 @@ struct dither_tile {
     float height;
 };
 
-vec3[4] gb_colors() {
+vec3 gb_colors(int color) {
     vec3 gb_colors[4];
     gb_colors[0] = vec3(8., 24., 32.) / 255.;
     gb_colors[1] = vec3(52., 104., 86.) / 255.;
     gb_colors[2] = vec3(136., 192., 112.) / 255.;
     gb_colors[3] = vec3(224., 248., 208.) / 255.;
-    return gb_colors;
+    vec3 daColor = gb_colors[color];
+    return daColor;
 }
 
-float[4] gb_colors_distance(vec3 color) {
-    float distances[4];
-    distances[0] = distance(color, gb_colors()[0]);
-    distances[1] = distance(color, gb_colors()[1]);
-    distances[2] = distance(color, gb_colors()[2]);
-    distances[3] = distance(color, gb_colors()[3]);
-    return distances;
+float gb_colors_distance(vec3 color, int dist) {
+    return distance(color, gb_colors(dist));
 }
 
 vec3 closest_gb(vec3 color) {
     int best_i = 0;
     float best_d = 2.;
     
-    vec3 gb_colors[4] = gb_colors();
+    vec3 colors[4];
+    colors[0] = gb_colors(0);
+    colors[1] = gb_colors(1);
+    colors[2] = gb_colors(2);
+    colors[3] = gb_colors(3);
     for (int i = 0; i < 4; i++) {
-        float dis = distance(gb_colors[i], color);
+        float dis = distance(colors[i], color);
         if (dis < best_d) {
             best_d = dis;
             best_i = i;
         }
     }
-    return gb_colors[best_i];
+    return colors[best_i];
 }
 
-vec3[2] gb_2_closest(vec3 color) {
- 	float distances[4] = gb_colors_distance(color);
+vec3 gb_2_closest(vec3 color, int i) {
+ 	float distances[4];
     
+ 	distances[0] = gb_colors_distance(color, 0);
+ 	distances[1] = gb_colors_distance(color, 1);
+ 	distances[2] = gb_colors_distance(color, 2);
+ 	distances[3] = gb_colors_distance(color, 3);
+
     int first_i = 0;
     float first_d = 2.;
     
     int second_i = 0;
     float second_d = 2.;
     
-    for (int i = 0; i < distances.length(); i++) {
+    for (int i = 0; i < 4; i++) {
         float d = distances[i];
         if (distances[i] <= first_d) {
             second_i = first_i;
@@ -62,17 +67,32 @@ vec3[2] gb_2_closest(vec3 color) {
             second_d = d;
         }
     }
-    vec3 colors[4] = gb_colors();
+    vec3 colors[4];
+    colors[0] = gb_colors(0);
+    colors[1] = gb_colors(1);
+    colors[2] = gb_colors(2);
+    colors[3] = gb_colors(3);
     vec3 result[2];
     if (first_i < second_i)
-        result = vec3[2](colors[first_i], colors[second_i]);
+    {
+        result[0] = colors[first_i];
+        result[1] = colors[second_i];
+    }
     else
-     	result = vec3[2](colors[second_i], colors[first_i]);   
-    return result;
+    {
+        result[1] = colors[first_i];
+        result[0] = colors[second_i];
+    }
+    return result[i];
 }
 
 bool needs_dither(vec3 color) {
-    float distances[4] = gb_colors_distance(color);
+ 	float distances[4];
+   
+ 	distances[0] = gb_colors_distance(color, 0);
+ 	distances[1] = gb_colors_distance(color, 1);
+ 	distances[2] = gb_colors_distance(color, 2);
+ 	distances[3] = gb_colors_distance(color, 3);
     
     int first_i = 0;
     float first_d = 2.;
@@ -80,7 +100,7 @@ bool needs_dither(vec3 color) {
     int second_i = 0;
     float second_d = 2.;
     
-    for (int i = 0; i < distances.length(); i++) {
+    for (int i = 0; i < 4; i++) {
         float d = distances[i];
         if (d <= first_d) {
             second_i = first_i;
@@ -97,10 +117,14 @@ bool needs_dither(vec3 color) {
 
 vec3 return_gbColor(vec3 sampleColor) {
     vec3 endColor;
+    vec3 closest[2];
+
     if (needs_dither(sampleColor)) {
-        endColor = vec3(gb_2_closest(sampleColor)[int(dither_2[int(openfl_TextureCoordv.x)][int(openfl_TextureCoordv.y)])]);
+   		closest[0] = gb_2_closest(sampleColor, 0);
+  		closest[1] = gb_2_closest(sampleColor, 1);
+        endColor = (closest[int(dither_2[int(openfl_TextureCoordv.x)][int(openfl_TextureCoordv.y)])]);
     } else
-        endColor = vec3(closest_gb(texture2D(bitmap, openfl_TextureCoordv).rgb));
+        endColor = closest_gb(texture2D(bitmap, openfl_TextureCoordv).rgb);
     return endColor;
 }
 
@@ -110,7 +134,13 @@ vec3 buried_wall_color = vec3(107., 130., 149.) / 255.0;
 
 void main() {
     vec4 sampleColor = texture2D(bitmap, openfl_TextureCoordv);
-    vec3 colors[4] = gb_colors();
+    vec3 colors[4];
+
+    colors[0] = gb_colors(0);
+    colors[1] = gb_colors(1);
+    colors[2] = gb_colors(2);
+    colors[3] = gb_colors(3);
+    
     if (sampleColor.a != 0.0) {
         vec3 colorB = return_gbColor(sampleColor.rgb);
         vec4 newColor;

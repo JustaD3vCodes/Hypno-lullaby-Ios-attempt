@@ -309,7 +309,7 @@ function onEvent(eventName) {
 			
 			new FlxTimer().start(13.20, function(tmr:FlxTimer)
 				{
-					FreakachuJumpscare.visible = false;
+					freakachuJumpscare.visible = false;
 					PlayState.dialogueHUD.setFilters([]);
 					new FlxTimer().start(1.0, function(tmr:FlxTimer)
 						{

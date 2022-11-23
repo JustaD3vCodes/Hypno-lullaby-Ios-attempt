@@ -141,10 +141,11 @@ class ShopState extends MusicBeatState
 
 	var currentShopDialogue:String;
 	var lastShopDialogue:Array<Int> = [];
-
+	var daYSelect:Int;
 	override public function create()
 	{
 		super.create();
+		daYSelect = 0;
 
 		#if DISCORD_ALLOWED
 		if (!freeplaySelected)
@@ -1056,10 +1057,21 @@ class ShopState extends MusicBeatState
 						switchShopSel(-1, true);
 					else if (right)
 						switchShopSel(1, true);
-					else if (down)
+					else if (down) {
+						if (daYSelect != 2)
+							daYSelect += 1;
+						else 
+							daYSelect = 0;
 						switchShopSel(3, true);
+					}
 					else if (up)
+					{
+						if (daYSelect != 0)
+							daYSelect -= 1;
+						else 
+							daYSelect = 2;
 						switchShopSel(-3, true);
+					}
 					else if (accept)
 						purchaseItem();
 				}
@@ -1118,7 +1130,8 @@ class ShopState extends MusicBeatState
 		if (inShop)
 		{
 			shopHand.x = 425 + ((curItemSelected % 3) * 200);
-			shopHand.y = 100 + (itemArray[curItemSelected].row * 128);
+			shopHand.y = 100 + (daYSelect * 128);
+		//	trace(daYSelect);
 		}
 
 		// update song stuff

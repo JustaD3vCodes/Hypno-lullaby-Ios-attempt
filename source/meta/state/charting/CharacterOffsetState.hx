@@ -37,8 +37,7 @@ class CharacterOffsetState extends MusicBeatState
 		fakeBack.alpha = 0.5;
 */
 		back = new Boyfriend();
-		back.setCharacter(0, 0, 'red');
-		//
+		back.setCharacter(0, 0, 'jigglypuff');
 		back.playAnim('idle');
 		back.screenCenter();
 

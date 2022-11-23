@@ -19,6 +19,7 @@ import flixel.util.FlxCollision;
 import flixel.util.FlxColor;
 import meta.Controls;
 import meta.data.PlayerSettings;
+import mobile.flixel.FlxVirtualPad;
 
 class OverworldStage extends FlxState
 {
@@ -39,6 +40,7 @@ class OverworldStage extends FlxState
 
 	var blackFade:FlxSprite;
 	var pointTo:FlxPoint;
+	public static var daPad:FlxVirtualPad;
 
 	override public function create()
 	{
@@ -128,6 +130,13 @@ class OverworldStage extends FlxState
 		gameCam.setFilters([gameboyFilter, glitchSprite]);
 
 		pointTo = new FlxPoint(320 + 8, 192 + 8);
+		daPad = new FlxVirtualPad(LEFT_FULL, NONE);
+		add(daPad);
+
+		var camControls:FlxCamera = new FlxCamera();
+		FlxG.cameras.add(camControls, true);
+		camControls.bgColor.alpha = 0;
+		daPad.cameras = [camControls];
 	}
 
 	var shiftX:Float = 0;
@@ -224,11 +233,6 @@ class OverworldStage extends FlxState
  */
 class OverworldBF extends FlxSprite
 {
-	private var controls(get, never):Controls;
-
-	inline function get_controls():Controls
-		return PlayerSettings.player1.controls;
-
 	public function new()
 	{
 		super();
@@ -258,11 +262,12 @@ class OverworldBF extends FlxSprite
 			var trueElapsed:Float = (elapsed / (1 / 60));
 			if (!movingX && !movingY)
 			{
-				if (!controls.UI_UP && !controls.UI_DOWN)
+				if (!(OverworldStage.daPad.buttonUp.pressed || FlxG.keys.pressed.UP) && !(OverworldStage.daPad.buttonDown.pressed || FlxG.keys.pressed.DOWN))
 				{
-					if ((controls.UI_LEFT || controls.UI_RIGHT) && !(controls.UI_LEFT && controls.UI_RIGHT))
+					if (((OverworldStage.daPad.buttonLeft.pressed || FlxG.keys.pressed.LEFT) || (OverworldStage.daPad.buttonRight.pressed || FlxG.keys.pressed.RIGHT)) && 
+					   !((OverworldStage.daPad.buttonLeft.pressed || FlxG.keys.pressed.LEFT) && (OverworldStage.daPad.buttonRight.pressed || FlxG.keys.pressed.RIGHT)))
 					{
-						direction = wrapAngle(0 + (90 * (controls.UI_LEFT ? -1 : 0)) + (90 * (controls.UI_RIGHT ? 1 : 0)));
+						direction = wrapAngle(0 + (90 * ((OverworldStage.daPad.buttonLeft.pressed || FlxG.keys.pressed.LEFT) ? -1 : 0)) + (90 * ((OverworldStage.daPad.buttonRight.pressed || FlxG.keys.pressed.RIGHT) ? 1 : 0)));
 						if (direction == 270)
 							animation.play('left');
 						else if (direction == 90)
@@ -275,11 +280,12 @@ class OverworldBF extends FlxSprite
 						//
 					}
 				}
-				if (!controls.UI_LEFT && !controls.UI_RIGHT)
+				if (!(OverworldStage.daPad.buttonLeft.pressed || FlxG.keys.pressed.LEFT) && !(OverworldStage.daPad.buttonRight.pressed || FlxG.keys.pressed.RIGHT))
 				{
-					if ((controls.UI_DOWN || controls.UI_UP) && !(controls.UI_DOWN && controls.UI_UP))
+					if (((OverworldStage.daPad.buttonDown.pressed || FlxG.keys.pressed.DOWN) || (OverworldStage.daPad.buttonUp.pressed || FlxG.keys.pressed.UP))
+				    && !((OverworldStage.daPad.buttonDown.pressed || FlxG.keys.pressed.DOWN) && (OverworldStage.daPad.buttonUp.pressed || FlxG.keys.pressed.UP)))
 					{
-						direction = wrapAngle(90 + (90 * (controls.UI_DOWN ? -1 : 0)) + (90 * (controls.UI_UP ? 1 : 0)));
+						direction = wrapAngle(90 + (90 * ((OverworldStage.daPad.buttonDown.pressed || FlxG.keys.pressed.DOWN) ? -1 : 0)) + (90 * ((OverworldStage.daPad.buttonUp.pressed || FlxG.keys.pressed.UP) ? 1 : 0)));
 						if (direction == 180)
 							animation.play('up');
 						else if (direction == 0)

@@ -1333,25 +1333,21 @@ class Character extends FNFSprite
 				animation.addByPrefix('knife', 'Knife out', 24, false);
 
 				addOffset("idle");
-				addOffset("singUP", -21, 31);
-				addOffset("singLEFT", -18, -3);
-				addOffset("singRIGHT", -32, 5);
-				addOffset("singDOWN", 108, -42);
-				addOffset("singUPmiss", -21, 31);
-				addOffset("singLEFTmiss", -21, 42);
-				addOffset("singRIGHTmiss", -31, 3);
-				addOffset("singDOWNmiss", 102, -28);
+				addOffset("singUP", -17, 37);
+				addOffset("singLEFT", -17, 2);
+				addOffset("singRIGHT", -17, 13);
+				addOffset("singDOWN", 109, -36);
+				addOffset("singUPmiss", -17, 37);
+				addOffset("singLEFTmiss", -17, 2);
+				addOffset("singRIGHTmiss", -17, 13);
+				addOffset("singDOWNmiss", 109, -36);
 				addOffset("preidle", -30, 10);
 				addOffset("turn", -28, 29);
 				addOffset("knife", -3, 11);
 
 				playAnim('idle');
 
-				for (i in animOffsets)
-				{
-					i[0] *= scale.x;
-					i[1] *= scale.y;
-				}
+				setGraphicSize(Std.int(width * 2));
 
 				characterData.healthbarColors = [255, 140, 0];
 				characterData.camOffsetY = -60;
@@ -1368,21 +1364,17 @@ class Character extends FNFSprite
 				animation.addByPrefix('turn', 'jigglyturn', 24, false);
 
 				addOffset('idle');
-				addOffset("singUP", 122, 100);
-				addOffset("singRIGHT", 28, 54);
-				addOffset("singLEFT", 234, 69);
-				addOffset("singDOWN", 28, -39);
+				addOffset("singUP", -14, 30);
+				addOffset("singRIGHT", 10, 19);
+				addOffset("singLEFT", -19, 25);
+				addOffset("singDOWN", -11, -7);
 				addOffset("sleep", 0, 0);
 				addOffset("turn", 50, 3);
 
 				characterData.healthbarColors = [150, 150, 150];
 
-				setGraphicSize(Std.int(width * 0.5));
-				for (i in animOffsets)
-				{
-					i[0] *= scale.x;
-					i[1] *= scale.y;
-				}
+				setGraphicSize(Std.int(width * 1.5));
+	
 				characterData.facingDirection = RIGHT;
 				characterData.offsetX = -10;
 				characterData.offsetY = -150;

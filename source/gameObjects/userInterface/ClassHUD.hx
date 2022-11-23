@@ -98,6 +98,14 @@ class ClassHUD extends FlxSpriteGroup
 			cornerMark.setPosition(FlxG.width - (cornerMark.width + 5), 5);
 			cornerMark.antialiasing = true;
 
+			var a2cornerMark:FlxText = new FlxText(0, 0, 0, 'PORT BY UNSTOP4BLE');
+			a2cornerMark.setFormat(Paths.font('vcr.ttf'), 18, FlxColor.WHITE);
+			a2cornerMark.setBorderStyle(OUTLINE, FlxColor.BLACK, 2);
+			add(a2cornerMark);
+			a2cornerMark.setPosition(FlxG.width - (a2cornerMark.width + 5), 20);
+			a2cornerMark.antialiasing = true;
+
+
 			centerMark = new FlxText(0, 0, 0,
 				'- ${CoolUtil.dashToSpace(PlayState.SONG.song) + " [" + CoolUtil.difficultyFromNumber(PlayState.storyDifficulty)}] -\n');
 			centerMark.setFormat(Paths.font('vcr.ttf'), 24, FlxColor.WHITE);
