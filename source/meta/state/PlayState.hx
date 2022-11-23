@@ -1519,7 +1519,7 @@ class PlayState extends MusicBeatState
 		{
 			snowIntensity = value;
 			trace(value);
-			if (Init.trueSettings.get('Disable heavy shaders'))
+			if (!Init.trueSettings.get('Disable heavy shaders'))
 				frostbiteShader.shader.data.intensity.value = [snowIntensity];
 		}
 		return snowIntensity;
