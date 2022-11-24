@@ -2872,7 +2872,10 @@ class PlayState extends MusicBeatState
 					if (daNote.customScrollspeed)
 						roundedSpeed = FlxMath.roundDecimal(daNote.noteSpeed, 2);
 
-					var receptorPosY:Float = strumline.receptors.members[Math.floor(daNote.noteData)].y + Note.swagWidth / 6;
+					var receptorPosY:Float = 0;
+					if (gameplayMode != PUSSY_MODE && curSong.toLowerCase() == "death-toll")
+						receptorPosY = strumline.receptors.members[Math.floor(daNote.noteData)].y + Note.swagWidth / 6;
+
 					var psuedoY:Float = (( // shubs be like ternary (this is just so downscroll also works as a default)
 						// shut up kade
 						(mxMechanic
@@ -2884,6 +2887,12 @@ class PlayState extends MusicBeatState
 						+ (Math.sin(flixel.math.FlxAngle.asRadians(daNote.noteDirection)) * psuedoX)
 						+ daNote.spriteOffet;
 					// painful math equation
+
+					if (gameplayMode == PUSSY_MODE && curSong.toLowerCase() == "death-toll")
+					daNote.x = (Math.cos(flixel.math.FlxAngle.asRadians(daNote.noteDirection)) * psuedoX)
+						+ (Math.sin(flixel.math.FlxAngle.asRadians(daNote.noteDirection)) * psuedoY)
+						+ daNote.spriteOffet;
+					else
 					daNote.x = strumline.receptors.members[Math.floor(daNote.noteData)].x
 						+ (Math.cos(flixel.math.FlxAngle.asRadians(daNote.noteDirection)) * psuedoX)
 						+ (Math.sin(flixel.math.FlxAngle.asRadians(daNote.noteDirection)) * psuedoY)
@@ -3013,7 +3022,8 @@ class PlayState extends MusicBeatState
 				});
 
 				// unoptimised asf camera control based on strums
-				strumCameraRoll(strumline.receptors, (strumline == strumLines.members[playerLane]));
+				if (gameplayMode != PUSSY_MODE && curSong.toLowerCase() == "death-toll")
+					strumCameraRoll(strumline.receptors, (strumline == strumLines.members[playerLane]));
 			}
 		}
 
@@ -3158,7 +3168,7 @@ class PlayState extends MusicBeatState
 			for (i in character)
 				characterPlayAnimation(coolNote, i);
 
-			if (characterStrums.receptors.members[coolNote.noteData] != null)
+			if (characterStrums.receptors.members[coolNote.noteData] != null && gameplayMode != PUSSY_MODE)
 			{
 				if (characterStrums == dadStrums && dadOpponent.curCharacter.contains('wiggl'))
 				{
@@ -3389,7 +3399,7 @@ class PlayState extends MusicBeatState
 
 		var holdControls:Array<Bool> = [];
 
-		if (bronzongMechanic)
+		if (bronzongMechanic && gameplayMode != PUSSY_MODE)
 			holdControls = [controls.LEFT, controls.DOWN, controls.UP, controls.RIGHT, controls.BACK];
 		else
 			holdControls = [controls.LEFT, controls.DOWN, controls.UP, controls.RIGHT];

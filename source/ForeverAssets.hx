@@ -311,7 +311,7 @@ class ForeverAssets
 				newNote.noteVisualOffset = prevNote.noteVisualOffset;
 			else // calculate a new visual offset based on that note's width and newnote's width
 				newNote.noteVisualOffset = ((prevNote.width / 2) - (newNote.width / 2));
-			if (noteType == 2)
+			if (noteType == 2 )//&& Init.trueSettings.get('Mechanics') != 'pussy')
 			{ // shitty hell bell fix lol
 				newNote.noteVisualOffset = ((prevNote.width / 2) - (newNote.width / 2)) + 97;
 			}

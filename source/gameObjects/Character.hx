@@ -1333,14 +1333,14 @@ class Character extends FNFSprite
 				animation.addByPrefix('knife', 'Knife out', 24, false);
 
 				addOffset("idle");
-				addOffset("singUP", -17, 37);
-				addOffset("singLEFT", -17, 2);
-				addOffset("singRIGHT", -17, 13);
-				addOffset("singDOWN", 109, -36);
-				addOffset("singUPmiss", -17, 37);
-				addOffset("singLEFTmiss", -17, 2);
-				addOffset("singRIGHTmiss", -17, 13);
-				addOffset("singDOWNmiss", 109, -36);
+				addOffset("singUP", -23, 43);
+				addOffset("singLEFT", -18, 5);
+				addOffset("singRIGHT", -24, 13);
+				addOffset("singDOWN", 105, -28);
+				addOffset("singUPmiss", -25, 41);
+				addOffset("singLEFTmiss", -17, 53);
+				addOffset("singRIGHTmiss", -28, 20);
+				addOffset("singDOWNmiss", 99, -20);
 				addOffset("preidle", -30, 10);
 				addOffset("turn", -28, 29);
 				addOffset("knife", -3, 11);
@@ -1349,6 +1349,8 @@ class Character extends FNFSprite
 
 				setGraphicSize(Std.int(width * 2));
 
+				characterData.offsetX = 10;
+				characterData.offsetY = 150;
 				characterData.healthbarColors = [255, 140, 0];
 				characterData.camOffsetY = -60;
 				characterData.facingDirection = LEFT;
@@ -1363,21 +1365,24 @@ class Character extends FNFSprite
 				animation.addByPrefix('sleep', 'jigglysing', 24, false);
 				animation.addByPrefix('turn', 'jigglyturn', 24, false);
 
+				// + = left, - = right
 				addOffset('idle');
-				addOffset("singUP", -14, 30);
-				addOffset("singRIGHT", 10, 19);
-				addOffset("singLEFT", -19, 25);
-				addOffset("singDOWN", -11, -7);
+				addOffset("singUP", 60, 41);
+				addOffset("singRIGHT", 18, 34);
+				addOffset("singLEFT", 60, 27);
+				addOffset("singDOWN", 1, -5);
 				addOffset("sleep", 0, 0);
 				addOffset("turn", 50, 3);
 
 				characterData.healthbarColors = [150, 150, 150];
 
 				setGraphicSize(Std.int(width * 1.5));
-	
+			//	for (i in animOffsets)
+			//	{
+			//		i[0] *= scale.x;
+			//		i[1] *= scale.y;
+			//	}
 				characterData.facingDirection = RIGHT;
-				characterData.offsetX = -10;
-				characterData.offsetY = -150;
 				characterData.camOffsetY = -30;
 				characterData.camOffsetX = -20;
 				characterData.zoomOffset = 0.15;
@@ -1400,7 +1405,7 @@ class Character extends FNFSprite
 
 				characterData.healthbarColors = [150, 150, 150];
 
-				setGraphicSize(Std.int(width * 0.5));
+				setGraphicSize(Std.int(width * 2.5));
 				for (i in animOffsets)
 				{
 					i[0] *= scale.x;

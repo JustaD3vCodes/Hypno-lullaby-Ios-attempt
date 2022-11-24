@@ -1158,15 +1158,14 @@ class OriginalChartingState extends MusicBeatState
 
 	function deleteNote(note:Note):Void
 	{
-		for (i in _song.notes[curSection].sectionNotes)
-		{
-			if (i[0] == note.strumTime && i[1] % PlayState.numberOfKeys == note.noteData)
+			for (i in _song.notes[curSection].sectionNotes)
 			{
-				FlxG.log.add('FOUND EVIL NUMBER');
-				_song.notes[curSection].sectionNotes.remove(i);
+				if (i[0] == note.strumTime && i[1] % PlayState.numberOfKeys == note.noteData)
+				{
+					FlxG.log.add('FOUND EVIL NUMBER');
+					_song.notes[curSection].sectionNotes.remove(i);
+				}
 			}
-		}
-
 		updateGrid();
 	}
 

@@ -9,7 +9,7 @@ import meta.state.menus.StoryMenuState;
 
 class CharacterOffsetState extends MusicBeatState
 {
-	var currentState:Array<String> = ['idle', 'singUP', 'singLEFT', 'singRIGHT', 'singDOWN', 'hit1', 'hit2',];
+	var currentState:Array<String> = ['idle', 'singUP', 'singLEFT', 'singRIGHT', 'singDOWN', 'singUPmiss', 'singLEFTmiss', 'singRIGHTmiss', 'singDOWNmiss',];
 	var offsetXback:Array<Int> = [0, 0, 0, 0, 0];
 	var offsetYback:Array<Int> = [0, 0, 0, 0, 0];
 	var offsetXfront:Array<Int> = [0, 0, 0, 0, 0];
@@ -37,7 +37,8 @@ class CharacterOffsetState extends MusicBeatState
 		fakeBack.alpha = 0.5;
 */
 		back = new Boyfriend();
-		back.setCharacter(0, 0, 'jigglypuff');
+		back.setCharacter(0, 0, 'pico');
+
 		back.playAnim('idle');
 		back.screenCenter();
 
