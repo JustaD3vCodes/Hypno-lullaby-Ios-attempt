@@ -1456,27 +1456,21 @@ class Character extends FNFSprite
 					animation.addByPrefix('hit1', 'Hit1Front', 24, false);
 					animation.addByPrefix('hit2', 'Hit2Front', 24, false);
 
-					addOffset("idle", 68, 5);
-					addOffset("singUP", 64, 16);
-					addOffset("singLEFT", 451, -124);
-					addOffset("singRIGHT", -10, -120);
-					addOffset("singDOWN", 64, -122);
-					addOffset("hit1", 111, -2);
-					addOffset("hit2", 144, -110);
+					addOffset("idle", 21, -18);
+					addOffset("singUP", 37, -36);
+					addOffset("singLEFT", 421, -149);
+					addOffset("singRIGHT", -38, -152);
+					addOffset("singDOWN", 51, -139);
+					addOffset("hit1", 75, -18);
+					addOffset("hit2", 97, -128);
 				}
 
 				forceNoMiss = true;
 
 				playAnim('idle');
-				setGraphicSize(Std.int(width * 0.9));
+				setGraphicSize(Std.int(width * 1.9));
 				updateHitbox();
 				// lmao
-				for (i in animOffsets)
-				{
-					i[0] *= scale.x;
-					i[1] *= scale.y;
-				}
-
 				characterData.healthbarColors = [63, 9, 4];
 			case 'hypno-cards' | 'hypno-cards-front':
 				frames = Paths.getSparrowAtlas('characters/hypno/PASTA_HYPNO');
@@ -1490,11 +1484,11 @@ class Character extends FNFSprite
 				animation.addByPrefix('singLEFT', 'Hypno Left${modifier}0', 24, false);
 				if (curCharacter.contains('front'))
 				{
-					addOffset("idle", -64, -172);
-					addOffset("singUP", 37, 299);
-					addOffset("singRIGHT", -141, -104);
-					addOffset("singLEFT", 34, 73);
-					addOffset("singDOWN", -139, -160);
+					addOffset("idle", -64, -136);
+					addOffset("singUP", 25, 268);
+					addOffset("singRIGHT", -132, -70);
+					addOffset("singLEFT", 14, 67);
+					addOffset("singDOWN", -145, -151);
 				}
 				else
 				{
@@ -1507,7 +1501,7 @@ class Character extends FNFSprite
 				forceNoMiss = true;
 
 				playAnim('idle');
-				setGraphicSize(Std.int(width * 1.5));
+				setGraphicSize(Std.int(width * 2.5));
 				updateHitbox();
 			// lmao
 			/*
@@ -1533,6 +1527,7 @@ class Character extends FNFSprite
 				playAnim('idle');
 
 				forceNoMiss = true;
+				setGraphicSize(Std.int(width * 2));
 
 				characterData.healthbarColors = [61, 62, 93];
 

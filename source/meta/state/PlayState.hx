@@ -666,16 +666,16 @@ class PlayState extends MusicBeatState
 				mxHand.isPlayer = (0 == playerLane);
 
 				mx.x -= 480;
-				mx.y += 280;
+				mx.y += 350;
 				mxHand.x -= 480;
-				mxHand.y += 280;
+				mxHand.y += 350;
 
 				//
 				mxBlock = new FlxSprite();
 				mxBlock.frames = Paths.getSparrowAtlas('characters/mx/mxblock');
 				mxBlock.animation.addByPrefix('idle', 'blockIdle', 24, false);
 				mxBlock.antialiasing = true;
-				mxBlock.setPosition(mx.x, mx.y);
+				mxBlock.setPosition(mx.x + 100, 280);
 				mxBlock.x -= 185;
 				mxBlock.y += 460;
 
@@ -687,7 +687,7 @@ class PlayState extends MusicBeatState
 				// lord x
 				lordX = new Boyfriend();
 				lordX.setCharacter(0, 0, 'lord-x');
-				lordX.setPosition(boyfriend.x - 400, boyfriend.y + 100);
+				lordX.setPosition(boyfriend.x - 400 + 100, boyfriend.y + 100 + 70);
 
 				var lordXStrum:Strumline = new Strumline((((1 + 0.5) / amount) * FlxG.width), this, [lordX], 1 == playerLane ? true : false,
 					1 == playerLane ? false : true, 1 == playerLane ? true : false, 4, Init.trueSettings.get('Downscroll'));
@@ -698,11 +698,11 @@ class PlayState extends MusicBeatState
 				// hypno
 				hypno = new Boyfriend();
 				hypno.setCharacter(0, 0, 'hypno-cards');
-				hypno.setPosition(lordX.x + 350, lordX.y);
+				hypno.setPosition(lordX.x + 350 + 100, lordX.y + 50);
 				hypno.isPlayer = (2 == playerLane);
 				hypnoHand = new Boyfriend();
 				hypnoHand.setCharacter(0, 0, 'hypno-cards-front');
-				hypnoHand.setPosition(hypno.x + hypno.width / 2, hypno.y + hypno.height / 2);
+				hypnoHand.setPosition(hypno.x + hypno.width / 2, hypno.y + hypno.height / 2 - 40);
 				hypnoHand.x -= hypnoHand.width / 2;
 				hypnoHand.y -= hypnoHand.height / 2;
 				hypnoHand.isPlayer = (2 == playerLane);
