@@ -135,7 +135,11 @@ class Main extends Sprite
 		#end
 
 		// here we set up the base game
-		addChild(new FlxGame(gameWidth, gameHeight, mainClassState, zoom, framerate, framerate, skipSplash));
+		#if android 
+			addChild(new FlxGame(gameWidth, gameHeight, mainClassState, zoom, Std.int(framerate), framerate, skipSplash));
+		#else
+			addChild(new FlxGame(gameWidth, gameHeight, mainClassState, zoom, framerate, framerate, skipSplash));
+		#end
 
 		// begin the discord rich presence
 		#if DISCORD_ALLOWED

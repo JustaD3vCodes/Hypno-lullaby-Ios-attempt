@@ -63,7 +63,12 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		// POKEMON YELLOW LOL
-		backdrop = new FlxBackdrop(Paths.image('menus/menu/pokemon_yellow_noise'), 1, 1, true, true, 1, 1);
+		#if android
+			var repeatAxes:FlxAxes = 1;
+			backdrop = new FlxBackdrop(Paths.image('menus/menu/pokemon_yellow_noise'), repeatAxes, 1, true, true, 1, 1);
+		#else 
+			backdrop = new FlxBackdrop(Paths.image('menus/menu/pokemon_yellow_noise'), 1, 1, true, true, 1, 1);
+		#end
 		add(backdrop);
 
 		var allCharacters:Array<String> = ['hypno'];
