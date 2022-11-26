@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         build: [release, debug]
-        arch: [arm64, armv7, 32]
+        arch: [arm64, armv7]
     steps:
       - name: Checkout
         uses: actions/checkout@main
