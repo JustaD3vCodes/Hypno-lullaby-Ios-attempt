@@ -17,7 +17,7 @@ import openfl.utils.Assets;
 
 class MobileControlsSubState extends FlxSubState
 {
-	final controlsItems:Array<String> = ['Pad-Right', 'Pad-Left', 'Pad-Custom', 'Pad-Duo', 'Hitbox', 'Keyboard'];
+	final controlsItems:Array<String> = ['Pad-Right', 'Pad-Left', 'Pad-Custom', 'Pad-Duo', 'Hitbox', 'HitboxAlt', 'Keyboard'];
 
 	var grpControlsItems:FlxText;
 	var virtualPad:FlxVirtualPad;
@@ -98,7 +98,7 @@ class MobileControlsSubState extends FlxSubState
 			virtualPad.buttonB.y = bPosY;
 		}
 
-		hitbox = new FlxHitbox();
+		hitbox = new FlxHitbox(false);
 
 		hitbox.visible = false;
 		add(hitbox);
@@ -296,11 +296,14 @@ class MobileControlsSubState extends FlxSubState
 				virtualPad = new FlxVirtualPad(BOTH_FULL, B);
 				add(virtualPad);
 			case 'Hitbox':
+				hitbox = new FlxHitbox(false);
 				hitbox.visible = true;
 				remove(virtualPad);
 				virtualPad = new FlxVirtualPad(NONE, B);
 				add(virtualPad);
-
+			case 'HitboxAlt':
+				hitbox = new FlxHitbox(true);
+				hitbox.visible = true;
 			case 'Keyboard':
 				hitbox.visible = false;
 				virtualPad.visible = false;

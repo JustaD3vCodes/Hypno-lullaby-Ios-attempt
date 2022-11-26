@@ -235,8 +235,6 @@ function onEvent(eventName) {
         default:
             trace('an event was called in death toll. woohoo');
         case 'Bong':
-        	if (gameplayMode != PUSSY_MODE)
-        	{
             hellbell.playAnim('bong', true);			
             hellbell.animation.finishCallback = function(name:String){
                 if (name == 'bong') {
@@ -250,7 +248,6 @@ function onEvent(eventName) {
 						FlxG.camera.shake(0.005, 0.3);
 					});
 				});
-			}
 		case 'Beelze Walk':
 			PlayState.dadOpponent.visible = false;
 			beelzewalk.visible = true;

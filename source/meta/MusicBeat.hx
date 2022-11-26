@@ -68,7 +68,9 @@ class MusicBeatState extends FNFUIState
 			case 'Pad-Duo':
 				controls.setVirtualPadNOTES(mobileControls.virtualPad, BOTH_FULL, NONE);
 			case 'Hitbox':
-				controls.setHitBox(mobileControls.hitbox, mobileControls.virtualPad);
+				controls.setHitBox(mobileControls.hitbox, mobileControls.virtualPad, false);
+			case 'HitboxAlt':
+				controls.setHitBox(mobileControls.hitbox, mobileControls.virtualPad, true);
 			case 'Keyboard': // do nothing
 		}
 

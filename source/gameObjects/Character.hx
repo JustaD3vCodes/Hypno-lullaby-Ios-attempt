@@ -1028,10 +1028,10 @@ class Character extends FNFSprite
 					case 'wigglytuff':
 						var idleOffset:FlxPoint = FlxPoint.weak(0, 0);
 						addOffset('idle', idleOffset.x, idleOffset.y);
-						addOffset("singUP", idleOffset.x + 1, idleOffset.y + 5);
-						addOffset("singRIGHT", idleOffset.x + 1, idleOffset.y + 11);
-						addOffset("singLEFT", idleOffset.x + 1, idleOffset.y + -4);
-						addOffset("singDOWN", -35, -14);
+						addOffset("singUP", idleOffset.x, idleOffset.y);
+						addOffset("singRIGHT", idleOffset.x, idleOffset.y);
+						addOffset("singLEFT", idleOffset.x, idleOffset.y);
+						addOffset("singDOWN", idleOffset.x, idleOffset.y);
 					case 'decay 1':
 						var idleOffset:FlxPoint = FlxPoint.weak(-47, -73);
 						addOffset('idle', idleOffset.x, idleOffset.y);
@@ -1055,7 +1055,7 @@ class Character extends FNFSprite
 						addOffset("singDOWN", idleOffset.x + 35, idleOffset.y + -33);
 				}
 
-				setGraphicSize(Std.int(width * 1.25));
+				setGraphicSize(Std.int(width * 2.25));
 				updateHitbox();
 
 				for (i in animOffsets)
@@ -1093,6 +1093,7 @@ class Character extends FNFSprite
 				addOffset("singLEFTmiss", 2, -28);
 				addOffset("singDOWNmiss", -24, -41);
 
+				setGraphicSize(Std.int(width * 2));
 				characterData.facingDirection = RIGHT;
 
 			case 'wiggles-death-stare':
@@ -1110,6 +1111,7 @@ class Character extends FNFSprite
 				addOffset("singLEFT", 110);
 				addOffset("singDOWN", 0, -54);
 
+				setGraphicSize(Std.int(width * 2));
 				characterData.facingDirection = LEFT;
 				characterData.healthbarColors = [84, 47, 56];
 
@@ -1122,6 +1124,7 @@ class Character extends FNFSprite
 				animation.addByIndices('singRIGHT', 'WigglesTerror', generateIndicesAtPoint(45, 14), "", 24, false);
 				animation.addByIndices('singDOWN', 'WigglesTerror', generateIndicesAtPoint(60, 14), "", 24, false);
 
+				setGraphicSize(Std.int(width * 2));
 				characterData.facingDirection = LEFT;
 				characterData.healthbarColors = [84, 47, 56];
 
@@ -1265,15 +1268,16 @@ class Character extends FNFSprite
 				animation.addByPrefix('singDOWNmiss', 'PONYTA MISS DOWN0', 24, false);
 
 				addOffset('idle');
-				addOffset("singUP", -25, -9);
-				addOffset("singRIGHT", 17, -25);
-				addOffset("singLEFT", 2, -18);
-				addOffset("singDOWN", -7, -57);
-				addOffset("singUPmiss", -27);
-				addOffset("singRIGHTmiss", 8, -24);
-				addOffset("singLEFTmiss", 8, -16);
-				addOffset("singDOWNmiss", -18, -62);
+				addOffset("singUP", -25, -8);
+				addOffset("singRIGHT", 7, -19);
+				addOffset("singLEFT", -11, -15);
+				addOffset("singDOWN", 2, -43);
+				addOffset("singUPmiss", -21, -10);
+				addOffset("singRIGHTmiss", 21, -27);
+				addOffset("singLEFTmiss", 2, -23);
+				addOffset("singDOWNmiss", 1, -54);
 
+				setGraphicSize(Std.int(width * 1.8));
 				playAnim('idle');
 
 				characterData.camOffsetY = 120;
@@ -1301,15 +1305,16 @@ class Character extends FNFSprite
 
 				addOffset('idle');
 				addOffset('toScared', -4, 4);
-				addOffset("singUP", -32, -8);
-				addOffset("singRIGHT", 13, -2);
-				addOffset("singLEFT", 4, -11);
-				addOffset("singDOWN", -12, -36);
-				addOffset("singUPmiss", -34, 1);
-				addOffset("singRIGHTmiss", 12, -3);
-				addOffset("singLEFTmiss", -2, -13);
-				addOffset("singDOWNmiss", -9, -37);
+				addOffset("singUP", -25, -8);
+				addOffset("singRIGHT", 17, 0);
+				addOffset("singLEFT", -11, -7);
+				addOffset("singDOWN", 17, -36);
+				addOffset("singUPmiss", -29, -6);
+				addOffset("singRIGHTmiss", 17, 0);
+				addOffset("singLEFTmiss", 11, -7);
+				addOffset("singDOWNmiss", 17, -36);
 
+				setGraphicSize(Std.int(width * 1.8));
 				playAnim('toScared');
 
 				characterData.camOffsetY = 120;

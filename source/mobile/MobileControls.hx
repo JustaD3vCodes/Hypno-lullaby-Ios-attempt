@@ -39,7 +39,10 @@ class MobileControls extends FlxSpriteGroup
 			case 'Hitbox':
 				virtualPad = new FlxVirtualPad(NONE, B);
 				add(virtualPad);
-				hitbox = new FlxHitbox();
+				hitbox = new FlxHitbox(false);
+				add(hitbox);
+			case 'HitboxAlt':
+				hitbox = new FlxHitbox(true);
 				add(hitbox);
 			case 'Keyboard': // do nothing
 		}
