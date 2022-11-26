@@ -14,9 +14,6 @@ import meta.data.dependency.Discord;
 #end
 import meta.data.font.Alphabet;
 import meta.subState.UnlockSubstate;
-#if android 
-import flixel.util.FlxAxes;
-#end
 
 using StringTools;
 
@@ -66,12 +63,7 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		// POKEMON YELLOW LOL
-		#if android
-			var repeatAxes:FlxAxes = 1;
-			backdrop = new FlxBackdrop(Paths.image('menus/menu/pokemon_yellow_noise'), repeatAxes, 1, true, true, 1, 1);
-		#else 
-			backdrop = new FlxBackdrop(Paths.image('menus/menu/pokemon_yellow_noise'), 1, 1, true, true, 1, 1);
-		#end
+		backdrop = new FlxBackdrop(Paths.image('menus/menu/pokemon_yellow_noise'), 1, 1, true, true, 1, 1);
 		add(backdrop);
 
 		var allCharacters:Array<String> = ['hypno'];

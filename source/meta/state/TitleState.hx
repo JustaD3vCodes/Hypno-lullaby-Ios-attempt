@@ -17,10 +17,6 @@ import meta.data.dependency.Discord;
 import meta.data.font.Alphabet;
 import meta.state.menus.MainMenuState;
 
-#if android 
-import flixel.util.FlxAxes;
-#end
-
 using StringTools;
 
 /**
@@ -76,18 +72,11 @@ class TitleState extends MusicBeatState
 		persistentUpdate = true;
 
 
-		#if android
-			var repeatAxes:FlxAxes = 1;
-			staticBG = new FlxSprite(320, 360/2).loadGraphic(Paths.image('menus/title/staticBG'));
-			bgTreesFar = new FlxBackdrop(Paths.image('menus/title/bgTreesfar'), repeatAxes, 1, true, true, 1, 1);
-			bgTrees = new FlxBackdrop(Paths.image('menus/title/bgTrees'), repeatAxes, 1, true, true, 1, 1);
-			bgGrass = new FlxBackdrop(Paths.image('menus/title/bgGrass'), repeatAxes, 1, true, true, 1, 1);
-		#else 
-			staticBG = new FlxSprite(320, 360/2).loadGraphic(Paths.image('menus/title/staticBG'));
-			bgTreesFar = new FlxBackdrop(Paths.image('menus/title/bgTreesfar'), 1, 1, true, true, 1, 1);
-			bgTrees = new FlxBackdrop(Paths.image('menus/title/bgTrees'), 1, 1, true, true, 1, 1);
-			bgGrass = new FlxBackdrop(Paths.image('menus/title/bgGrass'), 1, 1, true, true, 1, 1);
-		#end
+		staticBG = new FlxSprite(320, 360/2).loadGraphic(Paths.image('menus/title/staticBG'));
+		bgTreesFar = new FlxBackdrop(Paths.image('menus/title/bgTreesfar'), 1, 1, true, true, 1, 1);
+		bgTrees = new FlxBackdrop(Paths.image('menus/title/bgTrees'), 1, 1, true, true, 1, 1);
+		bgGrass = new FlxBackdrop(Paths.image('menus/title/bgGrass'), 1, 1, true, true, 1, 1);
+
 		staticBG.scale.set(2,2);
 		add(staticBG);
 
