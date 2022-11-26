@@ -13,6 +13,10 @@ import openfl.display.GraphicsShader;
 import openfl.filters.ShaderFilter;
 import openfl.utils.Assets;
 
+#if android 
+import flixel.util.FlxAxes;
+#end
+
 using StringTools;
 
 typedef Credits =
@@ -206,7 +210,12 @@ frostbite,shitno,monochrome,stranged red and isotope,missingno and a few other s
 		background.cameras = [camHUD];
 
 		// POKEMON YELLOW LOL
-		backdrop = new FlxBackdrop(Paths.image('menus/menu/pokemon_yellow_noise'), 1, 1, true, true, 1, 1);
+		#if android
+			var repeatAxes:FlxAxes = 1;
+			backdrop = new FlxBackdrop(Paths.image('menus/menu/pokemon_yellow_noise'), repeatAxes, 1, true, true, 1, 1);
+		#else 
+			backdrop = new FlxBackdrop(Paths.image('menus/menu/pokemon_yellow_noise'), 1, 1, true, true, 1, 1);
+		#end
 		background.add(backdrop);
 
 		// background shis

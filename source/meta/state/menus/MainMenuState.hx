@@ -14,6 +14,9 @@ import meta.data.dependency.Discord;
 #end
 import meta.data.font.Alphabet;
 import meta.subState.UnlockSubstate;
+#if android 
+import flixel.util.FlxAxes;
+#end
 
 using StringTools;
 
