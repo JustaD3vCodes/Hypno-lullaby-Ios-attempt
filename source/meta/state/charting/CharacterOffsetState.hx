@@ -37,18 +37,18 @@ class CharacterOffsetState extends MusicBeatState
 		fakeBack.alpha = 0.5;
 */
 		back = new Boyfriend();
-		back.setCharacter(0, 0, 'hypno-cards');
+		back.setCharacter(0, 0, 'wigglytuff');
 
 		back.playAnim('idle');
 		back.screenCenter();
 
-		front = new Boyfriend();
-		front.setCharacter(0, 0, 'hypno-cards-front');
-		front.playAnim('idle');
-		front.screenCenter();
+	//	front = new Boyfriend();
+	//	front.setCharacter(0, 0, 'hypno-cards-front');
+	//	front.playAnim('idle');
+	//	front.screenCenter();
 
 		add(back);
-		add(front);
+	//	add(front);
 
 		stateDisplay = new FlxText(100, 20, 0, 'Current Anim: ', 20);
 		add(stateDisplay);
@@ -138,7 +138,7 @@ class CharacterOffsetState extends MusicBeatState
 	{
 		back.addOffset(currentAnim, offsetXback[selectedState], offsetYback[selectedState]);
 		back.playAnim(currentAnim);
-		front.addOffset(currentAnim, offsetXfront[selectedState], offsetYfront[selectedState]);
-		front.playAnim(currentAnim);
+	//	front.addOffset(currentAnim, offsetXfront[selectedState], offsetYfront[selectedState]);
+	//	front.playAnim(currentAnim);
 	}
 }

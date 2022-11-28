@@ -1028,10 +1028,10 @@ class Character extends FNFSprite
 					case 'wigglytuff':
 						var idleOffset:FlxPoint = FlxPoint.weak(0, 0);
 						addOffset('idle', idleOffset.x, idleOffset.y);
-						addOffset("singUP", idleOffset.x - 7, idleOffset.y - 4);
-						addOffset("singRIGHT", idleOffset.x - 15, idleOffset.y + -5);
-						addOffset("singLEFT", idleOffset.x + 1, idleOffset.y + 3);
-						addOffset("singDOWN", idleOffset.x + 3, idleOffset.y + -6);
+						addOffset("singUP", idleOffset.x - 7, idleOffset.y + 5);
+						addOffset("singRIGHT", idleOffset.x + 10, idleOffset.y + 15);
+						addOffset("singLEFT", idleOffset.x + 50, idleOffset.y + 3);
+						addOffset("singDOWN", idleOffset.x - 30, idleOffset.y + -6);
 					case 'decay 1':
 						var idleOffset:FlxPoint = FlxPoint.weak(-47, -73);
 						addOffset('idle', idleOffset.x, idleOffset.y);
@@ -1059,7 +1059,6 @@ class Character extends FNFSprite
 				updateHitbox();
 
 				playAnim('$phaseString idle');
-
 				characterData.facingDirection = RIGHT;
 
 			case 'ponyta-perspective':
