@@ -365,7 +365,7 @@ class GameOverSubstate extends MusicBeatSubState
 				deathEnd = function()
 				{
 					remove(retry);
-					FlxG.sound.play(Paths.sound(endSoundName));
+					//FlxG.sound.play(Paths.sound(endSoundName));
 					FlxTween.tween(retry, {alpha: 0.0}, 1.0, {ease: FlxEase.linear});
 				};
 

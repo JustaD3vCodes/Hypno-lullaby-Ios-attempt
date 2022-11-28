@@ -1028,10 +1028,10 @@ class Character extends FNFSprite
 					case 'wigglytuff':
 						var idleOffset:FlxPoint = FlxPoint.weak(0, 0);
 						addOffset('idle', idleOffset.x, idleOffset.y);
-						addOffset("singUP", idleOffset.x, idleOffset.y);
-						addOffset("singRIGHT", idleOffset.x, idleOffset.y);
-						addOffset("singLEFT", idleOffset.x, idleOffset.y);
-						addOffset("singDOWN", idleOffset.x, idleOffset.y);
+						addOffset("singUP", idleOffset.x - 7, idleOffset.y - 4);
+						addOffset("singRIGHT", idleOffset.x - 15, idleOffset.y + -5);
+						addOffset("singLEFT", idleOffset.x + 1, idleOffset.y + 3);
+						addOffset("singDOWN", idleOffset.x + 3, idleOffset.y + -6);
 					case 'decay 1':
 						var idleOffset:FlxPoint = FlxPoint.weak(-47, -73);
 						addOffset('idle', idleOffset.x, idleOffset.y);
@@ -1057,12 +1057,6 @@ class Character extends FNFSprite
 
 				setGraphicSize(Std.int(width * 2.25));
 				updateHitbox();
-
-				for (i in animOffsets)
-				{
-					i[0] *= scale.x;
-					i[1] *= scale.y;
-				}
 
 				playAnim('$phaseString idle');
 
@@ -1272,10 +1266,10 @@ class Character extends FNFSprite
 				addOffset("singRIGHT", 7, -19);
 				addOffset("singLEFT", -11, -15);
 				addOffset("singDOWN", 2, -43);
-				addOffset("singUPmiss", -21, -10);
-				addOffset("singRIGHTmiss", 21, -27);
-				addOffset("singLEFTmiss", 2, -23);
-				addOffset("singDOWNmiss", 1, -54);
+				addOffset("singUPmiss", -25, -8);
+				addOffset("singRIGHTmiss", 7, -19);
+				addOffset("singLEFTmiss", -11, -15);
+				addOffset("singDOWNmiss", 2, -43);
 
 				setGraphicSize(Std.int(width * 1.8));
 				playAnim('idle');
