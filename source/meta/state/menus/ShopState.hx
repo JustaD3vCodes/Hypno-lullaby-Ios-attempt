@@ -92,15 +92,15 @@ class ShopState extends MusicBeatState
 	public static var playIntro:Bool = false;
 
 	public static var portraitOffset:Map<String, FlxPoint> = [
-		'frostbite' => new FlxPoint(27, 1),
-		'safety-lullaby' => new FlxPoint(106, 74),
-		'left-unchecked' => new FlxPoint(39, 54),
-		'monochrome' => new FlxPoint(1),
-		'missingno' => new FlxPoint(12),
-		'brimstone' => new FlxPoint(0, 115),
-		'death-toll' => new FlxPoint(160, 165),
-		'isotope' => new FlxPoint(12, 8),
-		'shitno' => new FlxPoint(72, 90)
+		'frostbite' => new FlxPoint(27/4, 1),
+		'safety-lullaby' => new FlxPoint(106/4, 74/4),
+		'left-unchecked' => new FlxPoint(39/4, 54/4),
+		'monochrome' => new FlxPoint(),
+		'missingno' => new FlxPoint(12/3),
+		'brimstone' => new FlxPoint(0, 115/4),
+		'death-toll' => new FlxPoint(160/4, 165/4),
+		'isotope' => new FlxPoint(12/3, 8/3),
+		'shitno' => new FlxPoint(72/4, 90/ 4)
 	];
 
 	static final pastaUnlock:String = 'Seems like I made my coin, and you got what you wanted. 
@@ -1591,6 +1591,7 @@ class ShopState extends MusicBeatState
 						if (portrait != null && portrait != curPortrait)
 						{
 							//  get the new portrait
+							portrait = portrait.toLowerCase();
 							if (!Assets.exists(Paths.getPath('images/menus/freeplay/$portrait.png', IMAGE)))
 								portrait = 'unknown';
 							mutex.acquire();
@@ -1725,7 +1726,7 @@ class FreeplayPortrait extends FlxSprite
 		// ShopState.mutex.acquire();
 		frames = atlasFrames;
 		animation.addByPrefix('idle', '${songName.toLowerCase()}0', 24, true, false);
-		setGraphicSize(Std.int(width * 0.75));
+		setGraphicSize(Std.int(width * 1.75));
 		updateHitbox();
 		antialiasing = true;
 		screenCenter(Y);
@@ -1733,8 +1734,8 @@ class FreeplayPortrait extends FlxSprite
 		//
 		if (ShopState.portraitOffset.exists(songName.toLowerCase()))
 		{
-			offset.x += ShopState.portraitOffset.get(songName.toLowerCase()).x * scale.x;
-			offset.y += ShopState.portraitOffset.get(songName.toLowerCase()).y * scale.y;
+			offset.x += ShopState.portraitOffset.get(songName.toLowerCase()).x * (scale.x * 2);
+			offset.y += ShopState.portraitOffset.get(songName.toLowerCase()).y * (scale.y * 2);
 		}
 		//
 		existTime = 0;

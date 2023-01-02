@@ -304,6 +304,7 @@ class MobileControlsSubState extends FlxSubState
 			case 'HitboxAlt':
 				hitbox = new FlxHitbox(true);
 				hitbox.visible = true;
+				virtualPad.visible = false;
 			case 'Keyboard':
 				hitbox.visible = false;
 				virtualPad.visible = false;

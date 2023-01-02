@@ -62,7 +62,7 @@ function onCreatePost() {
 
 	PlayState.dadOpponent.characterData.camOffsetX = -100;
 	PlayState.dadOpponent.characterData.camOffsetY = 25;
-	PlayState.dadOpponent.scale.set(0.8, 0.8);
+	PlayState.dadOpponent.scale.set(1.8, 1.8);
 	PlayState.dadOpponent.resizeOffsets();
 	PlayState.ratingPosition.set(-300, 200);
 	PlayState.instance.dadStrums.visible = false;

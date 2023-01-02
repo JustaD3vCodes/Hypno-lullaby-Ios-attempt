@@ -25,23 +25,35 @@ class MobileControls extends FlxSpriteGroup
 		switch (MobileControls.mode)
 		{
 			case 'Pad-Right':
+				hitbox = FlxDestroyUtil.destroy(hitbox);
+				hitbox = null;
 				virtualPad = new FlxVirtualPad(RIGHT_FULL, B);
-				add(virtualPad);
+				add(virtualPad);			
 			case 'Pad-Left':
+				hitbox = FlxDestroyUtil.destroy(hitbox);
+				hitbox = null;
 				virtualPad = new FlxVirtualPad(LEFT_FULL, B);
 				add(virtualPad);
 			case 'Pad-Custom':
+				hitbox = FlxDestroyUtil.destroy(hitbox);
+				hitbox = null;
 				virtualPad = MobileControls.customVirtualPad;
 				add(virtualPad);
 			case 'Pad-Duo':
+				hitbox = FlxDestroyUtil.destroy(hitbox);
+				hitbox = null;
 				virtualPad = new FlxVirtualPad(BOTH_FULL, B);
 				add(virtualPad);
 			case 'Hitbox':
+				hitbox = FlxDestroyUtil.destroy(hitbox);
+				hitbox = null;
 				virtualPad = new FlxVirtualPad(NONE, B);
 				add(virtualPad);
 				hitbox = new FlxHitbox(false);
 				add(hitbox);
 			case 'HitboxAlt':
+				virtualPad = FlxDestroyUtil.destroy(virtualPad);
+				virtualPad = null;
 				hitbox = new FlxHitbox(true);
 				add(hitbox);
 			case 'Keyboard': // do nothing
