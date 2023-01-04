@@ -1,6 +1,7 @@
 package mobile;
 
 import flixel.FlxG;
+import flixel.FlxCamera;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxPoint;
 import flixel.util.FlxDestroyUtil;
@@ -57,7 +58,7 @@ class MobileControls extends FlxSpriteGroup
 				hitbox = new FlxHitbox(true);
 				add(hitbox);
 			case 'Keyboard': // do nothing
-		}
+		}	
 	}
 
 	override public function destroy():Void

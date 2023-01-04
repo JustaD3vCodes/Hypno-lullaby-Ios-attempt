@@ -1136,7 +1136,7 @@ class PlayState extends MusicBeatState
 		addMobileControls();
 		_virtualPad = new FlxVirtualPad(NONE, P);
 		
-		if (FlxG.save.data.bPosX != null && FlxG.save.data.bPosY != null)
+		if (FlxG.save.data.bPosX != null && FlxG.save.data.bPosY != null && mobileControls.virtualPad != null)
 		{
 			mobileControls.virtualPad.buttonB.x = FlxG.save.data.bPosX;
 			mobileControls.virtualPad.buttonB.y = FlxG.save.data.bPosY;
@@ -4167,6 +4167,8 @@ class PlayState extends MusicBeatState
 		{
 			case 'missingno':
 				inCutscene = false;
+				mobileControls.visible = true;
+				_virtualPad.visible = true;
 				blackFade = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
 				blackFade.setGraphicSize(dialogueHUD.width, dialogueHUD.height);
 				blackFade.scrollFactor.set();
