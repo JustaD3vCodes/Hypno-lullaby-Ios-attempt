@@ -1,4 +1,4 @@
-package mobile.flixel;
+	package mobile.flixel;
 
 import flash.display.BitmapData;
 import flash.display.Shape;
@@ -33,7 +33,7 @@ class FlxHitbox extends FlxSpriteGroup
 			add(buttonDown = createHint(FlxG.width / 4, 0, Std.int(FlxG.width / 4), Std.int(FlxG.height / 4) * 3, 0x00FFFF));
 			add(buttonUp = createHint(FlxG.width / 2, 0, Std.int(FlxG.width / 4), Std.int(FlxG.height / 4) * 3, 0x00FF00));
 			add(buttonRight = createHint((FlxG.width / 2) + (FlxG.width / 4), 0, Std.int(FlxG.width / 4), Std.int(FlxG.height / 4) * 3, 0xFF0000));
-			add(buttonB = createHint(0, Std.int(FlxG.height / 4) * 3, FlxG.width, Std.int(FlxG.height / 4), 0xB2FF0000));
+			add(buttonB = createHint(0, Std.int(FlxG.height / 4) * 3, FlxG.width, Std.int(FlxG.height / 4), 0xFFCB00));
 		}
 		else 
 		{

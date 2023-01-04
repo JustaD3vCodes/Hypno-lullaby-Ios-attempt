@@ -1,7 +1,6 @@
 // https://www.shadertoy.com/view/XtyXzW
 
 #pragma header
-#extension GL_EXT_gpu_shader4 : enable
 
 uniform float time;
 uniform float prob;
@@ -38,7 +37,7 @@ float rand(vec2 co){
 const float glitchScale = .5;
 
 vec2 glitchCoord(vec2 p, vec2 gridSize) {
-	vec2 coord = floor(p / gridSize) * gridSize;;
+    vec2 coord = floor(p / gridSize) * gridSize;;
     coord += (gridSize / 2.);
     return coord;
 }
@@ -59,12 +58,12 @@ GlitchSeed glitchSeed(vec2 p, float speed) {
         1. + mod(seedTime / 100., 100.),
         1. + mod(seedTime, 100.)
     ) / 100.;
-    seed += p; 
+    seed += p;
     return GlitchSeed(seed, prob);
 }
 
 float shouldApply(GlitchSeed seed) {
-    return round(
+    return _round(
         mix(
             mix(rand(seed.seed), 1., seed.prob - .5),
             0.,
@@ -73,8 +72,8 @@ float shouldApply(GlitchSeed seed) {
     );
 }
 
-// gamma again 
-const float GAMMA = 1;
+// gamma again
+#define GAMMA 1.
 
 vec3 gamma(vec3 color, float g) {
     return pow(color, vec3(g));
@@ -141,7 +140,7 @@ void staticNoise(inout vec2 p, vec2 groupSize, float grainSize, float contrast) 
     if (shouldApply(seedA) == 1.) {
         GlitchSeed seedB = glitchSeed(glitchCoord(p, vec2(grainSize)), 5.);
         vec2 offset = vec2(rand(seedB.seed), rand(seedB.seed + .1));
-        offset = round(offset * 2. - 1.);
+        offset = _round(offset * 2. - 1.);
         offset *= contrast;
         p += offset;
     }
@@ -159,7 +158,7 @@ void glitchSwap(inout vec2 p) {
     
     vec2 groupSize;
     vec2 subGrid;
-    vec2 blockSize;    
+    vec2 blockSize;
     GlitchSeed seed;
     float apply;
     
@@ -221,5 +220,5 @@ void main() {
     //
     vignette = mix(1.0, 1.0 - amount, vignette);
     //
-	gl_FragColor = vec4(mix(color.rgb, basecolor.rgb, vignette), 1.0);
+    gl_FragColor = vec4(mix(color.rgb, basecolor.rgb, vignette), 1.0);
 }
