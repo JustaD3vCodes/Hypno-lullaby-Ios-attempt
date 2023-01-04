@@ -1,4 +1,3 @@
-#extension GL_EXT_gpu_shader4 : enable
 #pragma header
 
 uniform float time;
@@ -63,7 +62,7 @@ GlitchSeed glitchSeed(vec2 p, float speed) {
 }
 
 float shouldApply(GlitchSeed seed) {
-    return round(
+    return _round(
         mix(
             mix(rand(seed.seed), 1., seed.prob - .5),
             0.,
@@ -73,7 +72,7 @@ float shouldApply(GlitchSeed seed) {
 }
 
 // gamma again 
-const float GAMMA = 1;
+#define GAMMA 1.
 
 vec3 gamma(vec3 color, float g) {
     return pow(color, vec3(g));
@@ -140,7 +139,7 @@ void staticNoise(inout vec2 p, vec2 groupSize, float grainSize, float contrast) 
     if (shouldApply(seedA) == 1.) {
         GlitchSeed seedB = glitchSeed(glitchCoord(p, vec2(grainSize)), 5.);
         vec2 offset = vec2(rand(seedB.seed), rand(seedB.seed + .1));
-        offset = round(offset * 2. - 1.);
+        offset = _round(offset * vec2(2.) - vec2(1.));
         offset *= contrast;
         p += offset;
     }
@@ -237,15 +236,23 @@ vec4 transverseChromatic(vec2 p) {
     vec2 velocity = direction * intensityChromatic * pow(length(destCoord - 0.5), 3.0);
 	float inverseSampleCount = 1.0 / float(sampleCount); 
     
-    mat3x2 increments = mat3x2(velocity * 1.0 * inverseSampleCount, velocity * 2.0 * inverseSampleCount, velocity * 4.0 * inverseSampleCount);
+    vec2 increments[3];
+    increments[0] = vec2(velocity * 1.0 * inverseSampleCount);
+    increments[1] = vec2(velocity * 2.0 * inverseSampleCount);
+    increments[2] = vec2(velocity * 4.0 * inverseSampleCount);
 
     vec3 accumulator = vec3(0);
-    mat3x2 offsets = mat3x2(0); 
+    vec2 offsets[3];
+    offsets[0] = vec2(0.);
+    offsets[1] = vec2(0.);
+    offsets[2] = vec2(0.);
     for (int i = 0; i < sampleCount; i++) {
         accumulator.r += texture2D(bitmap, destCoord + offsets[0]).r; 
         accumulator.g += texture2D(bitmap, destCoord + offsets[1]).g; 
         accumulator.b += texture2D(bitmap, destCoord + offsets[2]).b;         
-        offsets -= increments;
+        offsets[0] -= increments[0];
+        offsets[1] -= increments[1];
+        offsets[2] -= increments[2];
     }
     vec4 newColor = vec4(accumulator / float(sampleCount), 1.0);
 	return newColor;
