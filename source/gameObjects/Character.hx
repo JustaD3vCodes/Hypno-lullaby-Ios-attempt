@@ -1220,6 +1220,7 @@ class Character extends FNFSprite
 
 				characterData.quickDancer = true;
 
+				setGraphicSize(Std.int(width * 2));
 				characterData.offsetX = 216;
 				characterData.offsetY = -216;
 			case 'alexis':
@@ -1245,6 +1246,7 @@ class Character extends FNFSprite
 				addOffset("singDOWNmiss", 23, 28);
 
 				playAnim('idle');
+				setGraphicSize(Std.int(width * 2));
 
 				characterData.quickDancer = true;
 
@@ -1586,6 +1588,7 @@ class Character extends FNFSprite
 				playAnim('idle');
 
 				characterData.facingDirection = LEFT;
+				setGraphicSize(Std.int(width * 2));
 
 				characterData.healthbarColors = [207, 159, 0];
 

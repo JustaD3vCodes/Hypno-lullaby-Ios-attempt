@@ -31,7 +31,8 @@ function onCreatePost() {
 	PlayState.boyfriend.characterData.camOffsetY = -145;
 
 	PlayState.dadOpponent.alpha = 0.0001;
-	PlayState.dadOpponent.y -= 150;
+	PlayState.dadOpponent.x += 200;
+//	PlayState.dadOpponent.y += 0;
 	PlayState.dadOpponent.characterData.camOffsetY = 125;
 	PlayState.dadOpponent.characterData.zoomOffset = 0.1;
 

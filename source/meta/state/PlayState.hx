@@ -1917,6 +1917,7 @@ class PlayState extends MusicBeatState
 				+ ClassHUD.divider;
 		}
 
+
 		uiHUD.scoreBar.alpha = uiHUD.alpha;
 		uiHUD.accuracyBar.alpha = uiHUD.alpha;
 

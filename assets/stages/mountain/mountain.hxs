@@ -189,11 +189,11 @@ function onUpdate(elapsed)
 				showingGuide = true;
 			}
 		
-		if (PlayState.instance.virtualPad.buttonB.justpressed)
-			{
+	//	if (FlxG.keys.justPressed.SPACE)
+	//		{
 				shownOnce = true;
 				if (showingGuide) FlxTween.tween(frostbiteGuide, {alpha: 0.0001}, 0.5, {ease: FlxEase.cubeInOut});
-			}
+	//		}
 			
 		if (PlayState.strumLines.members[PlayState.playerLane].autoplay)
 			{
@@ -212,7 +212,7 @@ function onUpdate(elapsed)
 
 		if (!camZoomOverwrite)
 			{
-				PlayState.defaultCamZoom = 0.8 + (PlayState.instance.coldnessDisplay * 0.15);
+				PlayState.defaultCamZoom = 0.7 + (PlayState.instance.coldnessDisplay * 0.15);
 				PlayState.boyfriend.characterData.camOffsetX = 0 + (PlayState.instance.coldnessDisplay * 300);
 				PlayState.boyfriend.characterData.camOffsetY = -160 + (PlayState.instance.coldnessDisplay * 150);
 			}

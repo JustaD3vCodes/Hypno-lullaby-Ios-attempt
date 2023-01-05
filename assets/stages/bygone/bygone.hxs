@@ -133,6 +133,7 @@ function onCreatePost() {
 	PlayState.instance.camPos.x += 388;
 	PlayState.instance.camPos.y -= 210;
 	PlayState.instance.dadStrums.visible = false;
+	PlayState.boyfriend.y += 30;
 
 	bygoneFuck.cameras = [PlayState.dialogueHUD];
 
