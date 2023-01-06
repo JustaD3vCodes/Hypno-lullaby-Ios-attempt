@@ -2808,14 +2808,31 @@ class PlayState extends MusicBeatState
 	// maybe theres a better place to put this, idk -saw
 	function controllerInput()
 	{
-		var justPressArray:Array<Bool> = [controls.LEFT_P, controls.DOWN_P, controls.UP_P, controls.RIGHT_P, (mobileControls.virtualPad.buttonB.justPressed || mobileControls.hitbox.buttonB.justPressed)];
-		var justReleaseArray:Array<Bool> = [controls.LEFT_R, controls.DOWN_R, controls.UP_R, controls.RIGHT_R, (mobileControls.virtualPad.buttonB.justReleased || mobileControls.hitbox.buttonB.justReleased)];
+		var justPressArray:Array<Bool> = [controls.LEFT_P, controls.DOWN_P, controls.UP_P, controls.RIGHT_P, false];
+		var justReleaseArray:Array<Bool> = [controls.LEFT_R, controls.DOWN_R, controls.UP_R, controls.RIGHT_R, false];
 
-		if (gameplayMode == PUSSY_MODE)
+		if (mobileControls.virtualPad == null)
+		{
+			justPressArray = [controls.LEFT_P, controls.DOWN_P, controls.UP_P, controls.RIGHT_P, mobileControls.hitbox.buttonB.justPressed];
+			justReleaseArray = [controls.LEFT_R, controls.DOWN_R, controls.UP_R, controls.RIGHT_R, mobileControls.hitbox.buttonB.justReleased];
+		}
+		else if (mobileControls.hitbox == null)
+		{
+			justPressArray = [controls.LEFT_P, controls.DOWN_P, controls.UP_P, controls.RIGHT_P, mobileControls.virtualPad.buttonB.justPressed];
+			justReleaseArray = [controls.LEFT_R, controls.DOWN_R, controls.UP_R, controls.RIGHT_R, mobileControls.virtualPad.buttonB.justReleased];
+		}
+		else 
+		{
+			justPressArray = [controls.LEFT_P, controls.DOWN_P, controls.UP_P, controls.RIGHT_P, mobileControls.virtualPad.buttonB.justPressed];
+			justReleaseArray = [controls.LEFT_R, controls.DOWN_R, controls.UP_R, controls.RIGHT_R, mobileControls.virtualPad.buttonB.justReleased];
+		}
+
+		if ((gameplayMode == PUSSY_MODE && curSong.toLowerCase() == 'death-toll') || (curSong.toLowerCase() != 'death-toll'))
 		{
 			justPressArray = [controls.LEFT_P, controls.DOWN_P, controls.UP_P, controls.RIGHT_P];
 			justReleaseArray = [controls.LEFT_R, controls.DOWN_R, controls.UP_R, controls.RIGHT_R];
 		}
+
 		trace("array length" + justPressArray.length);
 
 		if (justPressArray.contains(true))
@@ -3404,7 +3421,14 @@ class PlayState extends MusicBeatState
 		var holdControls:Array<Bool> = [];
 
 		if (bronzongMechanic)
-			holdControls = [controls.LEFT, controls.DOWN, controls.UP, controls.RIGHT, controls.BACK];
+		{
+			if (mobileControls.virtualPad == null)
+				holdControls = [controls.LEFT, controls.DOWN, controls.UP, controls.RIGHT, mobileControls.hitbox.buttonB.pressed];
+			else if (mobileControls.hitbox == null)
+				holdControls = [controls.LEFT, controls.DOWN, controls.UP, controls.RIGHT, mobileControls.virtualPad.buttonB.pressed];
+			else
+				holdControls = [controls.LEFT, controls.DOWN, controls.UP, controls.RIGHT, mobileControls.virtualPad.buttonB.pressed];
+		}
 		else
 			holdControls = [controls.LEFT, controls.DOWN, controls.UP, controls.RIGHT];
 
