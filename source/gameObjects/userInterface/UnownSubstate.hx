@@ -163,7 +163,7 @@ class UnownSubstate extends MusicBeatSubState
 		{
 			close();
 			win();
-			FlxG.sound.play(Paths.sound('CORRECT'));
+//			FlxG.sound.play(Paths.sound('CORRECT'));
 		}
 	}
 
