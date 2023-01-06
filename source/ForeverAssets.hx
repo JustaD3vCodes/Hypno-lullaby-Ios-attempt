@@ -249,7 +249,7 @@ class ForeverAssets
 				newStaticArrow.animation.addByPrefix('pressed', stringSect + ' press', 24, false);
 				newStaticArrow.animation.addByPrefix('confirm', stringSect + ' confirm', 24, false);
 
-				if (staticArrowType == 4)
+				if (staticArrowType == 4 && Init.trueSettings.get('Mechanics') != "pussy")
 				{
 					newStaticArrow.frames = Paths.getSparrowAtlas(ForeverTools.returnSkinAsset('hellbell/Bronzong_Gong_mechanic', assetModifier,
 						Init.trueSettings.get("Note Skin"), 'UI'));

@@ -80,7 +80,8 @@ class UIStaticArrow extends FlxSprite
 			case(3):
 				stringSect = 'right';
 			case 4:
-				stringSect = 'space';
+				if (Init.trueSettings.get('Mechanics') != "pussy")
+					stringSect = 'space';
 		}
 		return stringSect;
 		//
@@ -101,7 +102,8 @@ class UIStaticArrow extends FlxSprite
 			case(3):
 				stringSect = 'red';
 			case 4:
-				stringSect = 'bell';
+				if (Init.trueSettings.get('Mechanics') != "pussy")
+					stringSect = 'bell';
 		}
 		return stringSect;
 		//
@@ -189,7 +191,7 @@ class Strumline extends FlxSpriteGroup
 
 			staticArrow.initialX = Math.floor(staticArrow.x);
 			staticArrow.initialY = Math.floor(staticArrow.y);
-			if (PlayState.bronzongMechanic && i == keyAmount - 1)
+			if (PlayState.bronzongMechanic && i == keyAmount - 1 && Init.trueSettings.get('Mechanics') != "pussy")
 				staticArrow.initialY += Math.floor(staticArrow.height);
 			staticArrow.angleTo = 0;
 			staticArrow.playAnim('static');
@@ -238,7 +240,8 @@ class Strumline extends FlxSpriteGroup
 					case 3:
 						i.x = lastReceptor.x + lastReceptor.width / 2 + noteWidth * 2 + 70;
 					case 4:
-						i.x += 74;
+						if (Init.trueSettings.get('Mechanics') != "pussy")
+							i.x += 74;
 				}
 			}
 		}
