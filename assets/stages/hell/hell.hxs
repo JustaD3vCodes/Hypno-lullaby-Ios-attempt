@@ -44,7 +44,7 @@ function onCreatePost() {
 	boyfriend.x -= 20;
 	boyfriend.y += 370;
 	dadOpponent.x += 1550;
-	dadOpponent.y += 275;
+	dadOpponent.y += 275 + 150;
 
 	hellbell = new Character().setCharacter(0, 0, 'hellbell');
 	hellbell.scale.set(1.72, 1.72);
@@ -80,7 +80,7 @@ function onCreatePost() {
 	contract.animation.addByPrefix('D', 'Contract_BF_09', 24, false);
 	contract.animation.play('idle');
 	contract.antialiasing = true;
-	contract.setPosition(dadOpponent.x - 232, dadOpponent.y + 115);
+	contract.setPosition(dadOpponent.x - 302, dadOpponent.y + 50);
 	contract.scale.set(1.95, 1.95);
 	contractY = contract.y;
 	contract.visible = false;

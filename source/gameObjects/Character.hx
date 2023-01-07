@@ -341,17 +341,12 @@ class Character extends FNFSprite
 				addOffset("singRIGHT", -21, -10);
 				addOffset("singDOWN", 68, -15);
 				addOffset("Walk", 96, 30);
-				addOffset("Laugh", 187, 132);
+				addOffset("Laugh", 281, 46);
 
 				playAnim('idle');
 
 				setGraphicSize(Std.int(width * 1.725));
 				// lmao
-				for (i in animOffsets)
-				{
-					i[0] *= scale.x;
-					i[1] *= scale.y;
-				}
 
 				characterData.facingDirection = LEFT;
 				characterData.healthbarColors = [126, 93, 145];
@@ -368,21 +363,15 @@ class Character extends FNFSprite
 				animation.addByPrefix('singLEFT', 'OldMan_Creepy_Left', 24, false);
 
 				addOffset("idle");
-				addOffset("singUP", 77, 10);
-				addOffset("singLEFT", 141, -11);
-				addOffset("singRIGHT", -51, -8);
-				addOffset("singDOWN", 65, -20);
+				addOffset("singUP", 77 + 50, 10);
+				addOffset("singLEFT", 141 + 50, -11);
+				addOffset("singRIGHT", -51 + 50, -8);
+				addOffset("singDOWN", 65 + 50, -20);
 
 				playAnim('idle');
 
 				setGraphicSize(Std.int(width * 1.725));
-				// lmao
-				for (i in animOffsets)
-				{
-					i[0] *= scale.x;
-					i[1] *= scale.y;
-				}
-
+				
 				characterData.facingDirection = LEFT;
 				characterData.healthbarColors = [126, 93, 145];
 				characterData.camOffsetX = 400;
