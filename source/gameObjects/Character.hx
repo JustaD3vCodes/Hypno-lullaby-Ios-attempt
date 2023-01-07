@@ -336,16 +336,16 @@ class Character extends FNFSprite
 				animation.addByPrefix('Laugh', 'OldMan_Laugh', 24, false);
 
 				addOffset("idle");
-				addOffset("singUP", 59, 11);
-				addOffset("singLEFT", 112, -6);
-				addOffset("singRIGHT", -24, -6);
-				addOffset("singDOWN", 51, -15);
-				addOffset("Walk", 101, 20);
-				addOffset("Laugh", 268, 35);
+				addOffset("singUP", 61, 10);
+				addOffset("singLEFT", 122, -10);
+				addOffset("singRIGHT", -21, -10);
+				addOffset("singDOWN", 68, -15);
+				addOffset("Walk", 96, 30);
+				addOffset("Laugh", 187, 132);
 
 				playAnim('idle');
 
-				setGraphicSize(Std.int(width * 0.725));
+				setGraphicSize(Std.int(width * 1.725));
 				// lmao
 				for (i in animOffsets)
 				{
@@ -368,14 +368,14 @@ class Character extends FNFSprite
 				animation.addByPrefix('singLEFT', 'OldMan_Creepy_Left', 24, false);
 
 				addOffset("idle");
-				addOffset("singUP", 71, 9);
-				addOffset("singLEFT", 142, -8);
-				addOffset("singRIGHT", -29, -6);
+				addOffset("singUP", 77, 10);
+				addOffset("singLEFT", 141, -11);
+				addOffset("singRIGHT", -51, -8);
 				addOffset("singDOWN", 65, -20);
 
 				playAnim('idle');
 
-				setGraphicSize(Std.int(width * 0.725));
+				setGraphicSize(Std.int(width * 1.725));
 				// lmao
 				for (i in animOffsets)
 				{
@@ -399,7 +399,7 @@ class Character extends FNFSprite
 
 				playAnim('idle');
 
-				setGraphicSize(Std.int(width * 0.825));
+				setGraphicSize(Std.int(width * 1.825));
 				// lmao
 				for (i in animOffsets)
 				{

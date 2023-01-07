@@ -140,7 +140,7 @@ function onCreatePost() {
 	glowRY = glowright.y;
 
 	hellbell = new Character().setCharacter(0, 0, 'hellbell');
-	hellbell.scale.set(0.72, 0.72);
+	hellbell.scale.set(1.72, 1.72);
 	hellbell.setPosition(dadOpponent.x - 880, dadOpponent.y - 280);
 	hellbell.flipLeftRight();	
 	bellY = hellbell.y;

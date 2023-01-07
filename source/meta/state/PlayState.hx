@@ -2833,7 +2833,7 @@ class PlayState extends MusicBeatState
 			justReleaseArray = [controls.LEFT_R, controls.DOWN_R, controls.UP_R, controls.RIGHT_R];
 		}
 
-		trace("array length" + justPressArray.length);
+		//trace("array length" + justPressArray.length);
 
 		if (justPressArray.contains(true))
 		{
