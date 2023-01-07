@@ -73,7 +73,7 @@ function onCreatePost() {
 function onEvent(event) {
 	switch (event){
 		case 'Change Character':
-			PlayState.dadOpponent.scale.set(0.8, 0.8);
+			PlayState.dadOpponent.scale.set(1.8, 1.8);
 			PlayState.dadOpponent.resizeOffsets();
 			PlayState.instance.iconP2.changeIcon(PlayState.dadOpponent.curCharacter);
 			trace(PlayState.strumHUD[1].y);

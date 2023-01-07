@@ -1,8 +1,3 @@
-var lavabottom:FlxSprite;
-var lavatop:FlxSprite;
-var glowleft:FlxSprite;
-var glowright:FlxSprite;
-
 var hellbell:Character;
 var bellY:Float;
 var bellX:Float;
@@ -13,111 +8,29 @@ var contract:FlxSprite;
 var contractY:Float;
 var contractStep:Float;
 
+var pillar:FlxSprite;
+
 var dawn:Boyfriend;
 var bf:Boyfriend;
-
-var lavamod:Float;
-var lavafloating:Float;
-var lavabtmY:Float;
-var lavatopY:Float;
-var glowLY:Float;
-var glowRY:Float;
 
 function onCreate() {
     PlayState.defaultCamZoom = 0.65;
 	var resizeBG:Float = 0.75;
-	var wall:FlxSprite = new FlxSprite(0, 0);
-	wall.loadGraphic(Paths.image('wall'));
-	wall.setGraphicSize(Std.int(wall.width * resizeBG * 2));
-	wall.updateHitbox();
-	wall.antialiasing = true;
-	add(wall);
 
-	lavabottom = new FlxSprite();
-	lavabottom.frames = Paths.getSparrowAtlas('lavabottom');
-	lavabottom.animation.addByPrefix('lavabottom', 'lavabottom', 24, true);
-	lavabottom.animation.play('lavabottom');				
-	lavabottom.setGraphicSize(Std.int(lavabottom.width * resizeBG));
-	lavabottom.updateHitbox();
-	lavabottom.antialiasing = true;
-	lavabottom.x -= 2;
-	lavabottom.y += 1074;
-	add(lavabottom);
-			
-	var rocks:FlxSprite = new FlxSprite(109, 1140);
-	rocks.loadGraphic(Paths.image('rocks'));
-	rocks.setGraphicSize(Std.int(rocks.width * resizeBG * 2));
-	rocks.updateHitbox();
-	rocks.antialiasing = true;
-	add(rocks);
+	var back:FlxSprite = new FlxSprite(130, 100);
+	back.loadGraphic(Paths.image('back'));
+	back.scrollFactor.set(1, 1);
+	back.setGraphicSize(Std.int(back.width * resizeBG * 2));
+	back.updateHitbox();
+	back.antialiasing = true;
+	add(back);
 
-	var floorbot:FlxSprite = new FlxSprite(1070, 1135);
-	floorbot.loadGraphic(Paths.image('floorbot'));
-	floorbot.setGraphicSize(Std.int(floorbot.width * resizeBG * 2));
-	floorbot.updateHitbox();
-	floorbot.antialiasing = true;
-	add(floorbot);
-
-	lavatop = new FlxSprite();
-	lavatop.frames = Paths.getSparrowAtlas('lavatop');
-	lavatop.animation.addByPrefix('lavatop', 'lavatop', 24, true);
-	lavatop.animation.play('lavatop');			
-	lavatop.setGraphicSize(Std.int(lavatop.width * resizeBG));
-	lavatop.updateHitbox();
-	lavatop.antialiasing = true;
-	lavatop.x -= 10;
-	lavatop.y += 1067;
-	add(lavatop);
-
-	glowleft = new FlxSprite();
-	glowleft.frames = Paths.getSparrowAtlas('glowleft');
-	glowleft.animation.addByPrefix('glowleft', 'glowleft', 24, true);
-	glowleft.animation.play('glowleft');			
-	glowleft.setGraphicSize(Std.int(glowleft.width * resizeBG));
-	glowleft.updateHitbox();
-	glowleft.antialiasing = true;
-	glowleft.x -= 403;
-	glowleft.y += 780;
-	add(glowleft);
-
-	glowright = new FlxSprite();
-	glowright.frames = Paths.getSparrowAtlas('glowright');
-	glowright.animation.addByPrefix('glowright', 'glowright', 24, true);
-	glowright.animation.play('glowright');			
-	glowright.setGraphicSize(Std.int(glowright.width * resizeBG));
-	glowright.updateHitbox();
-	glowright.antialiasing = true;
-	glowright.x += 1823;
-	glowright.y += 653;
-	add(glowright);
-
-    var floor:FlxSprite = new FlxSprite(2, 931);
-	floor.loadGraphic(Paths.image('floor'));
-	floor.antialiasing = true;
-	floor.setGraphicSize(Std.int(floor.width * resizeBG * 2));
-	floor.updateHitbox();
-	add(floor);				
-
-	var roof:FlxSprite = new FlxSprite(130, 100);
-	roof.loadGraphic(Paths.image('roof'));
-	roof.scrollFactor.set(1.1, 1.1);
-	roof.setGraphicSize(Std.int(roof.width * resizeBG * 2));
-	roof.updateHitbox();
-	roof.antialiasing = true;
-	foreground.add(roof);
-
-	var pilfor:FlxSprite = new FlxSprite(2132, 1282);
-	pilfor.loadGraphic(Paths.image('pilfor'));
-	pilfor.scrollFactor.set(1.2, 1.2);
-	pilfor.setGraphicSize(Std.int(pilfor.width * resizeBG * 2));
-	pilfor.updateHitbox();
-	pilfor.antialiasing = true;
-	foreground.add(pilfor);
-
-	pillar = new FlxSprite().loadGraphic(Paths.image('pil'));
-	pillar.setPosition(840, 553);
-	pillar.setGraphicSize(Std.int(pillar.width * 0.75 * 2));
+	pillar = new FlxSprite(130 + (924 - 656 / 2) + 100, 100 + (597 - 606 / 2) + 150);
+	pillar.loadGraphic(Paths.image('pillar'));
+	pillar.scrollFactor.set(1, 1);
+	pillar.setGraphicSize(Std.int(pillar.width * resizeBG * 2));
 	pillar.updateHitbox();
+	pillar.antialiasing = true;
 
 	PlayState.ratingPosition.set(600, 800);
 	PlayState.bronzongMechanic = true;
@@ -125,19 +38,13 @@ function onCreate() {
 
 function onCreatePost() {
 	contractStep = 0;
-	lavamod = 60;
-	lavafloating = 0;
 	PlayState.instance.flipCharacters();	
+
 	PlayState.instance.camPos.set(2000, 900);		
 	boyfriend.x -= 20;
 	boyfriend.y += 370;
 	dadOpponent.x += 1550;
 	dadOpponent.y += 275;
-
-	lavabtmY = lavabottom.y;
-	lavatopY = lavatop.y;
-	glowLY = glowleft.y;
-	glowRY = glowright.y;
 
 	hellbell = new Character().setCharacter(0, 0, 'hellbell');
 	hellbell.scale.set(1.72, 1.72);
@@ -174,7 +81,7 @@ function onCreatePost() {
 	contract.animation.play('idle');
 	contract.antialiasing = true;
 	contract.setPosition(dadOpponent.x - 232, dadOpponent.y + 115);
-	contract.scale.set(0.95, 0.95);
+	contract.scale.set(1.95, 1.95);
 	contractY = contract.y;
 	contract.visible = false;
 
@@ -221,13 +128,6 @@ function onUpdate(elapsed) {
 		percentage = 1;
 	bf.atlasCharacter.alpha = percentage;
 	dawn.atlasCharacter.alpha = 1 - percentage;
-
-	if (lavafloating == 1) {
-		lavabottom.y = lavabtmY + Math.sin((180 / Math.PI) * ((Conductor.songPosition / 1000) / lavamod)) * 8;
-		lavatop.y = lavatopY + Math.sin((180 / Math.PI) * ((Conductor.songPosition / 1000) / lavamod)) * 8;
-		glowleft.y = glowLY + Math.sin((180 / Math.PI) * ((Conductor.songPosition / 1000) / lavamod)) * 8;
-		glowright.y = glowRY + Math.sin((180 / Math.PI) * ((Conductor.songPosition / 1000) / lavamod)) * 8;
-	}
 }
 
 function onEvent(eventName) {
@@ -268,7 +168,7 @@ function onEvent(eventName) {
 						}
                     }
                 }
-		case 'Dawn Trans(OverworldStage.daPad.buttonRight.pressed || FlxG.keys.pressed.RIGHT)rm':
+		case 'Dawn Transform':
 			dawn.transformDawn();
 
 		case 'Contract Advance':
@@ -326,22 +226,6 @@ function onEvent(eventName) {
 					}							
 			});
 
-		case 'Toggle Lava':	
-			lavamod = 60;	
-			if (lavafloating == 0) {
-				lavafloating = 1;
-			}
-			else {
-				lavafloating = 0;
-			}
-		case 'Toggle Lava Fast':
-			lavamod = 30;		
-			if (lavafloating == 0) {
-				lavafloating = 1;
-			}
-			else {
-				lavafloating = 0;
-			}
 		case 'HB Ending':	
 			PlayState.instance.hbEnding();	
 		case 'Bf Icon Change':
