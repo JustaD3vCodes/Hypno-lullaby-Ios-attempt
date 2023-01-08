@@ -216,7 +216,7 @@ class Strumline extends FlxSpriteGroup
 			}
 		}
 
-		if (PlayState.bronzongMechanic)
+		if (PlayState.bronzongMechanic && Init.trueSettings.get('Mechanics') != "pussy")
 		{
 			var lastReceptor = receptors.members[receptors.members.length - 1];
 			lastReceptor.x = (xPos - lastReceptor.width / 2) + noteWidth / 2;

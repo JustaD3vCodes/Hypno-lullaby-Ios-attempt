@@ -45,7 +45,7 @@ class Init extends FlxState
 			true,
 			Checkmark,
 			'Whether to play with a controller instead of using your Keyboard.',
-			NOT_FORCED
+			FORCED
 		],
 		'Downscroll' => [
 			false,
