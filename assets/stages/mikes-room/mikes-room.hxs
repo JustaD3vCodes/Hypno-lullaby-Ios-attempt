@@ -22,6 +22,7 @@ var dadYOffset:Float = -250.0;
 var camZoomTween:FlxTween;
 
 function onCreate() {
+	PlayState.dadOpponent.characterData.camOffsetY = -175;
 	PlayState.defaultCamZoom = 1.4;
 	var consistentPosition:FlxPoint = FlxPoint.weak(-300, 100);
 	var consistentResize:Float = 1;
@@ -92,7 +93,7 @@ function onCreatePost() {
 	stevenbed = new Character().setCharacter(0, 0, 'steven-bed');
 	stevenbed.setCharacter(dadOpponent.x - 150 + dadXOffset, dadOpponent.y + 650 + dadYOffset, 'steven-bed');
 	PlayState.instance.add(stevenbed);
-	stevenbed.setGraphicSize(Std.int(stevenbed.width * 1.5));
+	stevenbed.setGraphicSize(Std.int(stevenbed.width * 2.5));
 	stevenbed.resizeOffsets();
 	stevenbed.flipLeftRight();
 	stevenbed.flipX = false;
@@ -104,7 +105,7 @@ function onCreatePost() {
 	add(laalmuada);
 
 	mikeBed = new Boyfriend(); //reminding myself to fix mike for tomorrow
-	mikeBed.setCharacter(boyfriend.x + 310, boyfriend.y + 775, 'mike-bed2');
+	mikeBed.setCharacter(boyfriend.x + 310, boyfriend.y + 775, 'mike-bed');
 	add(mikeBed);
 	mikeBed.atlasCharacter.visible = false;
 
@@ -115,10 +116,10 @@ function onCreatePost() {
 
 	//MIKE (STRANGLE FP)
 	mikefp = new Boyfriend().setCharacter(0, 0, 'mike-fp');
-	mikefp.setCharacter(boyfriend.x + 175, boyfriend.y + 495, 'mike-fp');
+	mikefp.setCharacter(boyfriend.x + 305, boyfriend.y + 700, 'mike-fp');
 	// mikefp.flipLeftRight();
 	PlayState.instance.add(mikefp);
-	mikefp.setGraphicSize(Std.int(mikefp.width * 0.8));
+	mikefp.setGraphicSize(Std.int(mikefp.width * 1.8));
 	mikefp.resizeOffsets();
 	mikefp.flipUpDown();
 	mikefp.visible = false;
@@ -127,9 +128,9 @@ function onCreatePost() {
 
 	//STEVEN (STRANGLE FP)
 	stevenfp = new Character().setCharacter(0, 0, 'steven-fp');
-	stevenfp.setCharacter(dadOpponent.x - 400 + dadXOffset, dadOpponent.y + 900 + dadYOffset, 'steven-front');
+	stevenfp.setCharacter(dadOpponent.x - 300 + dadXOffset, dadOpponent.y + 1050 + dadYOffset, 'steven-front');
 	PlayState.instance.add(stevenfp);
-	stevenfp.setGraphicSize(Std.int(stevenfp.width * 0.8));
+	stevenfp.setGraphicSize(Std.int(stevenfp.width * 1.8));
 	stevenfp.resizeOffsets();
 	stevenfp.flipLeftRight();
 	stevenfp.flipX = false;
@@ -139,9 +140,9 @@ function onCreatePost() {
 
 	//STEVEN (CENTER FP)
 	stevenstrangle = new Character().setCharacter(0, 0, 'steven-fp');
-	stevenstrangle.setCharacter(dadOpponent.x + dadXOffset, dadOpponent.y + 900 + dadYOffset, 'steven-fp');
+	stevenstrangle.setCharacter(dadOpponent.x + dadXOffset, dadOpponent.y + 1000 + dadYOffset, 'steven-fp');
 	PlayState.instance.add(stevenstrangle);
-	stevenstrangle.setGraphicSize(Std.int(stevenstrangle.width * 1.0));
+	stevenstrangle.setGraphicSize(Std.int(stevenstrangle.width * 2.0));
 	stevenstrangle.resizeOffsets();
 	stevenstrangle.flipLeftRight();
 	stevenstrangle.flipX = false;
@@ -174,9 +175,8 @@ function onEvent(eventName) {
 			portrait.visible = true;
 			lacama.visible = true;
 			laalmuada.visible = true;
-			stevenfp.visible = false;
 			mikeBed.atlasCharacter.visible = true;
-			PlayState.instance.iconP1.visible = true;
+			PlayState.instance.iconP1.visible = true;			
 			for (i in 0...PlayState.instance.boyfriendStrums.receptors.members.length)
 				{
 					PlayState.instance.boyfriendStrums.receptors.members[i].visible = true;

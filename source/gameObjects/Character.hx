@@ -1641,6 +1641,7 @@ class Character extends FNFSprite
 
 				playAnim('idle');
 
+				setGraphicSize(Std.int(width * 2));
 				characterData.facingDirection = LEFT;
 				characterData.healthbarColors = [179, 0, 0];
 				characterData.camOffsetX = -400;
@@ -1661,7 +1662,7 @@ class Character extends FNFSprite
 
 				playAnim('idle');
 
-				setGraphicSize(Std.int(width * 1.5));
+				setGraphicSize(Std.int(width * 2.5));
 				updateHitbox();
 				characterData.facingDirection = RIGHT;
 				characterData.healthbarColors = [179, 0, 0];
@@ -1684,6 +1685,7 @@ class Character extends FNFSprite
 
 				playAnim('idle');
 
+				setGraphicSize(Std.int(width * 2));
 				characterData.facingDirection = RIGHT;
 				characterData.healthbarColors = [179, 0, 0];
 				characterData.camOffsetX = -300;
@@ -1706,6 +1708,7 @@ class Character extends FNFSprite
 
 				playAnim('idle');
 
+				setGraphicSize(Std.int(width * 2));
 				characterData.facingDirection = LEFT;
 				characterData.healthbarColors = [179, 0, 0];
 
@@ -1728,7 +1731,7 @@ class Character extends FNFSprite
 				atlasCharacter.scale.set(0.8, 0.8);
 				atlasCharacter.antialiasing = true;
 
-				setGraphicSize(Std.int(width * 0.8));
+				setGraphicSize(Std.int(width * 1.8));
 
 				visible = false;
 				playAnim('idle');
@@ -1756,6 +1759,7 @@ class Character extends FNFSprite
 
 				playAnim('idle');
 
+				setGraphicSize(Std.int(width * 2));
 				characterData.facingDirection = LEFT;
 				characterData.healthbarColors = [248, 143, 60];
 
@@ -1771,6 +1775,7 @@ class Character extends FNFSprite
 
 				playAnim('firstDeath');
 
+				setGraphicSize(Std.int(width * 2));
 				// characterData.offsetY = 450;
 				// characterData.camOffsetX = 0;
 				characterData.camOffsetY = 0;
