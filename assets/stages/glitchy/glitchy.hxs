@@ -59,6 +59,8 @@ function onCreatePost() {
 	PlayState.boyfriend.characterData.camOffsetY = -230;
 	PlayState.boyfriend.x -= 270;
 	PlayState.boyfriend.y += 250;
+	PlayState.dadOpponent.x += 100;
+	PlayState.dadOpponent.y += 150;
 
 	PlayState.dadOpponent.characterData.camOffsetX = -100;
 	PlayState.dadOpponent.characterData.camOffsetY = 25;
