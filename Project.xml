@@ -38,8 +38,6 @@
 	<assets path="shitpost" library="shitpost" embed="true" />
 	<assets path="FE-CrashDialog.exe" type="template" if="windows release" />
 
-	<define name="VIDEOS_ALLOWED" if="android" />
-
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />
