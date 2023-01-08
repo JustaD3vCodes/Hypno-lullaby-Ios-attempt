@@ -88,7 +88,7 @@ function onCreate() {
     PlayState.defaultCamZoom = 1.1;
     dadOpponent.characterData.zoomOffset = -0.15;
     boyfriend.scale.set(1.8, 1.8);
-	boyfriend.resizeOffsets();
+//	boyfriend.resizeOffsets();
 
     plateR.setGraphicSize(Std.int(plateR.width * 0.6));
     // plateR.updateHitbox();
@@ -314,13 +314,13 @@ function onEvent(eventName) {
                         PlayState.boyfriend.setCharacter(PlayState.boyfriend.x, PlayState.dadOpponent.y, 'ponyta-perspective');
                         PlayState.dadOpponent.setCharacter(PlayState.dadOpponent.x, PlayState.boyfriend.y, 'wiggles-death-stare');
                         PlayState.dadOpponent.scale.set(1.6, 1.6);
-                        PlayState.dadOpponent.resizeOffsets();
+                      //  PlayState.dadOpponent.resizeOffsets();
 
                         PlayState.dadOpponent.characterData.zoomOffset = 0.15;
 
                         PlayState.boyfriend.y += 384;
                         PlayState.boyfriend.scale.set(2.25, 2.25);
-                        PlayState.boyfriend.resizeOffsets();
+                        //PlayState.boyfriend.resizeOffsets();
 
                         PlayState.ratingPosition.y += 256;
                         PlayState.ratingPosition.x -= 64;

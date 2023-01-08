@@ -63,7 +63,7 @@ function onCreatePost() {
 	PlayState.dadOpponent.characterData.camOffsetX = -100;
 	PlayState.dadOpponent.characterData.camOffsetY = 25;
 	PlayState.dadOpponent.scale.set(1.8, 1.8);
-	PlayState.dadOpponent.resizeOffsets();
+//	PlayState.dadOpponent.resizeOffsets();
 	PlayState.ratingPosition.set(-300, 200);
 	PlayState.instance.dadStrums.visible = false;
 
@@ -74,7 +74,7 @@ function onEvent(event) {
 	switch (event){
 		case 'Change Character':
 			PlayState.dadOpponent.scale.set(1.8, 1.8);
-			PlayState.dadOpponent.resizeOffsets();
+//			PlayState.dadOpponent.resizeOffsets();
 			PlayState.instance.iconP2.changeIcon(PlayState.dadOpponent.curCharacter);
 			trace(PlayState.strumHUD[1].y);
 
